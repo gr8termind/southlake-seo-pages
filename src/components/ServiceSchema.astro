@@ -17,7 +17,7 @@ const schema = {
   description,
   serviceType,
   url: `${SITE_URL}${path}`,
-  provider: { '@id': `${BUSINESS.mainSiteUrl}/#autorepair` },
+  provider: { '@id': `${SITE_URL}/#autorepair` },
   areaServed: BUSINESS.serviceAreas.map((n) => ({ '@type': 'City', name: `${n}, GA` }))
 };
 ---

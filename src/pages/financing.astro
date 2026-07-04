@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CTASection from '../components/CTASection.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { BUSINESS } from '../config';
+
+const path = '/financing';
+const title = 'Auto Repair Financing | Southlake Auto Care | Jonesboro & Morrow, GA';
+const description =
+  'Need to spread out the cost of a repair? Ask Southlake Auto Care in Morrow, GA about financing and payment options. Call (770) 961-8500 to learn more.';
+
+{/*
+  TODO: Replace the generic copy below with the shop's ACTUAL financing partner(s)
+  and terms (e.g. Sunbit, Snap Finance, Synchrony Car Care, DigniFi) once confirmed.
+  Do NOT publish specific APRs, approval amounts, or "0% for X months" claims unless
+  they are real and current — inaccurate financing terms can create compliance issues.
+*/}
+---
+<BaseLayout title={title} description={description} canonicalPath={path}>
+  <Breadcrumbs
+    items={[
+      { name: 'Home', href: BUSINESS.mainSiteUrl + '/' },
+      { name: 'Financing', href: path }
+    ]}
+  />
+
+  <Hero
+    eyebrow="Financing & Payment Options"
+    title="Repairs Now, Pay Over Time"
+    description="A car problem rarely picks a convenient moment. If a repair lands at the wrong time, ask us about financing and payment options that can help you get safely back on the road without draining your budget."
+    primaryLabel="Ask About Financing"
+  />
+
+  <section class="bg-white py-16 md:py-20 border-b border-mist/60">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">Options That Keep You Moving</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
+        Safe, reliable transportation shouldn't have to wait for payday. For qualifying customers, we
+        can point you toward financing that lets you break a larger repair into manageable payments.
+        The best way to find out what you qualify for is a quick conversation — call us and we'll walk
+        you through what's available.
+      </p>
+
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-5">
+        {[
+          { h: 'Apply in Minutes', p: 'Quick, low-pressure application process — often with a fast decision.' },
+          { h: 'Flexible Terms', p: 'Break the cost of qualifying repairs into payments that fit your budget.' },
+          { h: 'No Surprises', p: "We'll explain the repair and your options before any work begins." }
+        ].map((o) => (
+          <div class="rounded-xl border border-mist/70 bg-paper p-6">
+            <h3 class="text-lg font-bold text-charcoal-900">{o.h}</h3>
+            <p class="mt-2 text-charcoal-700 text-[15px] leading-relaxed">{o.p}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 rounded-xl border-l-4 border-accent-500 bg-paper p-6">
+        <p class="text-charcoal-700 leading-relaxed">
+          Financing is offered through third-party lenders and subject to their approval and terms.
+          Call <a href={BUSINESS.phoneHref} class="font-bold text-accent-700 hover:text-accent-600">{BUSINESS.phone}</a>
+          or <a href="/contact" class="font-bold text-accent-700 hover:text-accent-600">contact us</a> to learn
+          which options are currently available and whether they're a fit for your situation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Questions About Paying for a Repair?"
+    description="Give us a call and we'll explain your options — no pressure, no obligation."
+  />
+</BaseLayout>

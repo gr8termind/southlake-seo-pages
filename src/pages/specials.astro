@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CTASection from '../components/CTASection.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { BUSINESS } from '../config';
+
+const path = '/specials';
+const title = 'Auto Repair Specials & Coupons | Southlake Auto Care | Morrow, GA';
+const description =
+  'Save on auto repair and maintenance at Southlake Auto Care in Morrow, GA. Ask about current specials on oil changes, brakes, and more. Call (770) 961-8500.';
+
+{/*
+  TODO: Replace the placeholder offers below with the shop's REAL current specials
+  (exact discounts, prices, and expiration dates). Do not publish specific dollar
+  amounts or "$X off" claims the shop hasn't authorized — inaccurate advertised
+  pricing can create customer-facing and compliance problems. On-page copy is
+  written to invite a call to confirm current offers until real promos are set.
+*/}
+const specials = [
+  { h: 'New Customer Welcome', p: 'First time at Southlake Auto Care? Ask about our welcome offer on your first service visit.' },
+  { h: 'Oil Change & Inspection', p: 'Value pricing on oil changes with a free multi-point inspection included every time.' },
+  { h: 'Brake Service', p: 'Ask about current savings on brake pads and rotor service — plus a free brake inspection.' },
+  { h: 'Seasonal AC Check', p: 'Beat the Georgia heat — ask about our AC performance check before summer hits.' }
+];
+---
+<BaseLayout title={title} description={description} canonicalPath={path}>
+  <Breadcrumbs
+    items={[
+      { name: 'Home', href: BUSINESS.mainSiteUrl + '/' },
+      { name: 'Specials', href: path }
+    ]}
+  />
+
+  <Hero
+    eyebrow="Current Specials"
+    title="Save on Service &amp; Maintenance"
+    description="Quality auto repair doesn't have to break the bank. Ask about our current specials on oil changes, brakes, AC service, and more — then schedule online or give us a call."
+    primaryLabel="Schedule &amp; Save"
+  />
+
+  <section class="bg-white py-16 md:py-20 border-b border-mist/60">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">This Season at the Shop</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
+        Offers change throughout the year. Call <a href={BUSINESS.phoneHref} class="font-bold text-accent-700 hover:text-accent-600">{BUSINESS.phone}</a>
+        or mention this page when you book to confirm what's available right now.
+      </p>
+
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {specials.map((s) => (
+          <div class="rounded-xl border border-mist/70 bg-paper p-7">
+            <div class="inline-flex items-center gap-2 rounded-full bg-accent-500/15 px-3 py-1 text-xs font-bold uppercase tracking-widest text-accent-700">Special</div>
+            <h3 class="mt-3 text-xl font-bold text-charcoal-900">{s.h}</h3>
+            <p class="mt-2 text-charcoal-700 leading-relaxed">{s.p}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="mt-8 text-sm text-charcoal-600">
+        Specials cannot be combined with other offers and are subject to change. Call to confirm current details and eligibility.
+      </p>
+    </div>
+  </section>
+
+  <CTASection
+    title="Ready to Book and Save?"
+    description="Schedule your service online or call today and ask about this month's specials."
+  />
+</BaseLayout>

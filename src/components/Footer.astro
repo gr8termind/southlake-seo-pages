@@ -11,15 +11,25 @@ const services = [
 ];
 
 const areas = [
-  { name: 'Jonesboro, GA', href: BUSINESS.mainSiteUrl + '/' },
   { name: 'Morrow, GA', href: '/morrow-auto-repair' },
   { name: 'Forest Park, GA', href: '/forest-park-auto-repair' }
+];
+
+// All company + conversion pages live on this subdomain.
+const company = [
+  { name: 'About', href: '/about' },
+  { name: 'Reviews', href: '/reviews' },
+  { name: 'Specials', href: '/specials' },
+  { name: 'Financing', href: '/financing' },
+  { name: 'FAQ', href: '/faq' },
+  { name: 'Contact', href: '/contact' },
+  { name: 'Schedule Service', href: '/schedule-service' }
 ];
 ---
 <footer class="bg-charcoal-950 text-mist">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-      <div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
+      <div class="sm:col-span-2 lg:col-span-1">
         <img src={BUSINESS.logo} alt={`${BUSINESS.name} logo`} width="150" height="79" class="h-12 w-auto mb-4" loading="lazy" />
         <p class="text-sm leading-relaxed text-smoke">
           {BUSINESS.name} is a full-service auto repair shop serving Jonesboro, Morrow,
@@ -27,7 +37,7 @@ const areas = [
           and repairs done right the first time.
         </p>
         <a
-          href={BUSINESS.ctaUrl}
+          href={BUSINESS.scheduleUrl}
           class="mt-5 inline-block rounded-md bg-accent-500 px-5 py-2.5 text-sm font-bold text-charcoal-950 hover:bg-accent-400 transition-colors"
         >
           Schedule Service
@@ -40,7 +50,6 @@ const areas = [
           {services.map((s) => (
             <li><a href={s.href} class="hover:text-accent-400 transition-colors">{s.name}</a></li>
           ))}
-          <li><a href={BUSINESS.mainSiteUrl + '/services'} class="hover:text-accent-400 transition-colors">All Services →</a></li>
         </ul>
       </nav>
 
@@ -50,7 +59,16 @@ const areas = [
           {areas.map((a) => (
             <li><a href={a.href} class="hover:text-accent-400 transition-colors">Auto Repair in {a.name}</a></li>
           ))}
-          <li class="text-smoke">Lake City · Rex · Clayton County</li>
+          <li class="text-smoke">Jonesboro &middot; Lake City &middot; Rex &middot; Clayton County</li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Footer company">
+        <h2 class="text-sm font-bold uppercase tracking-widest text-accent-500 mb-4">Company</h2>
+        <ul class="space-y-2.5 text-sm">
+          {company.map((c) => (
+            <li><a href={c.href} class="hover:text-accent-400 transition-colors">{c.name}</a></li>
+          ))}
         </ul>
       </nav>
 
@@ -72,12 +90,8 @@ const areas = [
 
   <div class="border-t border-charcoal-700">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-smoke">
-      <p>© {year} {BUSINESS.name}. All rights reserved.</p>
-      <p>
-        <a href={BUSINESS.mainSiteUrl} class="hover:text-accent-400 transition-colors">southlakeautocare.com</a>
-        <span class="mx-2 text-charcoal-600">|</span>
-        Trusted auto repair in Jonesboro &amp; Morrow, GA
-      </p>
+      <p>&copy; {year} {BUSINESS.name}. All rights reserved.</p>
+      <p>Trusted auto repair in Jonesboro, Morrow &amp; Forest Park, GA</p>
     </div>
   </div>
 </footer>

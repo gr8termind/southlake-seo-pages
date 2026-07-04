@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CTASection from '../components/CTASection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { BUSINESS } from '../config';
+import type { FAQ } from '../config';
+
+const path = '/faq';
+const title = 'Auto Repair FAQ | Southlake Auto Care | Jonesboro & Morrow, GA';
+const description =
+  'Answers to common questions about hours, appointments, diagnostics, payment, and service areas at Southlake Auto Care in Morrow, GA. Call (770) 961-8500.';
+
+const faqs: FAQ[] = [
+  {
+    q: 'Where is Southlake Auto Care located?',
+    a: `We're at ${BUSINESS.address.street}, ${BUSINESS.address.city}, ${BUSINESS.address.state} ${BUSINESS.address.zip}, in the Southlake area — convenient to Jonesboro, Morrow, and Forest Park. Most Clayton County drivers reach us in ten minutes or less.`
+  },
+  {
+    q: 'What are your hours?',
+    a: `Our hours are ${BUSINESS.hoursText}. We're closed Saturday and Sunday. If you need to drop off outside those hours, call ahead and we'll do our best to work with you.`
+  },
+  {
+    q: 'Do I need an appointment, or can I just stop by?',
+    a: 'Walk-ins are welcome, but scheduling ahead means we can plan for your vehicle and usually get you in and out faster. You can request a time on our Schedule Service page or call the shop.'
+  },
+  {
+    q: 'How much will my repair cost?',
+    a: "It depends on your vehicle and the actual problem — which is why we diagnose first and explain what we find. You'll get a clear estimate and approve the work before we start. No surprise charges when you pick up your car."
+  },
+  {
+    q: 'What kind of vehicles do you work on?',
+    a: 'We service most makes and models of cars, trucks, and SUVs — domestic and import. From routine maintenance to complex diagnostics, if it drives on the street, we can usually help.'
+  },
+  {
+    q: 'Can you help my car pass emissions?',
+    a: "Yes. If your vehicle won't pass or has a check engine light affecting emissions, we can diagnose the cause and handle the repairs needed to get you compliant."
+  },
+  {
+    q: 'What services do you offer?',
+    a: 'We handle brake repair, oil changes and maintenance, check engine light diagnostics, AC repair, transmission service, and much more. If you\u2019re not sure, call and describe what\u2019s going on — we\u2019ll point you in the right direction.'
+  },
+  {
+    q: 'Do you offer financing or payment options?',
+    a: 'For qualifying customers, we can point you toward financing that spreads a larger repair into manageable payments. Ask us for current options — details are on our Financing page.'
+  },
+  {
+    q: 'How long will my service take?',
+    a: 'Quick services like an oil change are usually done in under an hour. Diagnostics and larger repairs vary — we\u2019ll give you a realistic timeline once we know what your vehicle needs.'
+  },
+  {
+    q: 'What areas do you serve?',
+    a: 'We serve Jonesboro, Morrow, Forest Park, Lake City, Rex, and the surrounding Clayton County communities.'
+  }
+];
+---
+<BaseLayout title={title} description={description} canonicalPath={path}>
+  <Breadcrumbs
+    items={[
+      { name: 'Home', href: BUSINESS.mainSiteUrl + '/' },
+      { name: 'FAQ', href: path }
+    ]}
+  />
+
+  <Hero
+    eyebrow="Frequently Asked Questions"
+    title="Answers Before You Bring It In"
+    description="Common questions about hours, appointments, pricing, and what we work on. Don't see yours? Call us — we're happy to help."
+    primaryLabel="Schedule Service"
+  />
+
+  <FAQSection title="Common Questions" faqs={faqs} />
+
+  <CTASection
+    title="Still Have a Question?"
+    description="Give us a call and talk to a real person about your vehicle — no phone trees, no runaround."
+  />
+</BaseLayout>

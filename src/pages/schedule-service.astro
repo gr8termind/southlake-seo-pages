@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { BUSINESS } from '../config';
+
+const path = '/schedule-service';
+const title = 'Schedule Service | Southlake Auto Care | Jonesboro & Morrow, GA';
+const description =
+  'Book your next auto repair or maintenance appointment at Southlake Auto Care in Morrow, GA. Request a time online or call (770) 961-8500. Serving Jonesboro & Clayton County.';
+
+const serviceOptions = [
+  'Oil Change / Maintenance',
+  'Brake Repair',
+  'Check Engine Light Diagnostic',
+  'AC Repair',
+  'Transmission Service',
+  'Other / Not Sure'
+];
+---
+<BaseLayout title={title} description={description} canonicalPath={path}>
+  <Breadcrumbs
+    items={[
+      { name: 'Home', href: BUSINESS.mainSiteUrl + '/' },
+      { name: 'Schedule Service', href: path }
+    ]}
+  />
+
+  <section class="bg-charcoal-900 text-paper py-14 md:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold uppercase tracking-widest text-accent-400">Book an Appointment</p>
+      <h1 class="mt-2 text-4xl md:text-5xl font-extrabold tracking-tight">Schedule Service</h1>
+      <div class="mt-5 h-1.5 w-24 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-6 max-w-2xl text-lg text-mist leading-relaxed">
+        Tell us what your vehicle needs and when works for you. We'll confirm your appointment and,
+        if it helps, give you a ballpark before you drop off. Need it looked at today? Give us a call.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4">
+        <a href={BUSINESS.phoneHref} class="rounded-md bg-accent-500 px-8 py-4 text-center text-base font-bold text-charcoal-950 hover:bg-accent-400 transition-colors">
+          Call {BUSINESS.phone}
+        </a>
+        <a href="/contact" class="rounded-md border-2 border-paper/25 px-8 py-4 text-center text-base font-bold text-paper hover:border-accent-500 hover:text-accent-400 transition-colors">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 md:py-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Request an Appointment</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      {/*
+        TODO: Wire this form to a handler before launch (Cloudflare Pages Function,
+        Formspree, or your Base44 backend). Until wired, the phone number is the
+        live booking path.
+      */}
+      <form action="#" method="post" class="mt-6 space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="name" class="block text-sm font-semibold text-charcoal-900">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required class="mt-1.5 w-full rounded-md border border-mist bg-paper px-4 py-3 text-charcoal-900 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30" />
+          </div>
+          <div>
+            <label for="phone" class="block text-sm font-semibold text-charcoal-900">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" required class="mt-1.5 w-full rounded-md border border-mist bg-paper px-4 py-3 text-charcoal-900 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30" />
+          </div>
+        </div>
+        <div>
+          <label for="vehicle" class="block text-sm font-semibold text-charcoal-900">Vehicle (year, make, model)</label>
+          <input id="vehicle" name="vehicle" type="text" placeholder="2018 Honda Accord" class="mt-1.5 w-full rounded-md border border-mist bg-paper px-4 py-3 text-charcoal-900 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30" />
+        </div>
+        <div>
+          <label for="service" class="block text-sm font-semibold text-charcoal-900">Service Needed</label>
+          <select id="service" name="service" class="mt-1.5 w-full rounded-md border border-mist bg-paper px-4 py-3 text-charcoal-900 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30">
+            {serviceOptions.map((o) => <option value={o}>{o}</option>)}
+          </select>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="date" class="block text-sm font-semibold text-charcoal-900">Preferred Date</label>
+            <input id="date" name="date" type="date" class="mt-1.5 w-full rounded-md border border-mist bg-paper px-4 py-3 text-charcoal-900 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30" />
+          </div>
+          <div>
+            <label for="time" class="block text-sm font-semibold text-charcoal-900">Preferred Time</label>
+            <input id="time" name="time" type="text" placeholder="Morning / Afternoon" class="mt-1.5 w-full rounded-md border border-mist bg-paper px-4 py-3 text-charcoal-900 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30" />
+          </div>
+        </div>
+        <div>
+          <label for="notes" class="block text-sm font-semibold text-charcoal-900">Notes (symptoms, sounds, warning lights)</label>
+          <textarea id="notes" name="notes" rows="4" class="mt-1.5 w-full rounded-md border border-mist bg-paper px-4 py-3 text-charcoal-900 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30"></textarea>
+        </div>
+        <button type="submit" class="w-full rounded-md bg-accent-500 px-6 py-4 text-base font-bold text-charcoal-950 hover:bg-accent-400 transition-colors">
+          Request Appointment
+        </button>
+        <p class="text-sm text-charcoal-600">This is a request, not a confirmed booking — we'll call or text to confirm. Need same-day help? Call <a href={BUSINESS.phoneHref} class="font-bold text-accent-700 hover:text-accent-600">{BUSINESS.phone}</a>.</p>
+      </form>
+    </div>
+  </section>
+</BaseLayout>

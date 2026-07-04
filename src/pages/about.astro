@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CTASection from '../components/CTASection.astro';
+import ReviewSection from '../components/ReviewSection.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { BUSINESS } from '../config';
+
+const path = '/about';
+const title = 'About Southlake Auto Care | Trusted Auto Repair in Jonesboro, GA';
+const description =
+  'Learn about Southlake Auto Care — a full-service auto repair shop in the Jonesboro/Morrow, GA area known for honest diagnostics, quality work, and treating drivers right. Call (770) 961-8500.';
+
+{/* TODO: Personalize with real shop history — founding year, owner name(s),
+    ASE certifications, warranty length — once confirmed with the shop. Copy
+    below is written to be accurate and non-fabricated in the meantime. */}
+---
+<BaseLayout title={title} description={description} canonicalPath={path}>
+  <Breadcrumbs
+    items={[
+      { name: 'Home', href: BUSINESS.mainSiteUrl + '/' },
+      { name: 'About', href: path }
+    ]}
+  />
+
+  <Hero
+    eyebrow="About the Shop"
+    title="Auto Repair Done the Honest Way"
+    description="Southlake Auto Care is a full-service repair shop serving Jonesboro, Morrow, Forest Park, and the rest of Clayton County. We fix cars the way we'd want ours fixed — diagnosed correctly, explained plainly, and priced without surprises."
+    primaryLabel="Schedule Service"
+  />
+
+  <section class="bg-white py-16 md:py-20 border-b border-mist/60">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">Your Neighborhood Shop in the Southlake Area</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
+        Located at {BUSINESS.address.street} in {BUSINESS.address.city}, we handle everything from
+        oil changes and brakes to check-engine diagnostics, AC repair, and transmission work. Whether
+        you drive a daily commuter down Tara Boulevard or a work truck across the metro, our
+        technicians diagnose the actual problem — not a guess — and get you back on the road.
+      </p>
+      <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
+        Drivers keep coming back for one reason: we tell the truth. If a repair can wait, we say so.
+        If something's urgent for your safety, we explain why and show you. That straightforward
+        approach is why so many of our customers come from word-of-mouth referrals across Clayton County.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">What You Can Count On</h2>
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {[
+          { h: 'Honest Diagnostics', p: 'We find the real cause before we quote a repair — no throwing parts at a problem.' },
+          { h: 'Clear, Upfront Pricing', p: "You approve the work before we start. No surprise line items when you pick up your car." },
+          { h: 'Quality Parts & Workmanship', p: 'The right parts for your vehicle, installed by technicians who stand behind the job.' },
+          { h: 'Respect for Your Time', p: 'Straight answers, realistic timelines, and service scheduled around your day.' }
+        ].map((v) => (
+          <div class="rounded-xl border border-mist/70 bg-paper p-6">
+            <h3 class="text-lg font-bold text-charcoal-900">{v.h}</h3>
+            <p class="mt-2 text-charcoal-700 text-[15px] leading-relaxed">{v.p}</p>
+          </div>
+        ))}
+      </div>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Explore Our Services</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        We keep it all under one roof:
+        <a href="/brake-repair-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">brake repair</a>,
+        <a href="/oil-change-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">oil changes</a>,
+        <a href="/check-engine-light-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">check engine diagnostics</a>,
+        <a href="/auto-ac-repair-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">AC repair</a>, and
+        <a href="/transmission-repair-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">transmission service</a>.
+        We also serve nearby
+        <a href="/morrow-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Morrow</a> and
+        <a href="/forest-park-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Forest Park</a>.
+      </p>
+    </div>
+  </section>
+
+  <ReviewSection title="What Our Customers Say" />
+  <CTASection
+    title="Ready to Meet Your New Shop?"
+    description="Schedule a visit or call and see why Clayton County drivers trust Southlake Auto Care with their vehicles."
+  />
+</BaseLayout>

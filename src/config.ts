@@ -12,8 +12,10 @@ export const BUSINESS = {
   siteTitle: 'SouthLake AutoCare',
   phone: '(770) 961-8500',
   phoneHref: 'tel:+17709618500',
-  ctaUrl: 'https://southlakeautocare.com/contact',
-  scheduleUrl: 'https://southlakeautocare.com/schedule-service',
+  // Conversion actions live on THIS subdomain (relative paths). "Home" is the
+  // only link that crosses to the main domain (BUSINESS.mainSiteUrl).
+  ctaUrl: '/contact',
+  scheduleUrl: '/schedule-service',
   mainSiteUrl: 'https://southlakeautocare.com',
   address: {
     street: '7032 Jonesboro Rd',

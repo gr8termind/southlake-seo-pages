@@ -1,3 +1,7 @@
-# There is no home page on this subdomain. Bounce the root to the main brand site.
-# Cloudflare Pages honors this file automatically for the deployed site.
-/    https://southlakeautocare.com/    301
+# No home page on this subdomain — send the bare root to the main brand site.
+/                https://southlakeautocare.com/    301
+
+# @astrojs/sitemap emits sitemap-index.xml; serve it at the conventional
+# /sitemap.xml path (200 = rewrite/proxy, not a redirect) so robots.txt and
+# crawlers find it where they expect.
+/sitemap.xml     /sitemap-index.xml                200
