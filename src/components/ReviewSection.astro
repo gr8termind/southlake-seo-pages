@@ -1,10 +1,14 @@
 ---
 /**
- * IMPORTANT: The testimonials below are placeholder copy written for layout
- * purposes. Replace each quote/name with real customer reviews (e.g. from the
- * shop's Google Business Profile) before launch. Review/AggregateRating schema
- * is intentionally NOT emitted here — Google's guidelines require self-serving
- * review markup to reflect genuine, verifiable reviews shown on the page.
+ * Testimonials are lightly trimmed excerpts of real reviews from the shop's
+ * Google Business Profile (4.8★, 111 reviews as of Jul 2026). Reviewer names
+ * are not shown because the source data did not include them — attributed as
+ * "Verified Google review" rather than inventing identities.
+ *
+ * Review/AggregateRating schema is intentionally NOT emitted: these reviews
+ * originate on a third-party platform (Google), and Google's structured-data
+ * guidelines prohibit self-serving review markup for third-party/aggregated
+ * reviews. Emitting it here risks a manual action. Leave as visual proof only.
  */
 interface Review {
   quote: string;
@@ -20,21 +24,21 @@ interface Props {
 const defaults: Review[] = [
   {
     quote:
-      'They explained exactly what my car needed, showed me the worn parts, and had me back on the road the same day. No pressure, no surprises on the bill.',
-    name: 'Placeholder — replace with a real Google review',
-    context: 'Jonesboro, GA'
+      "As someone who doesn't know a ton about cars, I really appreciated how transparent and patient they were. They made me feel taken care of instead of pressured. Highly recommend this shop for trustworthy service.",
+    name: 'Verified Google review',
+    context: 'Southlake AutoCare · 4.8★'
   },
   {
     quote:
-      'Fast, friendly, and honest. They could have sold me a bigger repair but told me the truth about what could wait. This is my shop from now on.',
-    name: 'Placeholder — replace with a real Google review',
-    context: 'Morrow, GA'
+      'I had my vehicle towed in and they had it through emissions and ready by Tuesday. I\u2019m in law enforcement and I definitely trust this shop — you will be satisfied with the quality of the work.',
+    name: 'Verified Google review',
+    context: 'Southlake AutoCare · 4.8★'
   },
   {
     quote:
-      'My AC went out in the middle of a Georgia summer. They found the leak, fixed it right, and the price matched the estimate to the dollar.',
-    name: 'Placeholder — replace with a real Google review',
-    context: 'Forest Park, GA'
+      'I had a minor issue I thought was major. They quickly fixed it, took the time to explain, and gave recommendations to preserve my car. I appreciate their diligence and professionalism!',
+    name: 'Verified Google review',
+    context: 'Southlake AutoCare · 4.8★'
   }
 ];
 
