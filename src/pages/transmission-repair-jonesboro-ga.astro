@@ -6,6 +6,7 @@ import FAQSection from '../components/FAQSection.astro';
 import ReviewSection from '../components/ReviewSection.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
+import { BUSINESS } from '../config';
 import type { FAQ } from '../config';
 
 const path = '/transmission-repair-jonesboro-ga';
@@ -45,7 +46,7 @@ const faqs: FAQ[] = [
   />
   <Breadcrumbs
     items={[
-      { name: 'Home', href: '/' },
+      { name: 'Home', href: BUSINESS.mainSiteUrl + '/' },
       { name: 'Transmission Repair in Jonesboro, GA', href: path }
     ]}
   />

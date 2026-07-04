@@ -1,10 +1,11 @@
 /**
  * Single source of truth for business + site data.
- * NOTE: SITE_URL controls every canonical URL, OG URL, and the sitemap.
- * If these pages are served from a different hostname (e.g. a *.pages.dev
- * preview or a subdomain), update SITE_URL before going live.
+ * SITE_URL is the subdomain these static SEO pages are served from. It controls
+ * every canonical URL, OG URL, and the sitemap. The main brand site lives at
+ * BUSINESS.mainSiteUrl (southlakeautocare.com) — that is where "Home" points and
+ * where the LocalBusiness entity is anchored.
  */
-export const SITE_URL = 'https://southlakeautocare.com';
+export const SITE_URL = 'https://service.southlakeautocare.com';
 
 export const BUSINESS = {
   name: 'Southlake Auto Care',

@@ -16,7 +16,9 @@ const schema = {
     '@type': 'ListItem',
     position: i + 1,
     name: c.name,
-    item: c.href === '/' ? `${SITE_URL}/` : `${SITE_URL}${c.href}`
+    // Absolute hrefs (e.g. the main-domain Home link) are used as-is; relative
+    // paths are resolved against this subdomain.
+    item: c.href.startsWith('http') ? c.href : `${SITE_URL}${c.href}`
   }))
 };
 ---
