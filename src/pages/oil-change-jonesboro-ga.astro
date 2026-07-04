@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CTASection from '../components/CTASection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import ReviewSection from '../components/ReviewSection.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ServiceSchema from '../components/ServiceSchema.astro';
+import { BUSINESS } from '../config';
+import type { FAQ } from '../config';
+
+const path = '/oil-change-jonesboro-ga';
+const title = 'Oil Change in Jonesboro, GA | Full Synthetic & Blend | Southlake Auto Care';
+const description =
+  'Fast, professional oil changes in Jonesboro, GA. Full synthetic, blend & conventional oil with a free multi-point inspection at Southlake Auto Care. Call (770) 961-8500.';
+
+const faqs: FAQ[] = [
+  {
+    q: 'How often should I change my oil?',
+    a: 'Most modern vehicles running full synthetic oil are fine at 5,000–7,500 mile intervals, while conventional oil is typically 3,000–5,000 miles. Your owner\u2019s manual is the final word, and Georgia heat plus stop-and-go Atlanta-area traffic count as "severe service" for many schedules. We\u2019ll recommend the right interval for how you actually drive.'
+  },
+  {
+    q: 'What\u2019s the difference between synthetic and conventional oil?',
+    a: 'Full synthetic oil resists breakdown at high temperatures, flows better on cold starts, and protects longer between changes — which matters in Georgia summers. Conventional oil costs less per service but needs changing more often. Synthetic blend splits the difference. We stock all three and will tell you what your engine actually requires.'
+  },
+  {
+    q: 'How long does an oil change take at your shop?',
+    a: 'Most oil changes are done in about 30–45 minutes, including the multi-point inspection. Scheduling ahead online is the fastest way to get in and out.'
+  },
+  {
+    q: 'What\u2019s included with an oil change at Southlake Auto Care?',
+    a: 'Every oil change includes quality oil, a new oil filter, and a multi-point inspection covering fluids, belts, hoses, tires, battery, and brakes. If we spot something, we show you — we never pressure you into add-ons.'
+  },
+  {
+    q: 'Can you reset my oil life monitor and maintenance light?',
+    a: 'Yes. We reset your maintenance reminder system with every service and place a reminder sticker so you know exactly when you\u2019re due next.'
+  }
+];
+---
+<BaseLayout title={title} description={description} canonicalPath={path}>
+  <ServiceSchema
+    name="Oil Change Service"
+    description="Full synthetic, synthetic blend, and conventional oil changes with free multi-point inspection in Jonesboro, GA."
+    path={path}
+    serviceType="Oil Change"
+  />
+  <Breadcrumbs
+    items={[
+      { name: 'Home', href: '/' },
+      { name: 'Oil Change in Jonesboro, GA', href: path }
+    ]}
+  />
+
+  <Hero
+    eyebrow="Oil & Filter Service · Jonesboro, GA"
+    title="Oil Change Service in Jonesboro, GA"
+    description="More than a quick lube. Every oil change at Southlake Auto Care includes a quality filter, the right oil for your engine, and a technician's multi-point inspection — so small problems get caught while they're still small."
+    primaryLabel="Schedule an Oil Change"
+  />
+
+  <section class="bg-white py-16 md:py-20 border-b border-mist/60">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">The Cheapest Insurance Your Engine Can Buy</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
+        Clean oil is what keeps metal from grinding on metal inside your engine. Georgia's summer heat,
+        short trips around Jonesboro, and rush-hour crawls on Tara Boulevard all break oil down faster
+        than highway miles do. Skipping changes leads to sludge, worn bearings, and eventually the kind
+        of engine repair nobody budgets for.
+      </p>
+      <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
+        At Southlake Auto Care, an oil change is also a health check. While your vehicle is on the lift,
+        a technician — not a lube-rack trainee — looks over your brakes, tires, belts, hoses, battery,
+        and fluid levels. You leave with fresh oil and a clear picture of what's coming due.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Oil Change Options We Offer</h2>
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-5">
+        {[
+          { h: 'Full Synthetic', p: 'Maximum protection and the longest service intervals. Required by many late-model and turbocharged engines.' },
+          { h: 'Synthetic Blend', p: 'A step up from conventional at a friendly price — good protection for everyday commuters.' },
+          { h: 'Conventional', p: 'Budget-friendly protection for older engines with shorter, more frequent service intervals.' }
+        ].map((o) => (
+          <div class="rounded-xl border border-mist/70 bg-paper p-6">
+            <h3 class="text-lg font-bold text-charcoal-900">{o.h}</h3>
+            <p class="mt-2 text-charcoal-700 text-[15px] leading-relaxed">{o.p}</p>
+          </div>
+        ))}
+      </div>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">What Your Multi-Point Inspection Covers</h2>
+      <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          'Engine oil & filter replacement',
+          'All fluid levels topped off',
+          'Belts and hoses checked',
+          'Battery and charging test',
+          'Tire condition & pressure',
+          'Visual brake inspection',
+          'Air & cabin filter check',
+          'Lights and wipers'
+        ].map((item) => (
+          <li class="flex items-start gap-3 rounded-lg border border-mist/70 bg-paper px-4 py-3.5 font-semibold text-charcoal-900">
+            <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
+            {item}
+          </li>
+        ))}
+      </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Keep the Rest of Your Car Healthy Too</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Oil changes are where we catch things early. If our inspection turns up worn pads, our
+        <a href="/brake-repair-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">brake repair team</a>
+        can usually handle it the same visit. Dash light on? Add a
+        <a href="/check-engine-light-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">check engine diagnostic</a>
+        while you're here. We also serve neighbors in
+        <a href="/morrow-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Morrow</a> and
+        <a href="/forest-park-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Forest Park</a> —
+        most are ten minutes from the shop.
+      </p>
+    </div>
+  </section>
+
+  <ReviewSection title="Oil Change Customers Say" />
+  <FAQSection title="Oil Change FAQs" faqs={faqs} />
+  <CTASection
+    title="Due (or Overdue) for an Oil Change?"
+    description={`Schedule online and be in and out in under an hour at ${BUSINESS.address.street} — fresh oil, new filter, and a full inspection included.`}
+  />
+</BaseLayout>

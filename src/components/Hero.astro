@@ -1,0 +1,75 @@
+---
+import { BUSINESS } from '../config';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  primaryLabel?: string;
+  showPhone?: boolean;
+}
+
+const {
+  eyebrow = 'Jonesboro · Morrow · Forest Park, GA',
+  title,
+  description,
+  primaryLabel = 'Schedule Service',
+  showPhone = true
+} = Astro.props;
+---
+<section class="relative bg-charcoal-900 text-paper overflow-hidden">
+  <!-- Subtle diagonal tread texture -->
+  <div
+    class="absolute inset-0 opacity-[0.06]"
+    style="background-image: repeating-linear-gradient(135deg, #ffffff 0 2px, transparent 2px 22px);"
+    aria-hidden="true"
+  >
+  </div>
+  <div class="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent-500/10 blur-3xl" aria-hidden="true"></div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28">
+    <div class="max-w-3xl">
+      <p class="inline-flex items-center gap-2 rounded-full border border-accent-500/40 bg-accent-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-400">
+        <span class="h-1.5 w-1.5 rounded-full bg-accent-500" aria-hidden="true"></span>
+        {eyebrow}
+      </p>
+      <h1 class="mt-6 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]">
+        {title}
+      </h1>
+      <div class="mt-5 h-1.5 w-24 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-6 text-lg md:text-xl leading-relaxed text-mist">
+        {description}
+      </p>
+      <div class="mt-9 flex flex-col sm:flex-row gap-4">
+        <a
+          href={BUSINESS.ctaUrl}
+          class="rounded-md bg-accent-500 px-8 py-4 text-center text-base font-bold text-charcoal-950 hover:bg-accent-400 transition-colors shadow-lg shadow-accent-500/20"
+        >
+          {primaryLabel}
+        </a>
+        {showPhone && (
+          <a
+            href={BUSINESS.phoneHref}
+            class="rounded-md border-2 border-paper/25 px-8 py-4 text-center text-base font-bold text-paper hover:border-accent-500 hover:text-accent-400 transition-colors"
+          >
+            Call {BUSINESS.phone}
+          </a>
+        )}
+      </div>
+      <ul class="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold text-mist">
+        <li class="flex items-center gap-2">
+          <svg class="h-5 w-5 text-accent-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
+          Honest, upfront estimates
+        </li>
+        <li class="flex items-center gap-2">
+          <svg class="h-5 w-5 text-accent-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
+          Experienced local technicians
+        </li>
+        <li class="flex items-center gap-2">
+          <svg class="h-5 w-5 text-accent-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
+          All makes &amp; models
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

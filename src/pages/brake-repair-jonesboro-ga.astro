@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CTASection from '../components/CTASection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import ReviewSection from '../components/ReviewSection.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ServiceSchema from '../components/ServiceSchema.astro';
+import { BUSINESS } from '../config';
+import type { FAQ } from '../config';
+
+const path = '/brake-repair-jonesboro-ga';
+const title = 'Brake Repair in Jonesboro, GA | Pads, Rotors & More | Southlake Auto Care';
+const description =
+  'Need brake repair in Jonesboro, GA? Southlake Auto Care replaces pads, rotors, and calipers with a free brake inspection and upfront pricing. Call (770) 961-8500.';
+
+const faqs: FAQ[] = [
+  {
+    q: 'How much does brake repair cost in Jonesboro, GA?',
+    a: 'Brake costs depend on your vehicle and which components are worn. A pad replacement on one axle is the most affordable repair, while rotors, calipers, or hydraulic work cost more. We inspect first, then give you an exact written estimate before any work begins — no commitment required.'
+  },
+  {
+    q: 'How do I know if my brake pads are worn out?',
+    a: 'The most common signs are squealing or grinding noises, a longer stopping distance, vibration in the pedal or steering wheel when braking, or a brake warning light. If you hear metal-on-metal grinding, stop driving and call us — that usually means the pads are gone and the rotors are being damaged.'
+  },
+  {
+    q: 'Do you resurface rotors or replace them?',
+    a: 'It depends on rotor thickness and condition. If your rotors are above minimum thickness and not warped or heat-damaged, resurfacing can be an option. Many modern rotors are thinner by design, so replacement is often the safer, longer-lasting choice. We measure and show you before recommending either.'
+  },
+  {
+    q: 'How long does a brake job take?',
+    a: 'A standard pad-and-rotor replacement is usually completed the same day, often within a few hours. More involved repairs like calipers, brake lines, or ABS components may take longer — we\u2019ll give you a time estimate along with the price.'
+  },
+  {
+    q: 'Can I drive with the brake warning light on?',
+    a: 'We don\u2019t recommend it. The light can indicate anything from low brake fluid to a hydraulic failure. Have it inspected promptly — brakes are the one system where waiting can turn a small repair into a safety risk.'
+  }
+];
+---
+<BaseLayout title={title} description={description} canonicalPath={path}>
+  <ServiceSchema
+    name="Brake Repair"
+    description="Brake pad, rotor, caliper, and brake fluid service in Jonesboro, GA with free brake inspection and upfront estimates."
+    path={path}
+    serviceType="Brake Repair"
+  />
+  <Breadcrumbs
+    items={[
+      { name: 'Home', href: '/' },
+      { name: 'Brake Repair in Jonesboro, GA', href: path }
+    ]}
+  />
+
+  <Hero
+    eyebrow="Brake Service · Jonesboro, GA"
+    title="Brake Repair in Jonesboro, GA"
+    description="Squealing, grinding, or a soft pedal? Southlake Auto Care inspects your entire brake system for free, shows you exactly what's worn, and restores confident stopping power — usually the same day."
+    primaryLabel="Schedule a Brake Inspection"
+  />
+
+  <section class="bg-white py-16 md:py-20 border-b border-mist/60">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">Complete Brake Service, Not Just Pads</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
+        Your brakes are a system — pads, rotors, calipers, hoses, hydraulics, and fluid all working
+        together. When one part wears out, it puts stress on the rest. That's why every brake job at
+        Southlake Auto Care starts with a full-system inspection, not a guess. We measure pad thickness,
+        check rotors for warping and heat damage, test calipers for sticking, and inspect fluid condition
+        before recommending anything.
+      </p>
+      <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
+        Drivers come to our Jonesboro-area shop from Morrow, Forest Park, and across Clayton County
+        because we fix what actually needs fixing — and tell you honestly what can wait.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Brake Services We Perform</h2>
+      <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          'Brake pad replacement (ceramic & semi-metallic)',
+          'Rotor replacement and resurfacing',
+          'Caliper repair and replacement',
+          'Brake fluid exchange and bleeding',
+          'Brake line and hose repair',
+          'ABS diagnostics and warning light repair',
+          'Parking brake adjustment and repair',
+          'Wheel bearing and hub service'
+        ].map((item) => (
+          <li class="flex items-start gap-3 rounded-lg border border-mist/70 bg-paper px-4 py-3.5 font-semibold text-charcoal-900">
+            <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
+            {item}
+          </li>
+        ))}
+      </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Warning Signs You Need Brake Repair</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Don't wait for a failed stop to find out your brakes are worn. Schedule an inspection if you
+        notice any of these symptoms around Jonesboro's stop-and-go traffic on Tara Boulevard or I-75:
+      </p>
+      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
+        <li><strong class="text-charcoal-900">Squealing or screeching</strong> — pad wear indicators telling you it's time.</li>
+        <li><strong class="text-charcoal-900">Grinding metal sounds</strong> — pads are gone; rotors are being damaged with every stop.</li>
+        <li><strong class="text-charcoal-900">Vibration or pulsing</strong> in the pedal or wheel — often warped rotors.</li>
+        <li><strong class="text-charcoal-900">Soft or spongy pedal</strong> — possible air or moisture in the hydraulic system.</li>
+        <li><strong class="text-charcoal-900">Pulling to one side</strong> when braking — a sticking caliper or uneven wear.</li>
+        <li><strong class="text-charcoal-900">Brake or ABS warning light</strong> — have it scanned before it becomes a bigger problem.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Related Services</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Brake symptoms sometimes overlap with other issues. If a warning light came on with your brake
+        concern, our <a href="/check-engine-light-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">check engine light diagnostics</a>
+        can pinpoint it. Keeping up with regular <a href="/oil-change-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">oil changes</a>
+        also means our technicians inspect your brakes at every visit — catching wear before it costs you.
+        Drivers in nearby cities can learn more on our
+        <a href="/morrow-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Morrow</a> and
+        <a href="/forest-park-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Forest Park</a> pages.
+      </p>
+    </div>
+  </section>
+
+  <ReviewSection title="Brake Customers Around Jonesboro Say" />
+  <FAQSection title="Brake Repair FAQs" faqs={faqs} />
+  <CTASection
+    title="Hearing Something When You Brake?"
+    description={`Get a free brake inspection at our shop on ${BUSINESS.address.street}. We'll show you exactly what's worn and quote it in writing before any work starts.`}
+  />
+</BaseLayout>

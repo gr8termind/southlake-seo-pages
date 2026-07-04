@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import CTASection from '../components/CTASection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import ReviewSection from '../components/ReviewSection.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { BUSINESS } from '../config';
+import type { FAQ } from '../config';
+
+const path = '/forest-park-auto-repair';
+const title = 'Auto Repair in Forest Park, GA | Southlake Auto Care | (770) 961-8500';
+const description =
+  'Trusted auto repair for Forest Park, GA drivers. Southlake Auto Care handles brakes, oil changes, engine diagnostics, AC & transmissions just down I-75. Call (770) 961-8500.';
+
+const cards = [
+  {
+    title: 'Brake Repair',
+    description: 'Complete brake system service with free inspections and written estimates.',
+    href: '/brake-repair-jonesboro-ga',
+    icon: 'brake'
+  },
+  {
+    title: 'Oil Change',
+    description: 'Synthetic, blend, or conventional — every service includes a multi-point inspection.',
+    href: '/oil-change-jonesboro-ga',
+    icon: 'oil'
+  },
+  {
+    title: 'Check Engine Light',
+    description: 'Real diagnostics that trace the fault instead of throwing parts at it.',
+    href: '/check-engine-light-jonesboro-ga',
+    icon: 'engine'
+  },
+  {
+    title: 'Auto AC Repair',
+    description: 'Find the leak, fix the cause, recharge to spec — cold air that lasts.',
+    href: '/auto-ac-repair-jonesboro-ga',
+    icon: 'ac'
+  },
+  {
+    title: 'Transmission Repair',
+    description: 'Diagnostics, fluid service, and repair for slipping and hard shifting.',
+    href: '/transmission-repair-jonesboro-ga',
+    icon: 'transmission'
+  },
+  {
+    title: 'Fleet & Work Vehicles',
+    description: 'Keep work trucks and vans earning with dependable maintenance and fast turnaround.',
+    href: BUSINESS.mainSiteUrl + '/services',
+    icon: 'wrench'
+  }
+] as const;
+
+const faqs: FAQ[] = [
+  {
+    q: 'How far is Southlake Auto Care from Forest Park?',
+    a: `About a 10–12 minute drive for most of Forest Park — straight down I-75 South or Highway 41 to our shop at ${BUSINESS.address.street}, ${BUSINESS.address.city}, GA.`
+  },
+  {
+    q: 'Do you work on high-mileage vehicles?',
+    a: 'All the time. Many Forest Park customers drive vehicles well past 100,000 miles, and our focus on honest prioritization matters most there: we\u2019ll tell you what\u2019s a safety item, what\u2019s a soon item, and what\u2019s not worth spending on for your vehicle\u2019s age and value.'
+  },
+  {
+    q: 'Can you handle work trucks and delivery vans?',
+    a: 'Yes. With the logistics and industrial activity around Forest Park and Fort Gillem, we service plenty of work trucks and vans — brakes, suspension, cooling, and preventative maintenance that keeps downtime short.'
+  },
+  {
+    q: 'Do I need an appointment, or do you take walk-ins?',
+    a: 'Scheduling online guarantees your spot and the fastest turnaround, but we accommodate walk-ins whenever the bays allow — especially for urgent safety concerns like brakes.'
+  }
+];
+---
+<BaseLayout title={title} description={description} canonicalPath={path}>
+  <Breadcrumbs
+    items={[
+      { name: 'Home', href: '/' },
+      { name: 'Auto Repair in Forest Park, GA', href: path }
+    ]}
+  />
+
+  <Hero
+    eyebrow="Serving Forest Park, GA"
+    title="Auto Repair in Forest Park, GA"
+    description="A short drive down I-75 gets Forest Park drivers a shop that diagnoses honestly, quotes in writing, and fixes it right the first time — from daily drivers to work trucks."
+  />
+
+  <section class="bg-white py-16 md:py-20 border-b border-mist/60">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">Worth the Short Drive from Forest Park</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
+        Forest Park sits at one of the hardest-working crossroads in Georgia — I-75, I-285, Highway 41,
+        and some of the busiest freight corridors in the Southeast. Vehicles here work hard: commutes
+        into Atlanta, deliveries around the industrial parks, and family cars logging miles across
+        Clayton County. Southlake Auto Care, just down the road in the Southlake area, keeps them all
+        running with straightforward diagnostics and repairs done right.
+      </p>
+      <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
+        Highway miles and heavy traffic wear vehicles in predictable ways — brakes fade sooner,
+        transmissions run hotter, and suspensions take a beating from stop-and-go. Our inspections are
+        built around exactly those wear patterns, so problems get caught before they leave you on the
+        shoulder of I-75.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">What Forest Park Drivers Can Expect</h2>
+      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
+        <li><strong class="text-charcoal-900">Straight answers</strong> — we show you the worn part and explain the fix in plain English.</li>
+        <li><strong class="text-charcoal-900">Written estimates first</strong> — the price you approve is the price you pay.</li>
+        <li><strong class="text-charcoal-900">High-mileage expertise</strong> — smart prioritization for vehicles past 100k miles.</li>
+        <li><strong class="text-charcoal-900">Work-vehicle friendly</strong> — fast turnaround for trucks and vans that earn their keep.</li>
+      </ul>
+    </div>
+  </section>
+
+  <ServiceCards
+    eyebrow="Services for Forest Park Drivers"
+    title="What We Fix for Forest Park, GA"
+    intro="All services performed at our shop a few minutes south on Jonesboro Road. Tap a card for detailed information and FAQs."
+    cards={cards}
+  />
+
+  <ReviewSection title="What Forest Park Drivers Say" />
+  <FAQSection title="Forest Park Auto Repair FAQs" faqs={faqs} />
+  <CTASection
+    title="Forest Park: Honest Repair Is Down the Road"
+    description={`Schedule online or call ${BUSINESS.phone}. Early drop-off available, and every repair starts with a written estimate you approve first.`}
+  />
+</BaseLayout>

@@ -1,0 +1,16 @@
+{
+  "name": "Southlake Auto Care",
+  "short_name": "Southlake Auto",
+  "description": "Auto repair in Jonesboro, GA — brakes, oil changes, diagnostics, AC, and transmission service for Clayton County drivers.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#111111",
+  "theme_color": "#111111",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "480x252",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+---
+import { BUSINESS } from '../config';
+const year = new Date().getFullYear();
+
+const services = [
+  { name: 'Brake Repair in Jonesboro', href: '/brake-repair-jonesboro-ga' },
+  { name: 'Oil Change in Jonesboro', href: '/oil-change-jonesboro-ga' },
+  { name: 'Check Engine Light Diagnostics', href: '/check-engine-light-jonesboro-ga' },
+  { name: 'Auto AC Repair', href: '/auto-ac-repair-jonesboro-ga' },
+  { name: 'Transmission Repair', href: '/transmission-repair-jonesboro-ga' }
+];
+
+const areas = [
+  { name: 'Jonesboro, GA', href: '/' },
+  { name: 'Morrow, GA', href: '/morrow-auto-repair' },
+  { name: 'Forest Park, GA', href: '/forest-park-auto-repair' }
+];
+---
+<footer class="bg-charcoal-950 text-mist">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <img src={BUSINESS.logo} alt={`${BUSINESS.name} logo`} width="150" height="79" class="h-12 w-auto mb-4" loading="lazy" />
+        <p class="text-sm leading-relaxed text-smoke">
+          {BUSINESS.name} is a full-service auto repair shop serving Jonesboro, Morrow,
+          Forest Park, and all of Clayton County, GA. Honest diagnostics, quality parts,
+          and repairs done right the first time.
+        </p>
+        <a
+          href={BUSINESS.ctaUrl}
+          class="mt-5 inline-block rounded-md bg-accent-500 px-5 py-2.5 text-sm font-bold text-charcoal-950 hover:bg-accent-400 transition-colors"
+        >
+          Schedule Service
+        </a>
+      </div>
+
+      <nav aria-label="Footer services">
+        <h2 class="text-sm font-bold uppercase tracking-widest text-accent-500 mb-4">Services</h2>
+        <ul class="space-y-2.5 text-sm">
+          {services.map((s) => (
+            <li><a href={s.href} class="hover:text-accent-400 transition-colors">{s.name}</a></li>
+          ))}
+          <li><a href={BUSINESS.mainSiteUrl + '/services'} class="hover:text-accent-400 transition-colors">All Services →</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Footer service areas">
+        <h2 class="text-sm font-bold uppercase tracking-widest text-accent-500 mb-4">Areas We Serve</h2>
+        <ul class="space-y-2.5 text-sm">
+          {areas.map((a) => (
+            <li><a href={a.href} class="hover:text-accent-400 transition-colors">Auto Repair in {a.name}</a></li>
+          ))}
+          <li class="text-smoke">Lake City · Rex · Clayton County</li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="text-sm font-bold uppercase tracking-widest text-accent-500 mb-4">Visit the Shop</h2>
+        <address class="not-italic text-sm space-y-3">
+          <p>
+            {BUSINESS.address.street}<br />
+            {BUSINESS.address.city}, {BUSINESS.address.state} {BUSINESS.address.zip}
+          </p>
+          <p>
+            <a href={BUSINESS.phoneHref} class="font-bold text-paper hover:text-accent-400 transition-colors">{BUSINESS.phone}</a>
+          </p>
+          <p class="text-smoke">{BUSINESS.hoursText}</p>
+        </address>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-charcoal-700">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-smoke">
+      <p>© {year} {BUSINESS.name}. All rights reserved.</p>
+      <p>
+        <a href={BUSINESS.mainSiteUrl} class="hover:text-accent-400 transition-colors">southlakeautocare.com</a>
+        <span class="mx-2 text-charcoal-600">|</span>
+        Trusted auto repair in Jonesboro &amp; Morrow, GA
+      </p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,75 @@
+---
+/**
+ * IMPORTANT: The testimonials below are placeholder copy written for layout
+ * purposes. Replace each quote/name with real customer reviews (e.g. from the
+ * shop's Google Business Profile) before launch. Review/AggregateRating schema
+ * is intentionally NOT emitted here — Google's guidelines require self-serving
+ * review markup to reflect genuine, verifiable reviews shown on the page.
+ */
+interface Review {
+  quote: string;
+  name: string;
+  context: string;
+}
+
+interface Props {
+  title?: string;
+  reviews?: Review[];
+}
+
+const defaults: Review[] = [
+  {
+    quote:
+      'They explained exactly what my car needed, showed me the worn parts, and had me back on the road the same day. No pressure, no surprises on the bill.',
+    name: 'Placeholder — replace with a real Google review',
+    context: 'Jonesboro, GA'
+  },
+  {
+    quote:
+      'Fast, friendly, and honest. They could have sold me a bigger repair but told me the truth about what could wait. This is my shop from now on.',
+    name: 'Placeholder — replace with a real Google review',
+    context: 'Morrow, GA'
+  },
+  {
+    quote:
+      'My AC went out in the middle of a Georgia summer. They found the leak, fixed it right, and the price matched the estimate to the dollar.',
+    name: 'Placeholder — replace with a real Google review',
+    context: 'Forest Park, GA'
+  }
+];
+
+const { title = 'What Drivers in Clayton County Say', reviews = defaults } = Astro.props;
+---
+<section class="bg-charcoal-900 py-16 md:py-20 text-paper">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <p class="text-xs font-bold uppercase tracking-widest text-accent-400">Reviews</p>
+      <h2 class="mt-2 text-3xl md:text-4xl font-extrabold tracking-tight">{title}</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+      {reviews.map((r) => (
+        <figure class="rounded-xl border border-charcoal-700 bg-charcoal-800 p-7 flex flex-col">
+          <div class="flex gap-1 text-accent-500" aria-label="5 out of 5 stars">
+            {[0, 1, 2, 3, 4].map(() => (
+              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.4 4.3a1 1 0 00.95.7h4.52c.97 0 1.37 1.24.59 1.81l-3.66 2.66a1 1 0 00-.36 1.12l1.4 4.3c.3.92-.76 1.69-1.54 1.12l-3.66-2.66a1 1 0 00-1.18 0l-3.66 2.66c-.78.57-1.84-.2-1.54-1.12l1.4-4.3a1 1 0 00-.36-1.12L1.6 9.74c-.78-.57-.38-1.8.59-1.8h4.52a1 1 0 00.95-.7l1.4-4.31z"/></svg>
+            ))}
+          </div>
+          <blockquote class="mt-4 text-mist leading-relaxed flex-1">
+            <p>“{r.quote}”</p>
+          </blockquote>
+          <figcaption class="mt-5 text-sm">
+            <span class="font-bold text-paper">{r.name}</span>
+            <span class="block text-smoke">{r.context}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <p class="mt-8 text-sm text-smoke">
+      Read more reviews on the shop's
+      <a href="https://southlakeautocare.com/reviews" class="text-accent-400 font-semibold hover:text-accent-300 transition-colors">reviews page</a>.
+    </p>
+  </div>
+</section>

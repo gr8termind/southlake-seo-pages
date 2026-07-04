@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import CTASection from '../components/CTASection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import ReviewSection from '../components/ReviewSection.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { BUSINESS } from '../config';
+import type { FAQ } from '../config';
+
+const path = '/morrow-auto-repair';
+const title = 'Auto Repair in Morrow, GA | Southlake Auto Care | (770) 961-8500';
+const description =
+  'Looking for auto repair in Morrow, GA? Southlake Auto Care is right on Jonesboro Road — brakes, oil changes, diagnostics, AC & transmission service. Call (770) 961-8500.';
+
+const cards = [
+  {
+    title: 'Brake Repair',
+    description: 'Free brake inspections and same-day pad and rotor service for Morrow drivers.',
+    href: '/brake-repair-jonesboro-ga',
+    icon: 'brake'
+  },
+  {
+    title: 'Oil Change',
+    description: 'In-and-out oil service with a real multi-point inspection — perfect on a lunch break.',
+    href: '/oil-change-jonesboro-ga',
+    icon: 'oil'
+  },
+  {
+    title: 'Check Engine Light',
+    description: 'Professional diagnostics that find the cause, not just the code.',
+    href: '/check-engine-light-jonesboro-ga',
+    icon: 'engine'
+  },
+  {
+    title: 'Auto AC Repair',
+    description: 'Leak detection and repair so your cold air survives the Georgia summer.',
+    href: '/auto-ac-repair-jonesboro-ga',
+    icon: 'ac'
+  },
+  {
+    title: 'Transmission Repair',
+    description: 'From fluid service to full repair — honest options for slipping and hard shifts.',
+    href: '/transmission-repair-jonesboro-ga',
+    icon: 'transmission'
+  },
+  {
+    title: 'Scheduled Maintenance',
+    description: 'Factory-schedule services that protect your warranty and your wallet.',
+    href: BUSINESS.mainSiteUrl + '/services',
+    icon: 'wrench'
+  }
+] as const;
+
+const faqs: FAQ[] = [
+  {
+    q: 'Where is Southlake Auto Care relative to Morrow?',
+    a: `We're at ${BUSINESS.address.street} in ${BUSINESS.address.city} — in the Southlake area near the mall corridor. From most Morrow neighborhoods, the shop is a 5–10 minute drive.`
+  },
+  {
+    q: 'Can I drop my car off before work?',
+    a: 'Yes. Early drop-off is a popular option for Morrow commuters. Schedule online, leave the vehicle in the morning, and we\u2019ll call with the diagnosis and estimate before doing any work.'
+  },
+  {
+    q: 'Do you service commuter cars and work trucks?',
+    a: 'Both. We handle daily-driver sedans and SUVs as well as work trucks and vans for local trades — brakes, suspension, cooling systems, and the maintenance that keeps high-mileage vehicles earning.'
+  },
+  {
+    q: 'Is there somewhere to wait during my service?',
+    a: 'For shorter services like oil changes you\u2019re welcome to wait at the shop, and the Southlake area\u2019s restaurants and stores are minutes away for longer repairs. We\u2019ll give you an honest time estimate up front either way.'
+  }
+];
+---
+<BaseLayout title={title} description={description} canonicalPath={path}>
+  <Breadcrumbs
+    items={[
+      { name: 'Home', href: '/' },
+      { name: 'Auto Repair in Morrow, GA', href: path }
+    ]}
+  />
+
+  <Hero
+    eyebrow="Serving Morrow, GA"
+    title="Auto Repair in Morrow, GA"
+    description="Southlake Auto Care sits right in Morrow's backyard on Jonesboro Road — a local shop where honest diagnostics, upfront estimates, and quality repairs come standard."
+  />
+
+  <section class="bg-white py-16 md:py-20 border-b border-mist/60">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">Morrow's Neighborhood Auto Shop</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
+        If you live or work in Morrow, you don't need to drive into Atlanta — or gamble on a chain —
+        to get quality auto repair. Our shop at {BUSINESS.address.street} is minutes from Southlake
+        Mall, Clayton State University, and the Highway 54 corridor. Whether it's a brake job before
+        a road trip, a check engine light that appeared on your Mount Zion Road commute, or an AC that
+        gave up in the summer heat, we'll diagnose it honestly and fix it right.
+      </p>
+      <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
+        Morrow drivers deal with a specific mix of conditions: short trips around town, hard stops on
+        busy retail corridors, and hot idling in mall-area traffic. That pattern is tough on brakes,
+        batteries, and cooling systems — which is exactly why our inspections pay close attention to
+        all three at every visit.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Why Morrow Drivers Choose Us</h2>
+      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
+        <li><strong class="text-charcoal-900">Genuinely local</strong> — we're in the Southlake area, not a distant call center brand.</li>
+        <li><strong class="text-charcoal-900">Diagnosis before dollars</strong> — you approve a written estimate before work begins.</li>
+        <li><strong class="text-charcoal-900">All makes and models</strong> — domestic, Asian, and European vehicles welcome.</li>
+        <li><strong class="text-charcoal-900">Financing available</strong> — qualifying repairs don't have to wait for payday.</li>
+      </ul>
+    </div>
+  </section>
+
+  <ServiceCards
+    eyebrow="Services for Morrow Drivers"
+    title="What We Fix for Morrow, GA"
+    intro="Every service below is performed at our shop just minutes from Morrow. Tap any card for details, pricing questions, and FAQs."
+    cards={cards}
+  />
+
+  <ReviewSection title="What Morrow Drivers Say" />
+  <FAQSection title="Morrow Auto Repair FAQs" faqs={faqs} />
+  <CTASection
+    title="Morrow: Your Shop Is 10 Minutes Away"
+    description={`Schedule online or call ${BUSINESS.phone} — early drop-off available for commuters, and honest answers guaranteed for everyone.`}
+  />
+</BaseLayout>

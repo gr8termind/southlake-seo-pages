@@ -1,0 +1,73 @@
+---
+export interface ServiceCard {
+  title: string;
+  description: string;
+  href?: string;
+  icon: 'brake' | 'oil' | 'engine' | 'ac' | 'transmission' | 'wrench';
+}
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  intro?: string;
+  cards: ServiceCard[];
+  id?: string;
+}
+
+const {
+  eyebrow = 'What We Do',
+  title = 'Auto Repair Services',
+  intro,
+  cards,
+  id = 'services'
+} = Astro.props;
+
+const icons: Record<string, string> = {
+  brake:
+    '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6.2 6.2l2 2M15.8 15.8l2 2M17.8 6.2l-2 2M8.2 15.8l-2 2"/>',
+  oil:
+    '<path d="M12 3.5s5.5 6.6 5.5 10.5a5.5 5.5 0 11-11 0C6.5 10.1 12 3.5 12 3.5z"/><path d="M9.5 14.5a2.5 2.5 0 002.5 2.5"/>',
+  engine:
+    '<path d="M7 7h4l1.5 2H17a1 1 0 011 1v2h2v-2h1v7h-1v-2h-2v2a1 1 0 01-1 1h-2l-2 2H8l-2-2H4a1 1 0 01-1-1v-3H2v-3h1v-1a1 1 0 011-1h3V7z"/><path d="M9 4h6M12 4v3"/>',
+  ac:
+    '<path d="M12 2v20M12 12l7-7M12 12l-7-7M12 12l7 7M12 12l-7 7M4 12h16M6 6l1.5 1.5M18 6l-1.5 1.5M6 18l1.5-1.5M18 18l-1.5-1.5"/>',
+  transmission:
+    '<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="M6 8.5V18M6 6h12M18 8.5V12a3 3 0 01-3 3H8.5"/>',
+  wrench:
+    '<path d="M14.7 6.3a4.5 4.5 0 00-6 5.6L3 17.6V21h3.4l5.7-5.7a4.5 4.5 0 005.6-6L14.5 12l-2.5-2.5 2.7-3.2z"/>'
+};
+---
+<section id={id} class="bg-white py-16 md:py-20 border-y border-mist/60">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <p class="text-xs font-bold uppercase tracking-widest text-accent-600">{eyebrow}</p>
+      <h2 class="mt-2 text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">{title}</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      {intro && <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">{intro}</p>}
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {cards.map((c) => (
+        <article class="group relative rounded-xl border border-mist/70 bg-paper p-7 shadow-sm hover:shadow-lg hover:border-accent-500/60 transition-all">
+          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-charcoal-900 text-accent-500">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={icons[c.icon]} />
+          </div>
+          <h3 class="mt-5 text-xl font-bold text-charcoal-900">
+            {c.href ? (
+              <a href={c.href} class="after:absolute after:inset-0 hover:text-accent-700 transition-colors">{c.title}</a>
+            ) : (
+              c.title
+            )}
+          </h3>
+          <p class="mt-2.5 text-charcoal-700 leading-relaxed text-[15px]">{c.description}</p>
+          {c.href && (
+            <p class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-accent-700 group-hover:gap-2.5 transition-all">
+              Learn more
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.6L10.7 5.8a.75.75 0 111.06-1.06l5 5a.75.75 0 010 1.06l-5 5a.75.75 0 11-1.06-1.06l3.65-3.49H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+            </p>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

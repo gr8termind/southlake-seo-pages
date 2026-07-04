@@ -1,0 +1,19 @@
+{
+  "name": "southlake-seo-pages",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static SEO landing pages for Southlake Auto Care — Jonesboro, Morrow & Forest Park, GA",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}

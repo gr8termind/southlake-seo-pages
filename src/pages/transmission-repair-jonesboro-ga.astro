@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CTASection from '../components/CTASection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import ReviewSection from '../components/ReviewSection.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ServiceSchema from '../components/ServiceSchema.astro';
+import type { FAQ } from '../config';
+
+const path = '/transmission-repair-jonesboro-ga';
+const title = 'Transmission Repair in Jonesboro, GA | Service & Diagnostics | Southlake Auto Care';
+const description =
+  'Slipping, hard shifts, or a transmission warning light? Southlake Auto Care diagnoses and repairs transmissions in Jonesboro, GA with honest options. Call (770) 961-8500.';
+
+const faqs: FAQ[] = [
+  {
+    q: 'What are the first signs of transmission trouble?',
+    a: 'Watch for slipping between gears, delayed engagement when shifting into Drive or Reverse, hard or jerky shifts, a burning smell, reddish fluid spots under the car, or a transmission warning light. Catching these early is the difference between a fluid service and a rebuild.'
+  },
+  {
+    q: 'Does my transmission fluid really need to be changed?',
+    a: 'Yes — "lifetime fluid" usually means the lifetime of the fluid, not the car. Heat is the enemy of transmissions, and Atlanta-area stop-and-go traffic generates plenty of it. Most vehicles benefit from fluid service every 30,000–60,000 miles; we\u2019ll check your fluid\u2019s condition and tell you honestly whether it\u2019s due.'
+  },
+  {
+    q: 'Repair, rebuild, or replace — how do I choose?',
+    a: 'It depends on what failed, the vehicle\u2019s age and value, and your budget. Sometimes a solenoid, sensor, or fluid service solves it for a fraction of a rebuild. When the damage is internal, we\u2019ll lay out rebuild versus replacement costs side by side so you can make the call with clear numbers.'
+  },
+  {
+    q: 'Can a check engine light mean a transmission problem?',
+    a: 'Absolutely. Many transmission faults trigger the check engine light rather than a dedicated transmission light. Our diagnostics read transmission-specific codes and live data to tell whether the issue is mechanical, hydraulic, or electronic.'
+  },
+  {
+    q: 'Do you offer financing for transmission repairs?',
+    a: 'Yes. Transmission work is one of the bigger unexpected expenses in car ownership, and financing options are available for qualifying repairs. Ask our service advisor when you schedule.'
+  }
+];
+---
+<BaseLayout title={title} description={description} canonicalPath={path}>
+  <ServiceSchema
+    name="Transmission Repair"
+    description="Transmission diagnostics, fluid service, and repair for automatic and manual transmissions in Jonesboro, GA."
+    path={path}
+    serviceType="Transmission Repair"
+  />
+  <Breadcrumbs
+    items={[
+      { name: 'Home', href: '/' },
+      { name: 'Transmission Repair in Jonesboro, GA', href: path }
+    ]}
+  />
+
+  <Hero
+    eyebrow="Transmission Service · Jonesboro, GA"
+    title="Transmission Repair in Jonesboro, GA"
+    description="Slipping gears and hard shifts don't fix themselves — they get more expensive. Our technicians diagnose the real problem and give you honest options, from fluid service to full repair."
+    primaryLabel="Schedule Transmission Service"
+  />
+
+  <section class="bg-white py-16 md:py-20 border-b border-mist/60">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">Catch It Early, Pay a Fraction</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
+        Transmissions rarely fail overnight. They warn you — a flare between second and third gear, a
+        shudder at takeoff, a hesitation shifting into Reverse. Ignore the warnings and heat and friction
+        finish the job. Address them early, and the fix is often a fluid exchange, a solenoid, or a
+        sensor instead of a four-figure rebuild.
+      </p>
+      <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
+        Southlake Auto Care handles transmission diagnostics and repair for Jonesboro, Morrow, and
+        Forest Park drivers with the same philosophy we bring to everything: prove the problem first,
+        put the options in writing, and let you decide.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Transmission Services We Offer</h2>
+      <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          'Transmission diagnostics & code analysis',
+          'Fluid exchange & filter service',
+          'Solenoid & sensor replacement',
+          'Valve body repair',
+          'Clutch service (manual transmissions)',
+          'Transmission mount replacement',
+          'Cooler line & leak repair',
+          'Rebuild & replacement options'
+        ].map((item) => (
+          <li class="flex items-start gap-3 rounded-lg border border-mist/70 bg-paper px-4 py-3.5 font-semibold text-charcoal-900">
+            <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
+            {item}
+          </li>
+        ))}
+      </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Symptoms You Shouldn't Ignore</h2>
+      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
+        <li><strong class="text-charcoal-900">Slipping</strong> — RPMs climb but the car doesn't accelerate to match.</li>
+        <li><strong class="text-charcoal-900">Delayed engagement</strong> — a pause before Drive or Reverse takes hold.</li>
+        <li><strong class="text-charcoal-900">Hard or jerky shifts</strong> — clunks or shudders between gears.</li>
+        <li><strong class="text-charcoal-900">Burning odor</strong> — overheated fluid breaking down under stress.</li>
+        <li><strong class="text-charcoal-900">Red fluid on the driveway</strong> — a leak lowering fluid level and raising heat.</li>
+        <li><strong class="text-charcoal-900">Warning lights</strong> — transmission or check engine light with shifting symptoms.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Connected Care for Your Drivetrain</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Transmission symptoms often show up first as a
+        <a href="/check-engine-light-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">check engine light</a> —
+        our diagnostics tell you whether it's the transmission or something simpler. Routine
+        <a href="/oil-change-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">oil change visits</a>
+        are also when we spot early leaks. Serving drivers from
+        <a href="/morrow-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Morrow</a> and
+        <a href="/forest-park-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Forest Park</a>
+        to every corner of Clayton County.
+      </p>
+    </div>
+  </section>
+
+  <ReviewSection title="Transmission Customers Say" />
+  <FAQSection title="Transmission Repair FAQs" faqs={faqs} />
+  <CTASection
+    title="Feeling a Slip or Shudder When You Shift?"
+    description="Get it diagnosed before heat does more damage. Honest findings, written options, and financing available for qualifying repairs."
+  />
+</BaseLayout>

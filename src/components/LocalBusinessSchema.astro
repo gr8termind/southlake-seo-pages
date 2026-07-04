@@ -1,0 +1,39 @@
+---
+import { SITE_URL, BUSINESS } from '../config';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'AutoRepair',
+  '@id': `${BUSINESS.mainSiteUrl}/#autorepair`,
+  name: BUSINESS.name,
+  url: BUSINESS.mainSiteUrl,
+  image: `${SITE_URL}${BUSINESS.ogImage}`,
+  logo: `${SITE_URL}${BUSINESS.logo}`,
+  telephone: '+1-770-961-8500',
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: BUSINESS.address.street,
+    addressLocality: BUSINESS.address.city,
+    addressRegion: BUSINESS.address.state,
+    postalCode: BUSINESS.address.zip,
+    addressCountry: 'US'
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: BUSINESS.geo.lat,
+    longitude: BUSINESS.geo.lng
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '17:30'
+    }
+  ],
+  areaServed: BUSINESS.serviceAreas.map((name) => ({ '@type': 'City', name: `${name}, GA` })),
+  sameAs: [BUSINESS.mainSiteUrl]
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

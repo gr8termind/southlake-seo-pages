@@ -1,0 +1,42 @@
+---
+import { SITE_URL } from '../config';
+import type { Crumb } from '../config';
+
+interface Props {
+  items: Crumb[];
+  dark?: boolean;
+}
+
+const { items, dark = false } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.name,
+    item: c.href === '/' ? `${SITE_URL}/` : `${SITE_URL}${c.href}`
+  }))
+};
+---
+<nav
+  aria-label="Breadcrumb"
+  class={`border-b ${dark ? 'bg-charcoal-950 border-charcoal-700 text-smoke' : 'bg-paper border-mist/60 text-charcoal-600'}`}
+>
+  <ol class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center gap-1.5 text-sm">
+    {items.map((c, i) => (
+      <li class="flex items-center gap-1.5">
+        {i > 0 && (
+          <svg class="h-3.5 w-3.5 opacity-50" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L10.94 10 7.23 6.29a.75.75 0 111.06-1.06l4.24 4.24a.75.75 0 010 1.06l-4.24 4.24a.75.75 0 01-1.08.02z" clip-rule="evenodd"/></svg>
+        )}
+        {i === items.length - 1 ? (
+          <span class={`font-semibold ${dark ? 'text-accent-400' : 'text-charcoal-900'}`} aria-current="page">{c.name}</span>
+        ) : (
+          <a href={c.href} class="hover:text-accent-600 transition-colors">{c.name}</a>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

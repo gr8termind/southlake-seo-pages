@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CTASection from '../components/CTASection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import ReviewSection from '../components/ReviewSection.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ServiceSchema from '../components/ServiceSchema.astro';
+import type { FAQ } from '../config';
+
+const path = '/auto-ac-repair-jonesboro-ga';
+const title = 'Auto AC Repair in Jonesboro, GA | Recharge & Leak Repair | Southlake Auto Care';
+const description =
+  'Car AC blowing warm in Jonesboro, GA? Southlake Auto Care finds and fixes AC leaks, compressors & electrical faults — not just a temporary recharge. Call (770) 961-8500.';
+
+const faqs: FAQ[] = [
+  {
+    q: 'Why is my car AC blowing warm air?',
+    a: 'The most common cause is low refrigerant from a leak, but warm air can also come from a failing compressor, a bad blend door actuator, a clogged condenser, or an electrical fault. We test the whole system so you get the real answer — a recharge alone won\u2019t fix a leak.'
+  },
+  {
+    q: 'How much does car AC repair cost?',
+    a: 'It ranges widely: a simple recharge with dye is on the affordable end, while a compressor or condenser replacement costs more. We diagnose first and give you a written estimate before any repair, so you can decide with real numbers in hand.'
+  },
+  {
+    q: 'Is it worth recharging AC without fixing the leak?',
+    a: 'Usually not. Refrigerant doesn\u2019t get "used up" — if it\u2019s low, it leaked out, and it will leak out again. We add UV dye during service to pinpoint leaks, then fix the source so your cold air lasts more than a few weeks.'
+  },
+  {
+    q: 'Why does my AC smell musty when I turn it on?',
+    a: 'That smell usually comes from mildew on the evaporator or a dirty cabin air filter. A cabin filter replacement and evaporator treatment typically clears it up — a quick, inexpensive fix we can do during any visit.'
+  },
+  {
+    q: 'Do you service both R-134a and R-1234yf systems?',
+    a: 'Yes. We service the R-134a systems in most vehicles on the road as well as the newer R-1234yf refrigerant used in many late-model cars, with the proper equipment for each.'
+  }
+];
+---
+<BaseLayout title={title} description={description} canonicalPath={path}>
+  <ServiceSchema
+    name="Auto AC Repair"
+    description="Automotive air conditioning diagnostics, leak repair, compressor replacement, and refrigerant recharge in Jonesboro, GA."
+    path={path}
+    serviceType="Auto Air Conditioning Repair"
+  />
+  <Breadcrumbs
+    items={[
+      { name: 'Home', href: '/' },
+      { name: 'Auto AC Repair in Jonesboro, GA', href: path }
+    ]}
+  />
+
+  <Hero
+    eyebrow="A/C & Climate Control · Jonesboro, GA"
+    title="Auto AC Repair in Jonesboro, GA"
+    description="Georgia summers are brutal, and a weak AC makes every commute worse. We diagnose the whole system — refrigerant, compressor, condenser, and electronics — and fix the actual cause of warm air."
+    primaryLabel="Schedule AC Service"
+  />
+
+  <section class="bg-white py-16 md:py-20 border-b border-mist/60">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">Cold Air That Lasts — Not a Two-Week Recharge</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
+        When July hits 95 degrees in Clayton County, "the AC kind of works" stops being livable.
+        Plenty of shops will sell you a refrigerant top-off and send you on your way — and three weeks
+        later you're warm again, because the refrigerant escaped through the same leak. Our approach is
+        different: pressure-test the system, trace the leak with UV dye and electronic detection, repair
+        the failed component, then recharge to the exact factory specification.
+      </p>
+      <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
+        The result is an AC system that blows cold in August traffic on I-75 — and keeps doing it next
+        summer too.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">AC Services We Perform</h2>
+      <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          'AC performance testing & diagnostics',
+          'Refrigerant leak detection & repair',
+          'Compressor replacement',
+          'Condenser & evaporator repair',
+          'Refrigerant evacuation & recharge',
+          'Blower motor & blend door repair',
+          'Cabin air filter replacement',
+          'Heater core & climate control service'
+        ].map((item) => (
+          <li class="flex items-start gap-3 rounded-lg border border-mist/70 bg-paper px-4 py-3.5 font-semibold text-charcoal-900">
+            <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
+            {item}
+          </li>
+        ))}
+      </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Signs Your AC Needs Attention</h2>
+      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
+        <li><strong class="text-charcoal-900">Warm or mildly-cool air</strong> — usually low refrigerant from a leak.</li>
+        <li><strong class="text-charcoal-900">AC works at highway speed but not at idle</strong> — often a weak compressor or condenser airflow issue.</li>
+        <li><strong class="text-charcoal-900">Clicking or grinding when the AC engages</strong> — compressor clutch or bearing trouble.</li>
+        <li><strong class="text-charcoal-900">Musty smell from the vents</strong> — evaporator mildew or an overdue cabin filter.</li>
+        <li><strong class="text-charcoal-900">Water on the passenger floorboard</strong> — a clogged evaporator drain.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">While You're Here</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Many drivers pair AC service with an <a href="/oil-change-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">oil change</a>
+        to knock out maintenance in one trip. If a dashboard warning came on alongside your AC trouble, our
+        <a href="/check-engine-light-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">diagnostics service</a>
+        can trace it. We keep cars cool for drivers in
+        <a href="/morrow-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Morrow</a>,
+        <a href="/forest-park-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Forest Park</a>,
+        and across Clayton County.
+      </p>
+    </div>
+  </section>
+
+  <ReviewSection title="AC Repair Customers Say" />
+  <FAQSection title="Auto AC Repair FAQs" faqs={faqs} />
+  <CTASection
+    title="Don't Sweat Another Georgia Summer"
+    description="Schedule AC service today and drive cold again — diagnosed properly, fixed at the source, and charged to factory spec."
+  />
+</BaseLayout>
