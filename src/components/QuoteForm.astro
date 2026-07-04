@@ -1,0 +1,73 @@
+---
+/**
+ * Shopmonkey quote-request form (third-party embed).
+ * Reusable across the site. The inline listener forwards Shopmonkey's
+ * postMessage events into window.dataLayer for GTM/analytics; it self-guards
+ * so multiple instances on one page attach only a single listener.
+ *
+ * Props:
+ *  - bare: render only the iframe (no section chrome) for use inside an
+ *    existing layout column.
+ *  - height: iframe height in px (default 760).
+ *  - title / intro: heading + lead copy shown in non-bare mode.
+ */
+interface Props {
+  bare?: boolean;
+  height?: number;
+  title?: string;
+  intro?: string;
+}
+
+const {
+  bare = false,
+  height = 760,
+  title = 'Request a Free Quote',
+  intro = "Tell us about your vehicle and what it needs. We'll get you a quote and get you on the schedule."
+} = Astro.props;
+
+const SRC = 'https://app.shopmonkey.cloud/public/quote-request/a442ef74-b32d-4b15-96f6-465870faa23f';
+---
+{bare ? (
+  <div class="overflow-hidden rounded-xl border border-mist/70 bg-white">
+    <iframe
+      src={SRC}
+      title="Request a quote from Southlake Auto Care"
+      width="100%"
+      height={height}
+      style={`width:100%;height:${height}px;border:0;display:block;`}
+      loading="lazy"
+    ></iframe>
+  </div>
+) : (
+  <section class="bg-white py-16 md:py-20 border-b border-mist/60">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">{title}</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">{intro}</p>
+      <div class="mt-8 overflow-hidden rounded-xl border border-mist/70 bg-white">
+        <iframe
+          src={SRC}
+          title="Request a quote from Southlake Auto Care"
+          width="100%"
+          height={height}
+          style={`width:100%;height:${height}px;border:0;display:block;`}
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+)}
+
+<script is:inline>
+  (function () {
+    if (window.__smQuoteListenerAttached) return;
+    window.__smQuoteListenerAttached = true;
+    window.addEventListener('message', function (e) {
+      if (e.origin !== 'https://app.shopmonkey.cloud') return;
+      if (e.data && e.data.source === 'sm_wrf' && e.data.dataLayer) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(e.data.dataLayer);
+      }
+    });
+  })();
+</script>

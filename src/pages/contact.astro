@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import QuoteForm from '../components/QuoteForm.astro';
 import { BUSINESS } from '../config';
 
 const path = '/contact';
 const title = 'Contact Southlake Auto Care | Jonesboro & Morrow, GA Auto Repair';
 const description =
-  'Contact Southlake Auto Care in Morrow, GA. Call (770) 961-8500, get directions, or send us a message. Serving Jonesboro, Morrow, Forest Park & Clayton County.';
+  'Contact Southlake Auto Care in Morrow, GA. Call (770) 961-8500, get directions, or request a quote online. Serving Jonesboro, Morrow, Forest Park & Clayton County.';
 
 const mapsDir = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
   `${BUSINESS.address.street} ${BUSINESS.address.city} ${BUSINESS.address.state} ${BUSINESS.address.zip}`
@@ -26,8 +27,8 @@ const mapsDir = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIC
       <h1 class="mt-2 text-4xl md:text-5xl font-extrabold tracking-tight">Contact Southlake Auto Care</h1>
       <div class="mt-5 h-1.5 w-24 bg-accent-500 rounded-full" aria-hidden="true"></div>
       <p class="mt-6 max-w-2xl text-lg text-mist leading-relaxed">
-        The fastest way to reach us is a quick call — we'll answer your questions, give you a ballpark,
-        and get you scheduled. Prefer to write? Send a message below and we'll get back to you.
+        The fastest way to reach us is a quick call — we'll answer your questions and get you scheduled.
+        Prefer to write? Use the quote request form and we'll get right back to you.
       </p>
       <div class="mt-8 flex flex-col sm:flex-row gap-4">
         <a href={BUSINESS.phoneHref} class="rounded-md bg-accent-500 px-8 py-4 text-center text-base font-bold text-charcoal-950 hover:bg-accent-400 transition-colors">
@@ -76,42 +77,12 @@ const mapsDir = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIC
       </div>
 
       <div>
-        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Send a Message</h2>
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Request a Quote</h2>
         <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
-        {/*
-          TODO: Wire this form to a handler before launch. Options that work on
-          Cloudflare Pages: a Pages Function at /functions/contact.js, a Formspree
-          endpoint (set action to your form URL), or your Base44 backend. Until
-          then the form posts nowhere — the phone number above is the live path.
-        */}
-        <form action="#" method="post" class="mt-6 space-y-4">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label for="name" class="block text-sm font-semibold text-charcoal-900">Name</label>
-              <input id="name" name="name" type="text" autocomplete="name" required class="mt-1.5 w-full rounded-md border border-mist bg-paper px-4 py-3 text-charcoal-900 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30" />
-            </div>
-            <div>
-              <label for="phone" class="block text-sm font-semibold text-charcoal-900">Phone</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" class="mt-1.5 w-full rounded-md border border-mist bg-paper px-4 py-3 text-charcoal-900 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30" />
-            </div>
-          </div>
-          <div>
-            <label for="email" class="block text-sm font-semibold text-charcoal-900">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" class="mt-1.5 w-full rounded-md border border-mist bg-paper px-4 py-3 text-charcoal-900 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30" />
-          </div>
-          <div>
-            <label for="vehicle" class="block text-sm font-semibold text-charcoal-900">Vehicle (year, make, model)</label>
-            <input id="vehicle" name="vehicle" type="text" placeholder="2018 Honda Accord" class="mt-1.5 w-full rounded-md border border-mist bg-paper px-4 py-3 text-charcoal-900 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30" />
-          </div>
-          <div>
-            <label for="message" class="block text-sm font-semibold text-charcoal-900">How can we help?</label>
-            <textarea id="message" name="message" rows="4" required class="mt-1.5 w-full rounded-md border border-mist bg-paper px-4 py-3 text-charcoal-900 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/30"></textarea>
-          </div>
-          <button type="submit" class="w-full rounded-md bg-accent-500 px-6 py-4 text-base font-bold text-charcoal-950 hover:bg-accent-400 transition-colors">
-            Send Message
-          </button>
-          <p class="text-sm text-charcoal-600">Prefer to talk now? Call <a href={BUSINESS.phoneHref} class="font-bold text-accent-700 hover:text-accent-600">{BUSINESS.phone}</a>.</p>
-        </form>
+        <p class="mt-4 text-charcoal-700">Send your vehicle details and we'll follow up quickly.</p>
+        <div class="mt-6">
+          <QuoteForm bare={true} height={780} />
+        </div>
       </div>
     </div>
   </section>
