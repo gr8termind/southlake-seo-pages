@@ -16,7 +16,7 @@ const mapsDir = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIC
 <BaseLayout title={title} description={description} canonicalPath={path}>
   <Breadcrumbs
     items={[
-      { name: 'Home', href: '/' },
+      { name: 'Home', href: BUSINESS.mainSiteUrl + '/' },
       { name: 'Contact', href: path }
     ]}
   />

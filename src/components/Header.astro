@@ -35,13 +35,13 @@ const more = [
 
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 md:h-20 items-center justify-between gap-4">
-      <a href="/" class="flex items-center gap-3 shrink-0" aria-label={`${BUSINESS.name} home`}>
+      <a href={BUSINESS.mainSiteUrl + '/'} class="flex items-center gap-3 shrink-0" aria-label={`${BUSINESS.name} home`}>
         <img src={BUSINESS.logo} alt={`${BUSINESS.name} logo`} width="150" height="79" class="h-10 md:h-12 w-auto" loading="eager" />
       </a>
 
       <!-- Desktop nav -->
       <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-paper" aria-label="Primary">
-        <a href="/" class="hover:text-accent-400 transition-colors">Home</a>
+        <a href={BUSINESS.mainSiteUrl + '/'} class="hover:text-accent-400 transition-colors">Home</a>
         <div class="relative group">
           <span class="inline-flex items-center gap-1 py-6 cursor-default">
             Services
@@ -101,7 +101,7 @@ const more = [
         </label>
         <nav class="hidden peer-checked:block absolute left-0 right-0 top-full bg-charcoal-900 border-b border-charcoal-700 shadow-2xl" aria-label="Mobile">
           <div class="px-4 py-4 space-y-1 text-paper font-semibold">
-            <a href="/" class="block rounded-md px-3 py-2.5 hover:bg-charcoal-800">Home</a>
+            <a href={BUSINESS.mainSiteUrl + '/'} class="block rounded-md px-3 py-2.5 hover:bg-charcoal-800">Home</a>
             <p class="px-3 pt-3 pb-1 text-xs uppercase tracking-widest text-accent-500">Services</p>
             {services.map((s) => (
               <a href={s.href} class="block rounded-md px-3 py-2.5 text-mist hover:bg-charcoal-800">{s.name}</a>

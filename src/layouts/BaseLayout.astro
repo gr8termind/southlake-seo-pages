@@ -14,7 +14,7 @@ interface Props {
 }
 
 const { title, description, canonicalPath, ogType = 'website' } = Astro.props;
-const canonical = canonicalPath === '/' ? SITE_URL : `${SITE_URL}${canonicalPath}`;
+const canonical = canonicalPath === '/' ? `${SITE_URL}/` : `${SITE_URL}${canonicalPath}`;
 const ogImage = `${SITE_URL}${BUSINESS.ogImage}`;
 ---
 <!doctype html>
