@@ -67,12 +67,7 @@ const googleReviewUrl = 'https://search.google.com/local/writereview?placeid=ChI
         </a>
       </div>
 
-      {/*
-        TODO: Wire this form to send to management before launch — a Cloudflare
-        Pages Function, Formspree endpoint, or your Base44 backend / email.
-        Until wired, the phone button above is the live path.
-      */}
-      <form action="#" method="post" class="mt-8 space-y-4">
+      <form id="feedback-form" class="mt-8 space-y-4">
         <input type="hidden" name="rating" id="feedback-rating" value="" />
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
@@ -91,6 +86,7 @@ const googleReviewUrl = 'https://search.google.com/local/writereview?placeid=ChI
         <button type="submit" class="w-full rounded-md bg-accent-500 px-6 py-4 text-base font-bold text-charcoal-950 hover:bg-accent-400 transition-colors">
           Send to Management
         </button>
+        <p id="feedback-status" class="hidden text-center text-sm font-semibold text-accent-700"></p>
       </form>
 
       <p class="mt-6 text-center text-sm text-charcoal-600">
@@ -145,6 +141,35 @@ const googleReviewUrl = 'https://search.google.com/local/writereview?placeid=ChI
           panelFeedback.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       });
+
+      // Send feedback to management via the visitor's email client.
+      var MGMT_EMAIL = 'southlakeautocare@outlook.com';
+      var form = document.getElementById('feedback-form');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (!form.reportValidity()) return;
+          var rating = (document.getElementById('feedback-rating') || {}).value || '';
+          var name = (form.querySelector('[name="name"]') || {}).value || '';
+          var contact = (form.querySelector('[name="contact"]') || {}).value || '';
+          var message = (form.querySelector('[name="message"]') || {}).value || '';
+          var subject = 'Website Feedback' + (rating ? ' (' + rating + ' star' + (rating === '1' ? '' : 's') + ')' : '') + ' — ' + name;
+          var body =
+            'Rating: ' + (rating || 'n/a') + ' / 5\n' +
+            'Name: ' + name + '\n' +
+            'Phone or Email: ' + contact + '\n\n' +
+            'Feedback:\n' + message + '\n';
+          window.location.href =
+            'mailto:' + MGMT_EMAIL +
+            '?subject=' + encodeURIComponent(subject) +
+            '&body=' + encodeURIComponent(body);
+          var status = document.getElementById('feedback-status');
+          if (status) {
+            status.textContent = 'Opening your email app to send this to our team. If nothing opens, please email ' + MGMT_EMAIL + '.';
+            status.classList.remove('hidden');
+          }
+        });
+      }
     })();
   </script>
 </BaseLayout>
