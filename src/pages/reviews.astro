@@ -53,6 +53,27 @@ const googleReviewsUrl = 'https://www.google.com/maps/place/?q=place_id:ChIJ0WEd
     </div>
   </section>
 
+  <!--
+    LIVE GOOGLE REVIEWS WIDGET
+    A live, rating-filtered Google reviews feed needs a third-party widget
+    service (they handle Google's API + display terms and offer a minimum-star
+    filter). Recommended free option: Featurable (featurable.com) — create a
+    widget for this Business Profile, set the minimum rating to 4 stars, then
+    paste its <div> + <script> embed inside the container below. Elfsight and
+    Trustindex work the same way. Individual Google reviews are whole-star, so
+    "4.5-5 only" = showing 4- and 5-star reviews; the 4.8 average shows as the
+    headline. The curated reviews below stay as a fallback until it's connected.
+  -->
+  <section class="bg-white py-14 md:py-16 border-b border-mist/60">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Live Google Reviews</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <div id="google-reviews-widget" class="mt-8">
+        {/* Paste the review-widget embed (Featurable / Elfsight / Trustindex) here. */}
+      </div>
+    </div>
+  </section>
+
   <section class="bg-paper py-16 md:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

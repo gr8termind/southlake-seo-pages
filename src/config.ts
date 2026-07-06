@@ -25,8 +25,8 @@ export const BUSINESS = {
   },
   geo: { lat: 33.5947, lng: -84.3396 },
   // Verify hours with the shop before launch
-  hoursText: 'Mon–Fri: 8:00 AM – 5:30 PM',
-  openingHours: 'Mo-Fr 08:00-17:30',
+  hoursText: 'Mon–Sat: 8:00 AM – 6:00 PM',
+  openingHours: 'Mo-Sa 08:00-18:00',
   serviceAreas: ['Jonesboro', 'Morrow', 'Forest Park', 'Riverdale', 'Lake City', 'Rex', 'Lovejoy', 'Hampton', 'Stockbridge', 'McDonough', 'Fayetteville'],
   logo: '/logo.png',
   ogImage: '/og-image.png'

@@ -6,16 +6,35 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { BUSINESS } from '../config';
 
 const path = '/financing';
-const title = 'Auto Repair Financing | Southlake Auto Care | Jonesboro & Morrow, GA';
+const title = 'Auto Repair Financing | Snap, Affirm & Sunbit | Southlake Auto Care';
 const description =
-  'Need to spread out the cost of a repair? Ask Southlake Auto Care in Morrow, GA about financing and payment options. Call (770) 961-8500 to learn more.';
+  'Spread out the cost of your repair at Southlake Auto Care in Morrow, GA. We offer financing through Snap Finance, Affirm, and Sunbit. Apply online or call (770) 961-8500.';
 
-{/*
-  TODO: Replace the generic copy below with the shop's ACTUAL financing partner(s)
-  and terms (e.g. Sunbit, Snap Finance, Synchrony Car Care, DigniFi) once confirmed.
-  Do NOT publish specific APRs, approval amounts, or "0% for X months" claims unless
-  they are real and current — inaccurate financing terms can create compliance issues.
-*/}
+// Financing partners. Drop official logo assets (from each lender's merchant /
+// partner portal) into /public/logos/ and set `logo` to the path to display them.
+const lenders = [
+  {
+    name: 'Snap Finance',
+    url: 'https://snapfinance.com',
+    accent: '#00b3a4',
+    logo: '', // e.g. '/logos/snap-finance.svg'
+    blurb: 'Flexible lease-to-own and financing — no credit needed to apply, with a quick decision.'
+  },
+  {
+    name: 'Affirm',
+    url: 'https://www.affirm.com',
+    accent: '#4a4af4',
+    logo: '',
+    blurb: 'Pay over time in simple, transparent monthly payments — see what you qualify for with no impact to explore.'
+  },
+  {
+    name: 'Sunbit',
+    url: 'https://sunbit.com',
+    accent: '#ff5a3c',
+    logo: '',
+    blurb: 'Fast, no-fee-to-apply financing you can complete in seconds, right at the shop counter.'
+  }
+];
 ---
 <BaseLayout title={title} description={description} canonicalPath={path}>
   <Breadcrumbs
@@ -28,40 +47,50 @@ const description =
   <Hero
     eyebrow="Financing & Payment Options"
     title="Repairs Now, Pay Over Time"
-    description="A car problem rarely picks a convenient moment. If a repair lands at the wrong time, ask us about financing and payment options that can help you get safely back on the road without draining your budget."
+    description="A car problem rarely picks a convenient moment. Get safely back on the road today and pay over time — we offer financing through Snap Finance, Affirm, and Sunbit."
     primaryLabel="Ask About Financing"
   />
 
   <section class="bg-white py-16 md:py-20 border-b border-mist/60">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">Options That Keep You Moving</h2>
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">Our Financing Partners</h2>
       <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
       <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
-        Safe, reliable transportation shouldn't have to wait for payday. For qualifying customers, we
-        can point you toward financing that lets you break a larger repair into manageable payments.
-        The best way to find out what you qualify for is a quick conversation — call us and we'll walk
-        you through what's available.
+        Apply with any of our trusted partners below. Approval, rates, and terms are determined by the
+        lender — applying is quick, and we're happy to help you get started at the shop.
       </p>
 
-      <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-5">
-        {[
-          { h: 'Apply in Minutes', p: 'Quick, low-pressure application process — often with a fast decision.' },
-          { h: 'Flexible Terms', p: 'Break the cost of qualifying repairs into payments that fit your budget.' },
-          { h: 'No Surprises', p: "We'll explain the repair and your options before any work begins." }
-        ].map((o) => (
-          <div class="rounded-xl border border-mist/70 bg-paper p-6">
-            <h3 class="text-lg font-bold text-charcoal-900">{o.h}</h3>
-            <p class="mt-2 text-charcoal-700 text-[15px] leading-relaxed">{o.p}</p>
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+        {lenders.map((l) => (
+          <div class="flex flex-col rounded-xl border border-mist/70 bg-paper p-7">
+            <div class="flex h-16 items-center">
+              {l.logo ? (
+                <img src={l.logo} alt={`${l.name} logo`} class="h-10 w-auto" loading="lazy" />
+              ) : (
+                <span class="text-2xl font-extrabold tracking-tight" style={`color:${l.accent}`}>{l.name}</span>
+              )}
+            </div>
+            <p class="mt-3 text-charcoal-700 leading-relaxed flex-1">{l.blurb}</p>
+            {/* External third-party site — opens in a new tab intentionally */}
+            <a
+              href={l.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-6 inline-flex items-center justify-center gap-2 rounded-md bg-charcoal-950 px-5 py-3 text-sm font-bold text-paper hover:bg-charcoal-800 transition-colors"
+            >
+              Apply with {l.name}
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M12.5 3h4.5v4.5h-1.5V5.56l-6.47 6.47-1.06-1.06L14.44 4.5H12.5V3z"/><path d="M15.5 15.5h-11v-11H10V3H3v14h14v-7h-1.5v5.5z"/></svg>
+            </a>
           </div>
         ))}
       </div>
 
       <div class="mt-10 rounded-xl border-l-4 border-accent-500 bg-paper p-6">
         <p class="text-charcoal-700 leading-relaxed">
-          Financing is offered through third-party lenders and subject to their approval and terms.
-          Call <a href={BUSINESS.phoneHref} class="font-bold text-accent-700 hover:text-accent-600">{BUSINESS.phone}</a>
-          or <a href="/contact" class="font-bold text-accent-700 hover:text-accent-600">contact us</a> to learn
-          which options are currently available and whether they're a fit for your situation.
+          Financing is provided by third-party lenders and is subject to their approval and terms.
+          Not sure which option fits? Call
+          <a href={BUSINESS.phoneHref} class="font-bold text-accent-700 hover:text-accent-600">{BUSINESS.phone}</a>
+          or <a href="/contact" class="font-bold text-accent-700 hover:text-accent-600">contact us</a> and we'll walk you through it.
         </p>
       </div>
     </div>

@@ -27,9 +27,9 @@ const schema = {
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       opens: '08:00',
-      closes: '17:30'
+      closes: '18:00'
     }
   ],
   areaServed: BUSINESS.serviceAreas.map((name) => ({ '@type': 'City', name: `${name}, GA` })),
