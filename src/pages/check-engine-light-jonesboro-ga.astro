@@ -6,6 +6,7 @@ import FAQSection from '../components/FAQSection.astro';
 import ReviewSection from '../components/ReviewSection.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import { BUSINESS } from '../config';
 import type { FAQ } from '../config';
 
@@ -128,6 +129,7 @@ const faqs: FAQ[] = [
 
   <ReviewSection title="Diagnostic Customers Say" />
   <FAQSection title="Check Engine Light FAQs" faqs={faqs} />
+  <RelatedLinks excludeService="check-engine-light-jonesboro-ga" />
   <CTASection
     title="Is Your Check Engine Light On Right Now?"
     description="Don't guess and don't ignore it. Schedule a professional diagnostic and get a straight answer about what your car actually needs."

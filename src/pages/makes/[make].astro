@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import CTASection from '../../components/CTASection.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import ServiceSchema from '../../components/ServiceSchema.astro';
+import { BUSINESS } from '../../config';
+import { MAKES } from '../../data/makes';
+
+export function getStaticPaths() {
+  return MAKES.map((m) => ({ params: { make: m.slug }, props: { m } }));
+}
+
+const { m } = Astro.props;
+const path = `/makes/${m.slug}`;
+---
+<BaseLayout title={m.title} description={m.description} canonicalPath={path}>
+  <ServiceSchema name={`${m.make} Repair`} description={m.description} path={path} serviceType={`${m.make} Repair`} />
+  <Breadcrumbs items={[
+    { name: 'Home', href: BUSINESS.mainSiteUrl + '/' },
+    { name: 'Makes We Service', href: '/makes' },
+    { name: m.make, href: path }
+  ]} />
+  <Hero eyebrow={`${m.make} Service`} title={`${m.make} Repair &amp; Maintenance`} description={m.hero} />
+
+  <section class="bg-white py-16 md:py-20 border-b border-mist/60">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-extrabold tracking-tight text-charcoal-900">What We Handle on {m.make} Vehicles</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">{m.common}</p>
+      {m.models && m.models.length > 0 && (
+        <>
+          <h3 class="mt-10 text-xl font-bold text-charcoal-900">{m.make} Models We Regularly Service</h3>
+          <ul class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2 text-charcoal-700">
+            {m.models.map((mod) => <li>&middot; {mod}</li>)}
+          </ul>
+        </>
+      )}
+    </div>
+  </section>
+
+  {m.faqs && m.faqs.length > 0 && <FAQSection title={`${m.make} Repair FAQs`} faqs={m.faqs} />}
+  <RelatedLinks />
+  <CTASection title={`Book Your ${m.make} Service`} description="Schedule online or call — we'll get you in and out with honest work." />
+</BaseLayout>

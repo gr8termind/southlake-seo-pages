@@ -15,17 +15,27 @@ const company = [
   { name: 'About', href: '/about' },
   { name: 'Reviews', href: '/reviews' },
   { name: 'Specials', href: '/specials' },
+  { name: 'Coupons', href: '/coupons' },
   { name: 'Financing', href: '/financing' },
   { name: 'FAQ', href: '/faq' },
+  { name: 'Blog', href: '/blog' },
   { name: 'Contact', href: '/contact' },
   { name: 'Schedule Service', href: '/schedule-service' }
+];
+
+// SEO/utility hubs.
+const resources = [
+  { name: 'Car Diagnostic Tool', href: '/car-diagnostic' },
+  { name: 'Vehicle Symptoms', href: '/symptoms' },
+  { name: 'Makes We Service', href: '/makes' },
+  { name: 'Maintenance Packages', href: '/maintenance-packages' }
 ];
 ---
 <footer class="bg-charcoal-950 text-mist">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
       <div class="sm:col-span-2 lg:col-span-1">
-        <img src={BUSINESS.logo} alt={`${BUSINESS.name} logo`} width="150" height="79" class="h-12 w-auto mb-4" loading="lazy" />
+        <img src={BUSINESS.logo} alt={`${BUSINESS.name} — auto repair in Jonesboro & Morrow, GA`} title={BUSINESS.name} width="150" height="79" decoding="async" class="h-12 w-auto mb-4" loading="lazy" />
         <p class="text-sm leading-relaxed text-smoke">
           {BUSINESS.name} is a full-service auto repair shop serving Jonesboro, Morrow,
           Forest Park, and all of Clayton County, GA. Honest diagnostics, quality parts,
@@ -77,6 +87,12 @@ const company = [
         <ul class="space-y-2.5 text-sm">
           {company.map((c) => (
             <li><a href={c.href} class="hover:text-accent-400 transition-colors">{c.name}</a></li>
+          ))}
+        </ul>
+        <h2 class="text-sm font-bold uppercase tracking-widest text-accent-500 mt-6 mb-4">Resources</h2>
+        <ul class="space-y-2.5 text-sm">
+          {resources.map((r) => (
+            <li><a href={r.href} class="hover:text-accent-400 transition-colors">{r.name}</a></li>
           ))}
         </ul>
       </nav>

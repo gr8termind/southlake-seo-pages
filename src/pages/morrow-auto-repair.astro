@@ -6,6 +6,7 @@ import CTASection from '../components/CTASection.astro';
 import FAQSection from '../components/FAQSection.astro';
 import ReviewSection from '../components/ReviewSection.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import { BUSINESS } from '../config';
 import type { FAQ } from '../config';
 
@@ -123,6 +124,10 @@ const faqs: FAQ[] = [
 
   <ReviewSection title="What Morrow Drivers Say" />
   <FAQSection title="Morrow Auto Repair FAQs" faqs={faqs} />
+  <RelatedLinks
+    cityContext="Morrow"
+    cities={[{ name: "Jonesboro", href: "/jonesboro-auto-repair" }, { name: "Forest Park", href: "/forest-park-auto-repair" }, { name: "Lake City", href: "/lake-city-auto-repair" }, { name: "Riverdale", href: "/riverdale-auto-repair" }]}
+  />
   <CTASection
     title="Morrow: Your Shop Is 10 Minutes Away"
     description={`Schedule online or call ${BUSINESS.phone} — early drop-off available for commuters, and honest answers guaranteed for everyone.`}

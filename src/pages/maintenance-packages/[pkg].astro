@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import CTASection from '../../components/CTASection.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import ServiceSchema from '../../components/ServiceSchema.astro';
+import { BUSINESS } from '../../config';
+import { PACKAGES } from '../../data/packages';
+
+export function getStaticPaths() {
+  return PACKAGES.map((p) => ({ params: { pkg: p.slug }, props: { p } }));
+}
+const { p } = Astro.props;
+const path = `/maintenance-packages/${p.slug}`;
+---
+<BaseLayout title={p.title} description={p.description} canonicalPath={path}>
+  <ServiceSchema name={p.name} description={p.description} path={path} serviceType={p.name} />
+  <Breadcrumbs items={[
+    { name: 'Home', href: BUSINESS.mainSiteUrl + '/' },
+    { name: 'Maintenance Packages', href: '/maintenance-packages' },
+    { name: p.name, href: path }
+  ]} />
+  <Hero eyebrow="Maintenance Package" title={p.name} description={p.hero} />
+  <section class="bg-white py-16 md:py-20 border-b border-mist/60">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">What's Included</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <ul class="mt-6 space-y-3 text-lg text-charcoal-700">
+        {p.includes.map((i) => <li>&middot; {i}</li>)}
+      </ul>
+      <p class="mt-8 text-lg text-charcoal-700 leading-relaxed">{p.benefits}</p>
+      {p.price && <p class="mt-4 text-lg font-bold text-charcoal-900">Starting at {p.price}</p>}
+    </div>
+  </section>
+  {p.faqs && p.faqs.length > 0 && <FAQSection title={`${p.name} FAQs`} faqs={p.faqs} />}
+  <RelatedLinks />
+  <CTASection title={`Schedule Your ${p.name}`} description="Book online or call to get on the schedule." />
+</BaseLayout>

@@ -1,0 +1,53 @@
+---
+import { SITE_URL, BUSINESS } from '../config';
+
+// Site-wide entity + search + contact schema. Rendered once per page from
+// BaseLayout — pairs with LocalBusinessSchema (AutoRepair) for full coverage.
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${SITE_URL}/#organization`,
+  name: BUSINESS.name,
+  url: SITE_URL,
+  logo: `${SITE_URL}${BUSINESS.logo}`,
+  sameAs: [BUSINESS.mainSiteUrl],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: BUSINESS.address.street,
+    addressLocality: BUSINESS.address.city,
+    addressRegion: BUSINESS.address.state,
+    postalCode: BUSINESS.address.zip,
+    addressCountry: 'US'
+  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      telephone: BUSINESS.phoneHref.replace('tel:', ''),
+      contactType: 'customer service',
+      areaServed: 'US-GA',
+      availableLanguage: ['English'],
+      contactOption: 'TollFree'
+    }
+  ]
+};
+
+const website = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE_URL}/#website`,
+  url: SITE_URL,
+  name: BUSINESS.siteTitle,
+  publisher: { '@id': `${SITE_URL}/#organization` },
+  inLanguage: 'en-US',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${SITE_URL}/faq?q={search_term_string}`
+    },
+    'query-input': 'required name=search_term_string'
+  }
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(organization)}></script>
+<script type="application/ld+json" set:html={JSON.stringify(website)}></script>

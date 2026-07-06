@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import CTASection from '../../components/CTASection.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { BUSINESS } from '../../config';
+import { MAKES } from '../../data/makes';
+
+const path = '/makes';
+const title = 'Makes We Service | Southlake Auto Care | Jonesboro & Morrow, GA';
+const description = 'From Toyota and Honda to Ford, Chevy, and beyond — Southlake Auto Care services all major makes in the Jonesboro & Morrow, GA area. Call (770) 961-8500.';
+---
+<BaseLayout title={title} description={description} canonicalPath={path}>
+  <Breadcrumbs items={[
+    { name: 'Home', href: BUSINESS.mainSiteUrl + '/' },
+    { name: 'Makes We Service', href: path }
+  ]} />
+  <Hero eyebrow="Makes We Service" title="Every Major Make, One Trusted Shop" description="Domestic, Asian, or European — our technicians are trained to service the vehicles Clayton and Henry County drivers rely on." />
+
+  <section class="bg-white py-16 md:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      {MAKES.length === 0 ? (
+        <p class="text-lg text-charcoal-700 leading-relaxed">
+          Our make-specific service pages are being added. In the meantime, we service all major
+          domestic and import vehicles. Give us a call at
+          <a href={BUSINESS.phoneHref} class="font-bold text-accent-700 hover:text-accent-600"> {BUSINESS.phone}</a>
+          to ask about your specific make and model.
+        </p>
+      ) : (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {MAKES.map((m) => (
+            <a href={`/makes/${m.slug}`} class="rounded-xl border border-mist/70 bg-paper p-6 hover:border-accent-500 hover:shadow-sm transition-all">
+              <h2 class="text-xl font-bold text-charcoal-900">{m.make}</h2>
+              <p class="mt-2 text-sm text-charcoal-700 leading-relaxed">{m.description.split('.')[0]}.</p>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <RelatedLinks />
+  <CTASection title="Not Seeing Your Make?" description={`Call ${BUSINESS.phone} — we service most vehicles on the road.`} />
+</BaseLayout>

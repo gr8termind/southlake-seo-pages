@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import CTASection from '../../components/CTASection.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { SITE_URL, BUSINESS } from '../../config';
+import { POSTS } from '../../data/posts';
+
+export function getStaticPaths() {
+  return POSTS.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+}
+const { p } = Astro.props;
+const path = `/blog/${p.slug}`;
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: p.headline,
+  description: p.description,
+  datePublished: p.publishedISO,
+  ...(p.updatedISO && { dateModified: p.updatedISO }),
+  author: { '@type': 'Organization', name: p.author },
+  publisher: { '@id': `${SITE_URL}/#organization` },
+  mainEntityOfPage: `${SITE_URL}${path}`
+};
+---
+<BaseLayout title={p.title} description={p.description} canonicalPath={path} ogType="article">
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <Breadcrumbs items={[
+    { name: 'Home', href: BUSINESS.mainSiteUrl + '/' },
+    { name: 'Blog', href: '/blog' },
+    { name: p.headline, href: path }
+  ]} />
+  <article class="bg-white py-14 md:py-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <p class="label text-accent-600">{p.category} &middot; {p.readMinutes} min read</p>
+      <h1 class="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-charcoal-900 leading-[1.1]">{p.headline}</h1>
+      <p class="mt-6 text-charcoal-600">By {p.author} &middot; <time datetime={p.publishedISO}>{new Date(p.publishedISO).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time></p>
+      <div class="mt-8 prose prose-lg max-w-none text-charcoal-800" set:html={p.body}></div>
+    </div>
+  </article>
+  {p.faqs && p.faqs.length > 0 && <FAQSection title="Related Questions" faqs={p.faqs} />}
+  <RelatedLinks />
+  <CTASection title="Need Help With Your Car?" description={`Call ${BUSINESS.phone} — real answers, no runaround.`} />
+</BaseLayout>

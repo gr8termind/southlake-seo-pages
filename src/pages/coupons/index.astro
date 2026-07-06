@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import CTASection from '../../components/CTASection.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { BUSINESS } from '../../config';
+import { COUPONS } from '../../data/coupons';
+
+const path = '/coupons';
+const title = 'Auto Repair Coupons | Southlake Auto Care | Jonesboro & Morrow, GA';
+const description = 'Save on brakes, oil changes, and more at Southlake Auto Care in Morrow, GA. Browse current coupons or call (770) 961-8500 to confirm this month\'s offers.';
+---
+<BaseLayout title={title} description={description} canonicalPath={path}>
+  <Breadcrumbs items={[
+    { name: 'Home', href: BUSINESS.mainSiteUrl + '/' },
+    { name: 'Coupons', href: path }
+  ]} />
+  <Hero eyebrow="Save on Service" title="Current Coupons &amp; Offers" description="Take advantage of this month's offers on maintenance and repair." />
+  <section class="bg-white py-16 md:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      {COUPONS.length === 0 ? (
+        <p class="text-lg text-charcoal-700 leading-relaxed">
+          Coupon pages are being added. In the meantime, see our <a href="/specials" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">current specials</a> or call <a href={BUSINESS.phoneHref} class="font-bold text-accent-700 hover:text-accent-600">{BUSINESS.phone}</a> to confirm this month's offers.
+        </p>
+      ) : (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {COUPONS.map((c) => (
+            <a href={`/coupons/${c.slug}`} class="rounded-xl border border-mist/70 bg-paper p-6 hover:border-accent-500 hover:shadow-sm transition-all">
+              <p class="label text-accent-600">Coupon</p>
+              <h2 class="mt-2 text-xl font-bold text-charcoal-900">{c.headline}</h2>
+              <p class="mt-2 text-charcoal-700 leading-relaxed">{c.offer}</p>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+  <RelatedLinks />
+  <CTASection title="Ready to Redeem?" description={`Schedule online or call ${BUSINESS.phone}.`} />
+</BaseLayout>

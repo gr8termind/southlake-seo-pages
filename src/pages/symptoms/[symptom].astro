@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import CTASection from '../../components/CTASection.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { BUSINESS } from '../../config';
+import { SYMPTOMS } from '../../data/symptoms';
+
+export function getStaticPaths() {
+  return SYMPTOMS.map((s) => ({ params: { symptom: s.slug }, props: { s } }));
+}
+const { s } = Astro.props;
+const path = `/symptoms/${s.slug}`;
+---
+<BaseLayout title={s.title} description={s.description} canonicalPath={path}>
+  <Breadcrumbs items={[
+    { name: 'Home', href: BUSINESS.mainSiteUrl + '/' },
+    { name: 'Vehicle Symptoms', href: '/symptoms' },
+    { name: s.symptom, href: path }
+  ]} />
+  <Hero eyebrow="Vehicle Symptom" title={s.symptom} description={s.hero} />
+
+  <section class="bg-white py-16 md:py-20 border-b border-mist/60">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Likely Causes</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <ul class="mt-6 space-y-3 text-lg text-charcoal-700">
+        {s.causes.map((c) => <li>&middot; {c}</li>)}
+      </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">What To Do</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">{s.whatToDo}</p>
+
+      <a href={s.service.href} class="mt-8 inline-flex items-center gap-2 rounded-md bg-accent-500 px-6 py-3 text-base font-bold text-charcoal-950 hover:bg-accent-400 transition-colors">
+        {s.service.label}
+      </a>
+    </div>
+  </section>
+
+  {s.faqs && s.faqs.length > 0 && <FAQSection title="Common Questions" faqs={s.faqs} />}
+  <RelatedLinks />
+  <CTASection title="Not Sure What It Is?" description={`Call ${BUSINESS.phone} — describe what you're seeing and we'll help you figure it out.`} />
+</BaseLayout>

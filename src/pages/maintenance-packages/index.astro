@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import CTASection from '../../components/CTASection.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { BUSINESS } from '../../config';
+import { PACKAGES } from '../../data/packages';
+
+const path = '/maintenance-packages';
+const title = 'Maintenance Packages | Southlake Auto Care | Jonesboro & Morrow, GA';
+const description = 'Preventative maintenance packages that protect your car and your wallet — 30k, 60k, 90k services and more from Southlake Auto Care. Call (770) 961-8500.';
+---
+<BaseLayout title={title} description={description} canonicalPath={path}>
+  <Breadcrumbs items={[
+    { name: 'Home', href: BUSINESS.mainSiteUrl + '/' },
+    { name: 'Maintenance Packages', href: path }
+  ]} />
+  <Hero eyebrow="Maintenance Packages" title="Preventative Service Bundles" description="Simple, honest maintenance packages that keep your vehicle reliable and hold its value." />
+  <section class="bg-white py-16 md:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      {PACKAGES.length === 0 ? (
+        <p class="text-lg text-charcoal-700 leading-relaxed">
+          Package pages are being added. In the meantime, call <a href={BUSINESS.phoneHref} class="font-bold text-accent-700 hover:text-accent-600">{BUSINESS.phone}</a> to ask about our current maintenance bundles for your vehicle.
+        </p>
+      ) : (
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {PACKAGES.map((p) => (
+            <a href={`/maintenance-packages/${p.slug}`} class="rounded-xl border border-mist/70 bg-paper p-6 hover:border-accent-500 hover:shadow-sm transition-all">
+              <h2 class="text-xl font-bold text-charcoal-900">{p.name}</h2>
+              <p class="mt-2 text-charcoal-700 leading-relaxed">{p.description.split('.')[0]}.</p>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+  <RelatedLinks />
+  <CTASection title="Not Sure Which Package?" description={`Call ${BUSINESS.phone} and we'll match your vehicle and mileage to the right service.`} />
+</BaseLayout>

@@ -7,6 +7,7 @@ import FAQSection from '../components/FAQSection.astro';
 import ReviewSection from '../components/ReviewSection.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import { BUSINESS } from '../config';
 import { LOCATIONS } from '../data/locations';
 import type { ServiceCard } from '../components/ServiceCards.astro';
@@ -85,6 +86,7 @@ const cards: ServiceCard[] = [
 
   <ReviewSection title={`What ${loc.city} Drivers Say`} />
   <FAQSection title={`${loc.city} Auto Repair FAQs`} faqs={loc.faqs} />
+  <RelatedLinks cities={loc.nearby} cityContext={loc.city} />
   <CTASection
     title={`${loc.city}: Trusted Auto Repair Is Close By`}
     description={`Schedule online or call ${BUSINESS.phone} for honest diagnostics and quality repairs at fair prices.`}

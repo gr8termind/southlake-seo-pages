@@ -4,6 +4,7 @@ import { SITE_URL, BUSINESS } from '../config';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import LocalBusinessSchema from '../components/LocalBusinessSchema.astro';
+import SiteSchema from '../components/SiteSchema.astro';
 
 interface Props {
   title: string;
@@ -11,11 +12,14 @@ interface Props {
   /** Path beginning with "/" — e.g. "/brake-repair-jonesboro-ga" */
   canonicalPath: string;
   ogType?: string;
+  /** Utility/thank-you pages that shouldn't rank */
+  noindex?: boolean;
 }
 
-const { title, description, canonicalPath, ogType = 'website' } = Astro.props;
-const canonical = canonicalPath === '/' ? `${SITE_URL}/` : `${SITE_URL}${canonicalPath}`;
+const { title, description, canonicalPath, ogType = 'website', noindex = false } = Astro.props;
+const canonical = canonicalPath === '/' ? SITE_URL : `${SITE_URL}${canonicalPath}`;
 const ogImage = `${SITE_URL}${BUSINESS.ogImage}`;
+const robots = noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large';
 ---
 <!doctype html>
 <html lang="en">
@@ -25,7 +29,7 @@ const ogImage = `${SITE_URL}${BUSINESS.ogImage}`;
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="robots" content={robots} />
     <meta name="theme-color" content="#111111" />
     <meta name="geo.region" content="US-GA" />
     <meta name="geo.placename" content="Jonesboro, Georgia" />
@@ -60,6 +64,7 @@ const ogImage = `${SITE_URL}${BUSINESS.ogImage}`;
     />
 
     <LocalBusinessSchema />
+    <SiteSchema />
   </head>
   <body class="min-h-screen flex flex-col bg-paper text-charcoal-900">
     <a

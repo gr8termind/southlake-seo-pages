@@ -16,7 +16,7 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      // There is no home page on this subdomain, so nothing to exclude at root.
+      filter: (page) => !page.includes('/leave-a-review'),
       changefreq: 'weekly',
       lastmod: new Date(),
       serialize(item) {

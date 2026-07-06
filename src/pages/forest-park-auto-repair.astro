@@ -6,6 +6,7 @@ import CTASection from '../components/CTASection.astro';
 import FAQSection from '../components/FAQSection.astro';
 import ReviewSection from '../components/ReviewSection.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import { BUSINESS } from '../config';
 import type { FAQ } from '../config';
 
@@ -123,6 +124,10 @@ const faqs: FAQ[] = [
 
   <ReviewSection title="What Forest Park Drivers Say" />
   <FAQSection title="Forest Park Auto Repair FAQs" faqs={faqs} />
+  <RelatedLinks
+    cityContext="Forest Park"
+    cities={[{ name: "Morrow", href: "/morrow-auto-repair" }, { name: "Jonesboro", href: "/jonesboro-auto-repair" }, { name: "Riverdale", href: "/riverdale-auto-repair" }, { name: "Lake City", href: "/lake-city-auto-repair" }]}
+  />
   <CTASection
     title="Forest Park: Honest Repair Is Down the Road"
     description={`Schedule online or call ${BUSINESS.phone}. Early drop-off available, and every repair starts with a written estimate you approve first.`}
