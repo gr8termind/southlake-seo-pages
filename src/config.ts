@@ -27,7 +27,7 @@ export const BUSINESS = {
   // Verify hours with the shop before launch
   hoursText: 'Mon–Fri: 8:00 AM – 5:30 PM',
   openingHours: 'Mo-Fr 08:00-17:30',
-  serviceAreas: ['Jonesboro', 'Morrow', 'Forest Park', 'Lake City', 'Rex', 'Clayton County'],
+  serviceAreas: ['Jonesboro', 'Morrow', 'Forest Park', 'Riverdale', 'Lake City', 'Rex', 'Lovejoy', 'Hampton', 'Stockbridge', 'McDonough', 'Fayetteville'],
   logo: '/logo.png',
   ogImage: '/og-image.png'
 } as const;

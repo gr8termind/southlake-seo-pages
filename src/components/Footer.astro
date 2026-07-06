@@ -10,11 +10,6 @@ const services = [
   { name: 'Transmission Repair', href: '/transmission-repair-jonesboro-ga' }
 ];
 
-const areas = [
-  { name: 'Morrow, GA', href: '/morrow-auto-repair' },
-  { name: 'Forest Park, GA', href: '/forest-park-auto-repair' }
-];
-
 // All company + conversion pages live on this subdomain.
 const company = [
   { name: 'About', href: '/about' },
@@ -56,11 +51,24 @@ const company = [
 
       <nav aria-label="Footer service areas">
         <h2 class="text-sm font-bold uppercase tracking-widest text-accent-500 mb-4">Areas We Serve</h2>
-        <ul class="space-y-2.5 text-sm">
-          {areas.map((a) => (
-            <li><a href={a.href} class="hover:text-accent-400 transition-colors">Auto Repair in {a.name}</a></li>
-          ))}
-          <li class="text-smoke">Jonesboro &middot; Lake City &middot; Rex &middot; Clayton County</li>
+        <p class="text-xs font-bold uppercase tracking-wider text-smoke mb-2">Clayton County</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/jonesboro-auto-repair" class="hover:text-accent-400 transition-colors">Jonesboro</a></li>
+          <li><a href="/morrow-auto-repair" class="hover:text-accent-400 transition-colors">Morrow</a></li>
+          <li><a href="/forest-park-auto-repair" class="hover:text-accent-400 transition-colors">Forest Park</a></li>
+          <li><a href="/riverdale-auto-repair" class="hover:text-accent-400 transition-colors">Riverdale</a></li>
+          <li><a href="/lake-city-auto-repair" class="hover:text-accent-400 transition-colors">Lake City</a></li>
+          <li><a href="/rex-auto-repair" class="hover:text-accent-400 transition-colors">Rex</a></li>
+          <li><a href="/lovejoy-auto-repair" class="hover:text-accent-400 transition-colors">Lovejoy</a></li>
+          <li><a href="/clayton-county-auto-repair" class="hover:text-accent-400 transition-colors">Clayton County</a></li>
+        </ul>
+        <p class="text-xs font-bold uppercase tracking-wider text-smoke mt-4 mb-2">Henry &amp; Fayette</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/stockbridge-auto-repair" class="hover:text-accent-400 transition-colors">Stockbridge</a></li>
+          <li><a href="/mcdonough-auto-repair" class="hover:text-accent-400 transition-colors">McDonough</a></li>
+          <li><a href="/hampton-auto-repair" class="hover:text-accent-400 transition-colors">Hampton</a></li>
+          <li><a href="/fayetteville-auto-repair" class="hover:text-accent-400 transition-colors">Fayetteville</a></li>
+          <li><a href="/henry-county-auto-repair" class="hover:text-accent-400 transition-colors">Henry County</a></li>
         </ul>
       </nav>
 

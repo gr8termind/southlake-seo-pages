@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import CTASection from '../components/CTASection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import ReviewSection from '../components/ReviewSection.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ServiceSchema from '../components/ServiceSchema.astro';
+import { BUSINESS } from '../config';
+import { LOCATIONS } from '../data/locations';
+import type { ServiceCard } from '../components/ServiceCards.astro';
+
+export function getStaticPaths() {
+  return LOCATIONS.map((loc) => ({
+    params: { location: loc.slug },
+    props: { loc }
+  }));
+}
+
+const { loc } = Astro.props;
+const path = `/${loc.slug}`;
+
+const cards: ServiceCard[] = [
+  { title: 'Brake Repair', description: `Free brake inspections and same-day pad and rotor service for ${loc.city} drivers.`, href: '/brake-repair-jonesboro-ga', icon: 'brake' },
+  { title: 'Oil Change', description: 'Fast, professional oil service with a real multi-point inspection every time.', href: '/oil-change-jonesboro-ga', icon: 'oil' },
+  { title: 'Check Engine Light', description: 'Professional diagnostics that find the cause, not just the code.', href: '/check-engine-light-jonesboro-ga', icon: 'engine' },
+  { title: 'Auto AC Repair', description: 'Leak detection and repair so your cold air survives the Georgia summer.', href: '/auto-ac-repair-jonesboro-ga', icon: 'ac' },
+  { title: 'Transmission Repair', description: 'From fluid service to full repair — honest options for slipping and hard shifts.', href: '/transmission-repair-jonesboro-ga', icon: 'transmission' },
+  { title: 'Scheduled Maintenance', description: 'Factory-schedule services that protect your warranty and your wallet.', href: '/schedule-service', icon: 'wrench' }
+];
+---
+<BaseLayout title={loc.title} description={loc.description} canonicalPath={path}>
+  <ServiceSchema
+    name={`Auto Repair in ${loc.city}, GA`}
+    description={loc.description}
+    path={path}
+    serviceType="Auto Repair"
+  />
+  <Breadcrumbs
+    items={[
+      { name: 'Home', href: BUSINESS.mainSiteUrl + '/' },
+      { name: 'Service Areas', href: '/services' },
+      { name: `Auto Repair in ${loc.city}`, href: path }
+    ]}
+  />
+
+  <Hero eyebrow={loc.heroEyebrow} title={loc.heroTitle} description={loc.heroDesc} />
+
+  <section class="bg-white py-16 md:py-20 border-b border-mist/60">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">{loc.introHeading}</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">{loc.intro}</p>
+      <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">{loc.local}</p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Why {loc.city} Drivers Choose Us</h2>
+      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
+        <li><strong class="text-charcoal-900">Honest diagnostics</strong> — we find the real problem and tell you the truth, even when it can wait.</li>
+        <li><strong class="text-charcoal-900">Upfront pricing</strong> — you approve a written estimate before any work begins.</li>
+        <li><strong class="text-charcoal-900">All makes and models</strong> — domestic, Asian, and European vehicles welcome.</li>
+        <li><strong class="text-charcoal-900">Financing available</strong> — qualifying repairs don't have to wait for payday.</li>
+      </ul>
+    </div>
+  </section>
+
+  <ServiceCards
+    eyebrow={`Services for ${loc.city}`}
+    title={`What We Fix for ${loc.city}, GA`}
+    intro={`Every service below is performed at our shop serving ${loc.city}. Tap any card for details and FAQs.`}
+    cards={cards}
+  />
+
+  <section class="bg-paper py-14 md:py-16 border-y border-mist/60">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Nearby Areas We Serve</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <div class="mt-6 flex flex-wrap gap-4">
+        {loc.nearby.map((n) => (
+          <a href={n.href} class="rounded-lg border border-mist/70 bg-white px-6 py-4 font-bold text-charcoal-900 hover:border-accent-500 hover:text-accent-700 transition-colors">Auto Repair in {n.name} &rarr;</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ReviewSection title={`What ${loc.city} Drivers Say`} />
+  <FAQSection title={`${loc.city} Auto Repair FAQs`} faqs={loc.faqs} />
+  <CTASection
+    title={`${loc.city}: Trusted Auto Repair Is Close By`}
+    description={`Schedule online or call ${BUSINESS.phone} for honest diagnostics and quality repairs at fair prices.`}
+  />
+</BaseLayout>
