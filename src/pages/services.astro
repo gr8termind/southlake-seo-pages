@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import CTASection from '../components/CTASection.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import type { ServiceCard } from '../components/ServiceCards.astro';
+import { BUSINESS } from '../config';
+
+const path = '/services';
+const title = 'Auto Repair Services | Southlake Auto Care | Jonesboro & Morrow, GA';
+const description =
+  'Explore auto repair services at Southlake Auto Care in Morrow, GA — brake repair, oil changes, check engine diagnostics, AC repair, transmission service, and maintenance for Clayton County drivers.';
+
+const services: ServiceCard[] = [
+  { title: 'Brake Repair', description: 'Pads, rotors, calipers, and brake diagnostics — stop safely with a free brake inspection.', href: '/brake-repair-jonesboro-ga', icon: 'brake' },
+  { title: 'Oil Changes', description: 'Full synthetic, blend, or conventional — with a multi-point inspection every time.', href: '/oil-change-jonesboro-ga', icon: 'oil' },
+  { title: 'Check Engine Light', description: 'Accurate computer diagnostics to find the real cause — not just clear the code.', href: '/check-engine-light-jonesboro-ga', icon: 'engine' },
+  { title: 'AC Repair', description: 'Beat the Georgia heat. Leak detection, recharge, and full AC system service.', href: '/auto-ac-repair-jonesboro-ga', icon: 'ac' },
+  { title: 'Transmission Service', description: 'From fluid service to full repair — honest options for slipping and hard shifts.', href: '/transmission-repair-jonesboro-ga', icon: 'transmission' },
+  { title: 'Maintenance & More', description: 'Factory-schedule maintenance, tune-ups, and the everyday repairs that keep you rolling.', href: '/schedule-service', icon: 'wrench' }
+];
+---
+<BaseLayout title={title} description={description} canonicalPath={path}>
+  <Breadcrumbs
+    items={[
+      { name: 'Home', href: BUSINESS.mainSiteUrl + '/' },
+      { name: 'Services', href: path }
+    ]}
+  />
+
+  <Hero
+    eyebrow="Auto Repair Services"
+    title="Full-Service Auto Repair in Jonesboro, GA"
+    description="From routine maintenance to complex diagnostics, Southlake Auto Care handles it all — cars, trucks, and SUVs, domestic and import. Pick a service below or schedule a visit."
+    primaryLabel="Schedule Service"
+  />
+
+  <ServiceCards
+    eyebrow="What We Do"
+    title="Choose a Service"
+    intro="Every job starts with an honest diagnosis and upfront pricing — you approve the work before we begin."
+    cards={services}
+  />
+
+  <section class="bg-paper py-16 md:py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Serving Jonesboro, Morrow & Forest Park</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
+        We're located at {BUSINESS.address.street} in {BUSINESS.address.city}, minutes from most of
+        Clayton County. See our dedicated pages for
+        <a href="/morrow-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Morrow</a> and
+        <a href="/forest-park-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Forest Park</a>,
+        or check our <a href="/faq" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">FAQ</a> for common questions.
+      </p>
+    </div>
+  </section>
+
+  <CTASection
+    title="Not Sure What You Need?"
+    description="Describe what's going on and we'll point you in the right direction. Schedule online or call today."
+  />
+</BaseLayout>
