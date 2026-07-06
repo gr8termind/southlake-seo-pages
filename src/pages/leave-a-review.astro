@@ -13,7 +13,7 @@ const googleReviewUrl = 'https://search.google.com/local/writereview?placeid=ChI
 <BaseLayout title={title} description={description} canonicalPath={path}>
   <section class="bg-charcoal-900 text-paper py-16 md:py-24">
     <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-xs font-bold uppercase tracking-widest text-accent-400">Your Feedback</p>
+      <p class="label text-accent-400">Your Feedback</p>
       <h1 class="mt-2 text-4xl md:text-5xl font-extrabold tracking-tight">How Was Your Visit?</h1>
       <div class="mx-auto mt-5 h-1.5 w-24 bg-accent-500 rounded-full" aria-hidden="true"></div>
       <p class="mt-6 text-lg text-mist">Tap a star to rate your experience at {BUSINESS.name}.</p>
@@ -142,31 +142,62 @@ const googleReviewUrl = 'https://search.google.com/local/writereview?placeid=ChI
         });
       });
 
-      // Send feedback to management via the visitor's email client.
+      // Send feedback to management. Preferred path: Formspree (server-side
+      // delivery to southlakeautocare@outlook.com, no mail app needed). Create a
+      // free form at formspree.io that delivers to that address, then paste its
+      // ID below. Until then, it falls back to opening the visitor's mail app.
       var MGMT_EMAIL = 'southlakeautocare@outlook.com';
+      var FORMSPREE_ID = 'YOUR_FORM_ID';
       var form = document.getElementById('feedback-form');
+      var status = document.getElementById('feedback-status');
+
+      function showStatus(msg) {
+        if (status) { status.textContent = msg; status.classList.remove('hidden'); }
+      }
+
+      function mailtoFallback(d) {
+        var subject = 'Website Feedback (' + d.rating + ' star' + (d.rating === '1' ? '' : 's') + ') — ' + d.name;
+        var body = 'Rating: ' + d.rating + ' / 5\n' +
+          'Name: ' + d.name + '\n' +
+          'Phone or Email: ' + d.contact + '\n\n' +
+          'Feedback:\n' + d.message + '\n';
+        window.location.href = 'mailto:' + MGMT_EMAIL +
+          '?subject=' + encodeURIComponent(subject) +
+          '&body=' + encodeURIComponent(body);
+        showStatus('Opening your email app to send this to our team. If nothing opens, email ' + MGMT_EMAIL + '.');
+      }
+
       if (form) {
         form.addEventListener('submit', function (e) {
           e.preventDefault();
           if (!form.reportValidity()) return;
-          var rating = (document.getElementById('feedback-rating') || {}).value || '';
-          var name = (form.querySelector('[name="name"]') || {}).value || '';
-          var contact = (form.querySelector('[name="contact"]') || {}).value || '';
-          var message = (form.querySelector('[name="message"]') || {}).value || '';
-          var subject = 'Website Feedback' + (rating ? ' (' + rating + ' star' + (rating === '1' ? '' : 's') + ')' : '') + ' — ' + name;
-          var body =
-            'Rating: ' + (rating || 'n/a') + ' / 5\n' +
-            'Name: ' + name + '\n' +
-            'Phone or Email: ' + contact + '\n\n' +
-            'Feedback:\n' + message + '\n';
-          window.location.href =
-            'mailto:' + MGMT_EMAIL +
-            '?subject=' + encodeURIComponent(subject) +
-            '&body=' + encodeURIComponent(body);
-          var status = document.getElementById('feedback-status');
-          if (status) {
-            status.textContent = 'Opening your email app to send this to our team. If nothing opens, please email ' + MGMT_EMAIL + '.';
-            status.classList.remove('hidden');
+          var rating = (document.getElementById('feedback-rating') || {}).value || 'n/a';
+          var d = {
+            rating: rating,
+            name: (form.querySelector('[name="name"]') || {}).value || '',
+            contact: (form.querySelector('[name="contact"]') || {}).value || '',
+            message: (form.querySelector('[name="message"]') || {}).value || '',
+            _subject: 'Website Feedback (' + rating + ' stars)'
+          };
+
+          if (FORMSPREE_ID && FORMSPREE_ID !== 'YOUR_FORM_ID') {
+            var btn = form.querySelector('button[type="submit"]');
+            if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+            fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+              method: 'POST',
+              headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+              body: JSON.stringify(d)
+            }).then(function (r) {
+              if (!r.ok) throw new Error('bad response');
+              form.reset();
+              showStatus('Thank you — your feedback was sent to our management team.');
+              if (btn) btn.textContent = 'Sent \u2713';
+            }).catch(function () {
+              if (btn) { btn.disabled = false; btn.textContent = 'Send to Management'; }
+              mailtoFallback(d);
+            });
+          } else {
+            mailtoFallback(d);
           }
         });
       }

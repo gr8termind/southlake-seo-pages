@@ -1,21 +1,38 @@
 @import "tailwindcss";
 
 @theme {
-  /* Southlake Auto Care brand tokens (sampled from live brand assets) */
-  --color-charcoal-950: #0b0b0a;
-  --color-charcoal-900: #111111;
-  --color-charcoal-800: #181817;
-  --color-charcoal-700: #232322;
-  --color-charcoal-600: #2e2e2d;
-  --color-accent-300: #a9cf67;
-  --color-accent-400: #96c24a;
-  --color-accent-500: #88b43c;
-  --color-accent-600: #749c31;
-  --color-accent-700: #5f8127;
-  --color-paper: #f6f6f3;
-  --color-mist: #d4d4d0;
-  --color-smoke: #a4a4a0;
+  /* Brand palette
+     Accent: lime green hsl(84 62% 49%) ≈ #84C023
+     Void:   near-black hsl(0 0% 6.7%) ≈ #111111 (dark sections)
+     Alloy:  hsl(0 0% 96.1%) #F5F5F5 (section backgrounds)
+     Muted:  gray hsl(0 0% 40%) ≈ #666
+     Destructive: red hsl(0 84.2% 60.2%) */
+
+  /* Void / dark neutral scale (charcoal-* kept as token names) */
+  --color-charcoal-950: #0d0d0d;
+  --color-charcoal-900: #111111; /* void */
+  --color-charcoal-800: #1f1f1f;
+  --color-charcoal-700: #2e2e2e;
+  --color-charcoal-600: #454545;
+
+  /* Accent — lime green ramp around #84C023 */
+  --color-accent-300: #a7d95f;
+  --color-accent-400: #94cd3f;
+  --color-accent-500: #84c023; /* primary accent */
+  --color-accent-600: #6ba01c;
+  --color-accent-700: #547e15;
+
+  /* Neutrals */
+  --color-paper: #f5f5f5;   /* alloy — section backgrounds */
+  --color-alloy: #f5f5f5;
+  --color-mist: #d9d9d9;    /* borders / hairlines */
+  --color-smoke: #a3a3a3;   /* muted text on dark */
+  --color-muted: #666666;   /* muted text on light */
+  --color-void: #111111;
+  --color-destructive: #ef4444;
+
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 html {
@@ -29,10 +46,21 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-paper);
+  background-color: #ffffff;
   color: var(--color-charcoal-900);
   -webkit-font-smoothing: antialiased;
 }
+
+/* Monospace "[ LABEL ]" tags — small technical eyebrow labels */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+.label::before { content: "[ "; }
+.label::after { content: " ]"; }
 
 /* FAQ accordion chevron */
 details[open] .faq-chevron { transform: rotate(180deg); }
