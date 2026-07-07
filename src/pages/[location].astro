@@ -55,6 +55,53 @@ const cards: ServiceCard[] = [
       <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">{loc.intro}</p>
       <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">{loc.local}</p>
 
+      {loc.neighborhoods && (
+        <>
+          <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Neighborhoods &amp; Areas We Serve in {loc.city}</h2>
+          <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+          <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">{loc.neighborhoods}</p>
+        </>
+      )}
+
+      {loc.commonWork && loc.commonWork.length > 0 && (
+        <>
+          <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">What {loc.city} Drivers Bring Us Most</h2>
+          <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+          <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-lg text-charcoal-700">
+            {loc.commonWork.map((w) => (
+              <li class="flex items-start gap-3 rounded-lg border border-mist/70 bg-paper px-4 py-3 font-semibold text-charcoal-900">
+                <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
+                <span class="text-base">{w}</span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      {loc.drivingPatterns && (
+        <>
+          <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">How {loc.city} Driving Affects Your Vehicle</h2>
+          <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+          <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">{loc.drivingPatterns}</p>
+        </>
+      )}
+
+      {loc.whyLocal && (
+        <>
+          <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Why {loc.city} Drivers Choose Us Over the Chains</h2>
+          <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+          <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">{loc.whyLocal}</p>
+        </>
+      )}
+
+      {loc.gettingHere && (
+        <>
+          <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Getting to the Shop from {loc.city}</h2>
+          <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+          <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">{loc.gettingHere}</p>
+        </>
+      )}
+
       <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Why {loc.city} Drivers Choose Us</h2>
       <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
         <li><strong class="text-charcoal-900">Honest diagnostics</strong> — we find the real problem and tell you the truth, even when it can wait.</li>

@@ -16,52 +16,22 @@ const description =
   'Looking for auto repair in Morrow, GA? Southlake Auto Care is right on Jonesboro Road — brakes, oil changes, diagnostics, AC & transmission service. Call (770) 961-8500.';
 
 const cards = [
-  {
-    title: 'Brake Repair',
-    description: 'Free brake inspections and same-day pad and rotor service for Morrow drivers.',
-    href: '/brake-repair-jonesboro-ga',
-    icon: 'brake'
-  },
-  {
-    title: 'Oil Change',
-    description: 'In-and-out oil service with a real multi-point inspection — perfect on a lunch break.',
-    href: '/oil-change-jonesboro-ga',
-    icon: 'oil'
-  },
-  {
-    title: 'Check Engine Light',
-    description: 'Professional diagnostics that find the cause, not just the code.',
-    href: '/check-engine-light-jonesboro-ga',
-    icon: 'engine'
-  },
-  {
-    title: 'Auto AC Repair',
-    description: 'Leak detection and repair so your cold air survives the Georgia summer.',
-    href: '/auto-ac-repair-jonesboro-ga',
-    icon: 'ac'
-  },
-  {
-    title: 'Transmission Repair',
-    description: 'From fluid service to full repair — honest options for slipping and hard shifts.',
-    href: '/transmission-repair-jonesboro-ga',
-    icon: 'transmission'
-  },
-  {
-    title: 'Scheduled Maintenance',
-    description: 'Factory-schedule services that protect your warranty and your wallet.',
-    href: '/schedule-service',
-    icon: 'wrench'
-  }
+  { title: 'Brake Repair',           description: 'Free brake inspections and same-day pad and rotor service for Morrow drivers.',                 href: '/brake-repair-jonesboro-ga',        icon: 'brake' },
+  { title: 'Oil Change',             description: 'In-and-out oil service with a real multi-point inspection — perfect on a lunch break.',          href: '/oil-change-jonesboro-ga',          icon: 'oil' },
+  { title: 'Check Engine Light',     description: 'Professional diagnostics that find the cause, not just the code.',                                 href: '/check-engine-light-jonesboro-ga',  icon: 'engine' },
+  { title: 'Auto AC Repair',         description: 'Leak detection and repair so your cold air survives the Georgia summer.',                          href: '/auto-ac-repair-jonesboro-ga',      icon: 'ac' },
+  { title: 'Transmission Repair',    description: 'From fluid service to full repair — honest options for slipping and hard shifts.',                href: '/transmission-repair-jonesboro-ga', icon: 'transmission' },
+  { title: 'Scheduled Maintenance',  description: 'Factory-schedule services that protect your warranty and your wallet.',                            href: '/schedule-service',                  icon: 'wrench' }
 ] as const;
 
 const faqs: FAQ[] = [
   {
     q: 'Where is Southlake Auto Care relative to Morrow?',
-    a: `We're at ${BUSINESS.address.street} in ${BUSINESS.address.city} — in the Southlake area near the mall corridor. From most Morrow neighborhoods, the shop is a 5–10 minute drive.`
+    a: `We're at ${BUSINESS.address.street} in ${BUSINESS.address.city} — in the Southlake area, right on Jonesboro Road near the mall corridor. From most Morrow neighborhoods, the shop is a 5–10 minute drive.`
   },
   {
     q: 'Can I drop my car off before work?',
-    a: 'Yes. Early drop-off is a popular option for Morrow commuters. Schedule online, leave the vehicle in the morning, and we\u2019ll call with the diagnosis and estimate before doing any work.'
+    a: 'Yes. Early drop-off is a popular option for Morrow commuters. Schedule online, leave the vehicle in the morning, and we\u2019ll call with the diagnosis and estimate before doing any work — most customers pick up on the way home.'
   },
   {
     q: 'Do you service commuter cars and work trucks?',
@@ -70,6 +40,18 @@ const faqs: FAQ[] = [
   {
     q: 'Is there somewhere to wait during my service?',
     a: 'For shorter services like oil changes you\u2019re welcome to wait at the shop, and the Southlake area\u2019s restaurants and stores are minutes away for longer repairs. We\u2019ll give you an honest time estimate up front either way.'
+  },
+  {
+    q: 'Do you help Morrow drivers pass Clayton County emissions?',
+    a: 'Yes. Clayton County requires emissions testing for most gasoline vehicles from 3 to 24 model years old. If your car won\u2019t pass or has a check engine light on, we diagnose the real cause, complete the repair, and verify readiness monitors have run before you re-test — so you don\u2019t waste a trip.'
+  },
+  {
+    q: 'What about Clayton State students and airport-area workers?',
+    a: 'A big part of our regular customer base is Clayton State students and staff, plus workers at Hartsfield-Jackson and the businesses along Highway 54. If your schedule is tight, tell us your window and we\u2019ll build the repair around it.'
+  },
+  {
+    q: 'Do you work on European vehicles?',
+    a: 'Yes. We stock the correct oils, filters, and diagnostic capability for European makes (BMW, Mercedes, Audi, VW, Volvo) and can match manufacturer specs without dealer prices.'
   }
 ];
 ---
@@ -89,29 +71,101 @@ const faqs: FAQ[] = [
 
   <section class="bg-white py-16 md:py-20 border-b border-mist/60">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">Morrow's Neighborhood Auto Shop</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">Morrow&rsquo;s Neighborhood Auto Shop</h2>
       <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
       <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
-        If you live or work in Morrow, you don't need to drive into Atlanta — or gamble on a chain —
+        If you live or work in Morrow, you don&rsquo;t need to drive into Atlanta &mdash; or gamble on a chain &mdash;
         to get quality auto repair. Our shop at {BUSINESS.address.street} is minutes from Southlake
-        Mall, Clayton State University, and the Highway 54 corridor. Whether it's a brake job before
+        Mall, Clayton State University, and the Highway 54 corridor. Whether it&rsquo;s a brake job before
         a road trip, a check engine light that appeared on your Mount Zion Road commute, or an AC that
-        gave up in the summer heat, we'll diagnose it honestly and fix it right.
+        gave up in the summer heat, we&rsquo;ll diagnose it honestly and fix it right.
       </p>
       <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
-        Morrow drivers deal with a specific mix of conditions: short trips around town, hard stops on
-        busy retail corridors, and hot idling in mall-area traffic. That pattern is tough on brakes,
-        batteries, and cooling systems — which is exactly why our inspections pay close attention to
-        all three at every visit.
+        Southlake Auto Care has been the go-to shop for Morrow drivers because we do the boring stuff
+        right. Correct oil for your engine. Manufacturer-spec filters. Written estimates before any work
+        begins. A real multi-point inspection every visit &mdash; not a rubber-stamped clipboard. It&rsquo;s the
+        kind of shop drivers around
+        <a href="/jonesboro-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> Jonesboro</a>,
+        <a href="/forest-park-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> Forest Park</a>,
+        <a href="/lake-city-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> Lake City</a>,
+        and
+        <a href="/riverdale-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> Riverdale</a>
+        recommend to friends and family.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Neighborhoods &amp; Areas We Serve in Morrow</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Our regular Morrow customers come from every corner of the city. The neighborhoods off Mount
+        Zion Road and Reynolds Road. The commuter communities near Highway 54 and the I-75 exits.
+        Students and staff at Clayton State University. Workers at the businesses around Southlake Mall
+        and the Southlake commercial corridor. Families in the older subdivisions near Lake Harbin Road,
+        and newer homes off Fielder Road. If you&rsquo;re anywhere in Morrow proper &mdash; or working nearby
+        at the airport, on Highway 54, or in the industrial park &mdash; we&rsquo;re a five-to-ten-minute drive.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">What Morrow Drivers Bring Us Most</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-lg text-charcoal-700">
+        {[
+          'Brake pad and rotor service after mall-corridor stop-and-go',
+          'Full synthetic oil changes with a manufacturer-spec filter',
+          'Check engine light diagnostics for Clayton County emissions',
+          'AC recharge and leak repair before Georgia summer',
+          'Transmission fluid service and shift-quality diagnostics',
+          'Battery, alternator, and starter testing for commuters',
+          'Cooling system and radiator repair',
+          'Tire rotation, alignment, and suspension inspection'
+        ].map((w) => (
+          <li class="flex items-start gap-3 rounded-lg border border-mist/70 bg-paper px-4 py-3 font-semibold text-charcoal-900">
+            <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
+            <span class="text-base">{w}</span>
+          </li>
+        ))}
+      </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">How Morrow Driving Affects Your Vehicle</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Morrow drivers deal with a specific mix of conditions, and each one wears on the vehicle in a
+        predictable way. Short trips around town &mdash; the Mount Zion errand run, the mall lap, the
+        university campus shuttle &mdash; never let the engine reach full operating temperature. That
+        builds moisture and fuel dilution in the oil and stresses the exhaust system. Hard stops on
+        busy retail corridors accelerate brake wear. And hot idling in mall-area traffic or at Highway
+        54 lights pushes cooling systems and AC compressors right at the edge of their capacity. It&rsquo;s
+        exactly why our inspections pay close attention to all three at every visit.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Why Morrow Drivers Choose Us Over the Chains</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        There&rsquo;s no shortage of quick-lube and chain-shop options in Morrow. The reason drivers keep
+        coming back to us is simple: we don&rsquo;t chase transactions, we build regulars. Every visit is
+        an honest diagnosis first, a written estimate second, and the work approved before we start.
+        We say &ldquo;this can wait&rdquo; when it can and &ldquo;this is safety-critical&rdquo; when it is &mdash; and we
+        put both in writing. That&rsquo;s why so many of our customers came from a friend&rsquo;s recommendation,
+        not from a promotion.
       </p>
 
       <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Why Morrow Drivers Choose Us</h2>
       <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
-        <li><strong class="text-charcoal-900">Genuinely local</strong> — we're in the Southlake area, not a distant call center brand.</li>
-        <li><strong class="text-charcoal-900">Diagnosis before dollars</strong> — you approve a written estimate before work begins.</li>
-        <li><strong class="text-charcoal-900">All makes and models</strong> — domestic, Asian, and European vehicles welcome.</li>
-        <li><strong class="text-charcoal-900">Financing available</strong> — qualifying repairs don't have to wait for payday.</li>
+        <li><strong class="text-charcoal-900">Genuinely local</strong> &mdash; we&rsquo;re in the Southlake area, not a distant call center brand.</li>
+        <li><strong class="text-charcoal-900">Diagnosis before dollars</strong> &mdash; you approve a written estimate before work begins.</li>
+        <li><strong class="text-charcoal-900">All makes and models</strong> &mdash; domestic, Asian, and European vehicles welcome.</li>
+        <li><strong class="text-charcoal-900">Financing available</strong> &mdash; qualifying repairs don&rsquo;t have to wait for payday.</li>
+        <li><strong class="text-charcoal-900">Same-day on most services</strong> &mdash; oil changes, brakes, and diagnostics usually in and out the same day.</li>
       </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Getting to the Shop from Morrow</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        We&rsquo;re at {BUSINESS.address.street} in {BUSINESS.address.city} &mdash; right on Jonesboro Road, near
+        Southlake Mall. From most Morrow neighborhoods, that&rsquo;s a 5&ndash;10 minute drive. From Highway 54,
+        take Jonesboro Road heading north. From I-75, take the Jonesboro Road exit south. From the Mount
+        Zion area, come down Reynolds Road or Highway 54 and the shop is on the west side of Jonesboro
+        Road as you approach Southlake. If you&rsquo;re not sure or need help arranging a tow, give us a call
+        and we&rsquo;ll walk you through it.
+      </p>
     </div>
   </section>
 

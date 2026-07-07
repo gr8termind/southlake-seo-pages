@@ -13,63 +13,45 @@ import type { FAQ } from '../config';
 const path = '/forest-park-auto-repair';
 const title = 'Auto Repair in Forest Park, GA | Southlake Auto Care | (770) 961-8500';
 const description =
-  'Trusted auto repair for Forest Park, GA drivers. Southlake Auto Care handles brakes, oil changes, engine diagnostics, AC & transmissions just down I-75. Call (770) 961-8500.';
+  'Auto repair for Forest Park, GA drivers. Southlake Auto Care handles brakes, oil changes, diagnostics, AC & transmissions a short drive up Jonesboro Road. Call (770) 961-8500.';
 
 const cards = [
-  {
-    title: 'Brake Repair',
-    description: 'Complete brake system service with free inspections and written estimates.',
-    href: '/brake-repair-jonesboro-ga',
-    icon: 'brake'
-  },
-  {
-    title: 'Oil Change',
-    description: 'Synthetic, blend, or conventional — every service includes a multi-point inspection.',
-    href: '/oil-change-jonesboro-ga',
-    icon: 'oil'
-  },
-  {
-    title: 'Check Engine Light',
-    description: 'Real diagnostics that trace the fault instead of throwing parts at it.',
-    href: '/check-engine-light-jonesboro-ga',
-    icon: 'engine'
-  },
-  {
-    title: 'Auto AC Repair',
-    description: 'Find the leak, fix the cause, recharge to spec — cold air that lasts.',
-    href: '/auto-ac-repair-jonesboro-ga',
-    icon: 'ac'
-  },
-  {
-    title: 'Transmission Repair',
-    description: 'Diagnostics, fluid service, and repair for slipping and hard shifting.',
-    href: '/transmission-repair-jonesboro-ga',
-    icon: 'transmission'
-  },
-  {
-    title: 'Fleet & Work Vehicles',
-    description: 'Keep work trucks and vans earning with dependable maintenance and fast turnaround.',
-    href: '/schedule-service',
-    icon: 'wrench'
-  }
+  { title: 'Brake Repair',          description: 'Free brake inspections and same-day pad and rotor service for Forest Park drivers.',            href: '/brake-repair-jonesboro-ga',        icon: 'brake' },
+  { title: 'Oil Change',            description: 'In-and-out oil service with a real multi-point inspection every time.',                          href: '/oil-change-jonesboro-ga',          icon: 'oil' },
+  { title: 'Check Engine Light',    description: 'Professional diagnostics that find the cause, not just the code.',                                 href: '/check-engine-light-jonesboro-ga',  icon: 'engine' },
+  { title: 'Auto AC Repair',        description: 'Leak detection and repair so your cold air survives the Georgia summer.',                          href: '/auto-ac-repair-jonesboro-ga',      icon: 'ac' },
+  { title: 'Transmission Repair',   description: 'From fluid service to full repair — honest options for slipping and hard shifts.',                href: '/transmission-repair-jonesboro-ga', icon: 'transmission' },
+  { title: 'Scheduled Maintenance', description: 'Factory-schedule services that protect your warranty and your wallet.',                            href: '/schedule-service',                  icon: 'wrench' }
 ] as const;
 
 const faqs: FAQ[] = [
   {
-    q: 'How far is Southlake Auto Care from Forest Park?',
-    a: `About a 10–12 minute drive for most of Forest Park — straight down I-75 South or Highway 41 to our shop at ${BUSINESS.address.street}, ${BUSINESS.address.city}, GA.`
+    q: 'How far is the shop from Forest Park?',
+    a: 'We\u2019re a short drive south down Jonesboro Road in the Southlake area of Morrow &mdash; typically 10&ndash;15 minutes from most of Forest Park.'
   },
   {
-    q: 'Do you work on high-mileage vehicles?',
-    a: 'All the time. Many Forest Park customers drive vehicles well past 100,000 miles, and our focus on honest prioritization matters most there: we\u2019ll tell you what\u2019s a safety item, what\u2019s a soon item, and what\u2019s not worth spending on for your vehicle\u2019s age and value.'
+    q: 'Do you serve airport-area workers?',
+    a: 'Yes. Plenty of our regulars work at Hartsfield-Jackson and along the airport corridor. Early drop-off works especially well for airport shifts &mdash; leave the car in the morning and we&rsquo;ll call with the diagnosis.'
   },
   {
-    q: 'Can you handle work trucks and delivery vans?',
-    a: 'Yes. With the logistics and industrial activity around Forest Park and Fort Gillem, we service plenty of work trucks and vans — brakes, suspension, cooling, and preventative maintenance that keeps downtime short.'
+    q: 'Do you help with Clayton County emissions?',
+    a: 'Yes. If your vehicle won\u2019t pass or has a check engine light on, we diagnose the real cause, complete the repair, and verify readiness monitors have run before you re-test &mdash; saving you the re-test fee.'
   },
   {
-    q: 'Do I need an appointment, or do you take walk-ins?',
-    a: 'Scheduling online guarantees your spot and the fastest turnaround, but we accommodate walk-ins whenever the bays allow — especially for urgent safety concerns like brakes.'
+    q: 'Can you work on higher-mileage vehicles?',
+    a: 'Absolutely. Older commuter cars and work vehicles are a big part of what we see. We build honest, prioritized repair plans so you can budget the safety-critical work first and plan the rest.'
+  },
+  {
+    q: 'Do you service work trucks and vans?',
+    a: 'Yes. Trades and small-business trucks are common visitors &mdash; we handle brakes, suspension, cooling, and the wear-item maintenance that keeps a work vehicle earning.'
+  },
+  {
+    q: 'What if my car isn\u2019t safe to drive to you?',
+    a: 'If you\u2019re near Forest Park and your vehicle isn\u2019t safe to drive, call us. We work with local towing companies and can help coordinate a drop-off to the shop.'
+  },
+  {
+    q: 'Do you offer financing on repairs?',
+    a: 'Yes. For qualifying customers, we offer financing through Snap Finance, Affirm, and Sunbit so a bigger repair doesn\u2019t have to wait. Ask us for details when we quote your job.'
   }
 ];
 ---
@@ -84,41 +66,108 @@ const faqs: FAQ[] = [
   <Hero
     eyebrow="Serving Forest Park, GA"
     title="Auto Repair in Forest Park, GA"
-    description="A short drive down I-75 gets Forest Park drivers a shop that diagnoses honestly, quotes in writing, and fixes it right the first time — from daily drivers to work trucks."
+    description="A quick trip down Jonesboro Road from Forest Park, Southlake Auto Care delivers honest diagnostics and quality repairs without the dealer markup — with commuter-friendly drop-off for airport workers and locals alike."
   />
 
   <section class="bg-white py-16 md:py-20 border-b border-mist/60">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">Worth the Short Drive from Forest Park</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">Trusted Repairs for Forest Park Drivers</h2>
       <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
       <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
-        Forest Park sits at one of the hardest-working crossroads in Georgia — I-75, I-285, Highway 41,
-        and some of the busiest freight corridors in the Southeast. Vehicles here work hard: commutes
-        into Atlanta, deliveries around the industrial parks, and family cars logging miles across
-        Clayton County. Southlake Auto Care, just down the road in the Southlake area, keeps them all
-        running with straightforward diagnostics and repairs done right.
+        Forest Park drivers have plenty of options between Interstate 75, Highway 42, and the shops
+        along Old Dixie Road. What&rsquo;s harder to find is a shop that just fixes what&rsquo;s actually
+        wrong &mdash; and tells you what isn&rsquo;t. That&rsquo;s where we come in. Our shop at
+        {BUSINESS.address.street} is a short drive south down Jonesboro Road, and drivers from every
+        corner of Forest Park know us for straight answers and fair pricing.
       </p>
       <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
-        Highway miles and heavy traffic wear vehicles in predictable ways — brakes fade sooner,
-        transmissions run hotter, and suspensions take a beating from stop-and-go. Our inspections are
-        built around exactly those wear patterns, so problems get caught before they leave you on the
-        shoulder of I-75.
+        We serve a lot of Forest Park regulars &mdash; workers at Hartsfield-Jackson and the freight
+        corridors along the airport, families in the older neighborhoods off Ash Street and West Street,
+        commuters from the newer subdivisions south of Highway 138. Whichever side of town you&rsquo;re on,
+        the shop is roughly 10&ndash;15 minutes away.
       </p>
 
-      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">What Forest Park Drivers Can Expect</h2>
-      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
-        <li><strong class="text-charcoal-900">Straight answers</strong> — we show you the worn part and explain the fix in plain English.</li>
-        <li><strong class="text-charcoal-900">Written estimates first</strong> — the price you approve is the price you pay.</li>
-        <li><strong class="text-charcoal-900">High-mileage expertise</strong> — smart prioritization for vehicles past 100k miles.</li>
-        <li><strong class="text-charcoal-900">Work-vehicle friendly</strong> — fast turnaround for trucks and vans that earn their keep.</li>
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Neighborhoods &amp; Areas We Serve in Forest Park</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Our Forest Park customer base spans the whole city. The historic residential streets around Main
+        Street and Ash Street. The neighborhoods off Old Dixie Highway and Highway 41. Businesses and
+        workers along the Fort Gillem redevelopment corridor and the freight terminals near the airport.
+        Families along the Highway 138 corridor and the newer developments toward Lake City. Wherever
+        you&rsquo;re coming from, the shop is a straight shot down Jonesboro Road &mdash; and drop-off before
+        an early Hartsfield-Jackson shift is one of our most common request types.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">What Forest Park Drivers Bring Us Most</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-lg text-charcoal-700">
+        {[
+          'Brake pad and rotor service after I-75 and airport-corridor commutes',
+          'Full synthetic oil changes with a manufacturer-spec filter',
+          'Check engine light diagnostics for Clayton County emissions',
+          'AC recharge, leak repair, and full A/C system service',
+          'Transmission diagnostics and shift-quality issues on high-mileage vehicles',
+          'Battery, alternator, and starter testing for commuters and airport workers',
+          'Cooling system, radiator, and heater core service',
+          'Suspension, alignment, and tire rotation'
+        ].map((w) => (
+          <li class="flex items-start gap-3 rounded-lg border border-mist/70 bg-paper px-4 py-3 font-semibold text-charcoal-900">
+            <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
+            <span class="text-base">{w}</span>
+          </li>
+        ))}
       </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">How Forest Park Driving Affects Your Vehicle</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Forest Park driving is unusually hard on cars for a couple of specific reasons. Heavy commuter
+        and airport-corridor traffic on I-75, Highway 138, and Old Dixie means lots of stop-and-go &mdash;
+        which wears brakes and transmissions faster than the mileage suggests. Long airport shifts often
+        mean cars sit for days at a time, which can develop light rotor rust and hurt battery health.
+        And highway commutes into Atlanta rack up the wear items that only a real inspection catches
+        early: tires, alignment, suspension, and cooling. Our multi-point inspection is designed to catch
+        exactly those issues before they leave you stranded.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Why Forest Park Drivers Choose Us Over the Chains</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Chain shops along I-75 and Highway 42 run steady promotions, and their inspection sheets almost
+        always find something. Forest Park drivers come to us because we do the opposite: honest inspection,
+        no pressure, and a written estimate you approve before we start. If something can wait a few
+        thousand miles, we say so &mdash; and put it on your invoice for next time. If it&rsquo;s safety-critical,
+        we explain why in plain English. That&rsquo;s the whole difference, and it&rsquo;s why so many of our
+        Forest Park regulars started coming after a friend&rsquo;s recommendation.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Why Forest Park Drivers Choose Us</h2>
+      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
+        <li><strong class="text-charcoal-900">Genuinely local</strong> &mdash; not a chain, not a call center brand.</li>
+        <li><strong class="text-charcoal-900">Diagnosis before dollars</strong> &mdash; you approve a written estimate before work begins.</li>
+        <li><strong class="text-charcoal-900">Airport-friendly hours</strong> &mdash; early drop-off works well for Hartsfield-Jackson shifts.</li>
+        <li><strong class="text-charcoal-900">All makes and models</strong> &mdash; domestic, Asian, and European vehicles welcome.</li>
+        <li><strong class="text-charcoal-900">Financing available</strong> &mdash; qualifying repairs don&rsquo;t have to wait for payday.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Getting to the Shop from Forest Park</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        From central Forest Park, take Main Street or Highway 41 south to Jonesboro Road &mdash; the shop
+        is on the right at {BUSINESS.address.street} in the Southlake area of Morrow, about 10&ndash;15
+        minutes away depending on your starting point. From the airport corridor, take I-75 south to the
+        Jonesboro Road exit. If you&rsquo;re coming from the Fort Gillem area or Old Dixie Highway, it&rsquo;s an
+        easy shot down Jonesboro Road heading south. Need help arranging a tow? Call us at
+        <a href={BUSINESS.phoneHref} class="font-bold text-accent-700 hover:text-accent-600"> {BUSINESS.phone}</a>
+        and we&rsquo;ll coordinate with a local towing company.
+      </p>
     </div>
   </section>
 
   <ServiceCards
     eyebrow="Services for Forest Park Drivers"
     title="What We Fix for Forest Park, GA"
-    intro="All services performed at our shop a few minutes south on Jonesboro Road. Tap a card for detailed information and FAQs."
+    intro="Every service below is performed at our shop just minutes from Forest Park. Tap any card for details, pricing questions, and FAQs."
     cards={cards}
   />
 
@@ -129,7 +178,7 @@ const faqs: FAQ[] = [
     cities={[{ name: "Morrow", href: "/morrow-auto-repair" }, { name: "Jonesboro", href: "/jonesboro-auto-repair" }, { name: "Riverdale", href: "/riverdale-auto-repair" }, { name: "Lake City", href: "/lake-city-auto-repair" }]}
   />
   <CTASection
-    title="Forest Park: Honest Repair Is Down the Road"
-    description={`Schedule online or call ${BUSINESS.phone}. Early drop-off available, and every repair starts with a written estimate you approve first.`}
+    title="Forest Park: Your Shop Is a Short Drive Down Jonesboro Rd"
+    description={`Schedule online or call ${BUSINESS.phone} — early drop-off available for airport shifts, and honest answers guaranteed for everyone.`}
   />
 </BaseLayout>

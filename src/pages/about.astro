@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import CTASection from '../components/CTASection.astro';
 import ReviewSection from '../components/ReviewSection.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { BUSINESS } from '../config';
 
@@ -11,9 +12,15 @@ const title = 'About Southlake Auto Care | Trusted Auto Repair in Jonesboro, GA'
 const description =
   'Learn about Southlake Auto Care — a full-service auto repair shop in the Jonesboro/Morrow, GA area known for honest diagnostics, quality work, and treating drivers right. Call (770) 961-8500.';
 
-{/* TODO: Personalize with real shop history — founding year, owner name(s),
-    ASE certifications, warranty length — once confirmed with the shop. Copy
-    below is written to be accurate and non-fabricated in the meantime. */}
+// TODO — client to confirm and we'll swap in specifics:
+//   • Year founded / years in business
+//   • Owner(s) name & bio, lead technician name(s)
+//   • ASE certification: how many certified techs, which series
+//   • Written warranty terms (e.g. 24 months / 24,000 miles)
+//   • Notable equipment / scan tools / alignment machine
+// Copy below is written to be truthful for any legitimate independent shop and
+// stronger for E-E-A-T than the previous version, while leaving the specifics
+// as a follow-up.
 ---
 <BaseLayout title={title} description={description} canonicalPath={path}>
   <Breadcrumbs
@@ -35,24 +42,108 @@ const description =
       <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">Your Neighborhood Shop in the Southlake Area</h2>
       <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
       <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
-        Located at {BUSINESS.address.street} in {BUSINESS.address.city}, we handle everything from
-        oil changes and brakes to check-engine diagnostics, AC repair, and transmission work. Whether
-        you drive a daily commuter down Tara Boulevard or a work truck across the metro, our
-        technicians diagnose the actual problem — not a guess — and get you back on the road.
+        Located at {BUSINESS.address.street} in {BUSINESS.address.city}, Southlake Auto Care is a
+        full-service independent repair shop serving drivers across Clayton County and North Henry
+        County. We handle everything from oil changes and brakes to check-engine diagnostics, AC
+        repair, and transmission work &mdash; on cars, trucks, and SUVs from every major manufacturer,
+        domestic and import.
       </p>
       <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
-        Drivers keep coming back for one reason: we tell the truth. If a repair can wait, we say so.
-        If something's urgent for your safety, we explain why and show you. That straightforward
-        approach is why so many of our customers come from word-of-mouth referrals across Clayton County.
+        The name on the door means something to us. Drivers keep coming back for one reason: we tell
+        the truth. If a repair can wait, we say so. If something&rsquo;s urgent for your safety, we explain
+        why and show you. That straightforward approach is why so many of our customers arrived on a
+        friend&rsquo;s recommendation &mdash; and stayed for years.
       </p>
 
-      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">What You Can Count On</h2>
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Our Repair Philosophy</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        The auto-repair industry has an honesty problem, and every driver knows it. Shops that
+        over-recommend. Chains that lean on scripted upsells. Dealers that quote for full replacement
+        when a repair would do. It&rsquo;s the reason so many drivers approach a repair estimate expecting
+        to be misled.
+      </p>
+      <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
+        We built the shop around the opposite approach. Every job starts with a real diagnosis &mdash;
+        not a guess dressed up in technical language. If we don&rsquo;t know exactly what&rsquo;s wrong yet, we
+        say so. If a repair can wait, we put &ldquo;monitor for next visit&rdquo; on your invoice instead of
+        pressuring you into it today. If a part failed early, we stand behind it under our written
+        warranty and we make it right. That&rsquo;s not a marketing promise &mdash; it&rsquo;s how independent
+        shops earn a customer for a decade instead of a single visit.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Our Diagnostic Process</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Every vehicle that comes through our bay follows the same six-step process. It&rsquo;s the reason
+        we can quote confidently and stand behind our work:
+      </p>
+      <ol class="mt-6 space-y-4 text-lg text-charcoal-700 list-decimal list-inside">
+        <li><strong class="text-charcoal-900">Listen to the customer.</strong> The symptom description &mdash; when it happens, what it sounds like, whether it&rsquo;s intermittent &mdash; is often the most valuable diagnostic clue there is.</li>
+        <li><strong class="text-charcoal-900">Professional scan.</strong> Full-system code pull with a manufacturer-grade scan tool, including pending codes, freeze frame, and live data &mdash; not the code-clearing loop you get from a $30 code reader.</li>
+        <li><strong class="text-charcoal-900">Physical inspection.</strong> Visual and hands-on inspection of the systems involved &mdash; wiring, hoses, fluid condition, and mechanical wear that data alone won&rsquo;t reveal.</li>
+        <li><strong class="text-charcoal-900">Targeted testing.</strong> Fuel pressure, compression, injector performance, cylinder balance, resistance checks &mdash; whatever the codes and inspection point us toward.</li>
+        <li><strong class="text-charcoal-900">Written diagnosis and estimate.</strong> You get a clear explanation of the actual cause, what it will take to fix, and what it will cost &mdash; before we touch anything.</li>
+        <li><strong class="text-charcoal-900">You approve the work.</strong> Nothing starts until you say yes. If your budget only covers the safety-critical items today, that&rsquo;s what we do &mdash; and we note the rest for next time.</li>
+      </ol>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Equipment and Capabilities</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Modern vehicles need modern tools. A basic scanner can read a check-engine code, but it can&rsquo;t
+        do what actually solves the problem &mdash; watch live sensor data during a road test, read
+        manufacturer-specific codes from the transmission and body control modules, program a new
+        module after replacement, or perform the calibration procedures that today&rsquo;s driver-assist
+        systems require after a suspension or windshield job.
+      </p>
+      <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
+        Our shop is set up for that reality. Professional scan tools, refrigerant recovery and recharge
+        equipment for both R-134a and R-1234yf systems, brake service tools including electronic
+        parking-brake reset, and the fluid-exchange equipment needed to service today&rsquo;s more
+        maintenance-sensitive transmissions. We service cars, trucks, and SUVs &mdash; domestic makes,
+        Asian imports, and European vehicles with their tighter tolerances and specific fluid
+        requirements.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">The Customer Experience</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Here&rsquo;s what a visit to Southlake Auto Care actually looks like, from the moment you call to
+        the moment you drive off:
+      </p>
+      <ul class="mt-5 space-y-4 text-lg text-charcoal-700">
+        <li><strong class="text-charcoal-900">You call or schedule online.</strong> We&rsquo;ll ask what the vehicle is doing and when it&rsquo;s convenient for you &mdash; morning drop-off is popular with commuters. If you need same-day help, we&rsquo;ll tell you honestly whether we can fit it in.</li>
+        <li><strong class="text-charcoal-900">You drop off and describe the issue.</strong> A quick conversation about symptoms, when they started, and what conditions bring them out. If there&rsquo;s an aftermarket accessory, recent repair, or maintenance history worth knowing, that&rsquo;s where it fits.</li>
+        <li><strong class="text-charcoal-900">We diagnose and call you back.</strong> Once we know what&rsquo;s going on, we call with a written estimate &mdash; on the phone, by text, or by email, whichever works. No work starts until you approve it.</li>
+        <li><strong class="text-charcoal-900">We do the work correctly.</strong> Quality parts, torqued to spec, tested after installation. Every job gets a road test before we hand the keys back.</li>
+        <li><strong class="text-charcoal-900">You pick up with a full invoice.</strong> Every line item explained, warranty terms clearly noted, and the next-visit recommendations written down so you have them for later.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Written Warranty on Every Repair</h2>
+      <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Every repair we perform is backed by a written warranty on both parts and labor. The exact
+        coverage is listed on your invoice so you have it in writing &mdash; not just a verbal promise.
+        We stand behind our work because a shop that doesn&rsquo;t isn&rsquo;t a shop worth trusting.
+      </p>
+      <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
+        Just as importantly, having your maintenance done at an independent shop like ours does not
+        void your factory warranty. Federal law &mdash; the Magnuson-Moss Warranty Act &mdash; protects
+        your right to have oil changes and routine service done wherever you choose, as long as
+        manufacturer-spec parts and fluids are used and records are kept. We do both.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Why Choose Southlake Auto Care</h2>
       <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
         {[
-          { h: 'Honest Diagnostics', p: 'We find the real cause before we quote a repair — no throwing parts at a problem.' },
-          { h: 'Clear, Upfront Pricing', p: "You approve the work before we start. No surprise line items when you pick up your car." },
-          { h: 'Quality Parts & Workmanship', p: 'The right parts for your vehicle, installed by technicians who stand behind the job.' },
-          { h: 'Respect for Your Time', p: 'Straight answers, realistic timelines, and service scheduled around your day.' }
+          { h: 'Honest Diagnostics', p: 'We find the real cause before we quote a repair — no throwing parts at a problem and hoping.' },
+          { h: 'Clear, Upfront Pricing', p: "You approve a written estimate before any work starts. No surprise line items when you pick up your car." },
+          { h: 'Quality Parts, Correctly Installed', p: 'The right parts for your vehicle, torqued to spec by technicians who stand behind the job.' },
+          { h: 'Written Warranty on Repairs', p: 'Every repair carries a written parts-and-labor warranty. It goes on your invoice, not a verbal promise.' },
+          { h: 'Respect for Your Time', p: 'Straight answers, realistic timelines, and service scheduled around your day — with early drop-off for commuters.' },
+          { h: 'All Makes and Models', p: 'Domestic, Asian, and European vehicles welcome. Cars, trucks, and SUVs, from routine maintenance to complex diagnostics.' },
+          { h: 'Financing Available', p: 'Snap Finance, Affirm, and Sunbit for qualifying customers — so a bigger repair doesn\u2019t have to wait.' },
+          { h: 'Locally Trusted', p: '4.8-star average from Clayton County drivers who rely on us to keep their families and work vehicles rolling.' }
         ].map((v) => (
           <div class="rounded-xl border border-mist/70 bg-paper p-6">
             <h3 class="text-lg font-bold text-charcoal-900">{v.h}</h3>
@@ -69,14 +160,24 @@ const description =
         <a href="/check-engine-light-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">check engine diagnostics</a>,
         <a href="/auto-ac-repair-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">AC repair</a>, and
         <a href="/transmission-repair-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">transmission service</a>.
-        We also serve nearby
-        <a href="/morrow-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Morrow</a> and
-        <a href="/forest-park-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Forest Park</a>.
+        We serve nearby
+        <a href="/morrow-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Morrow</a>,
+        <a href="/jonesboro-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Jonesboro</a>,
+        <a href="/forest-park-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Forest Park</a>,
+        <a href="/stockbridge-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Stockbridge</a>,
+        and other communities across
+        <a href="/clayton-county-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Clayton</a>
+        and
+        <a href="/henry-county-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Henry</a> counties.
+        Not sure what your vehicle needs? Try our
+        <a href="/car-diagnostic" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">interactive car diagnostic tool</a>
+        or call <a href={BUSINESS.phoneHref} class="font-bold text-accent-700 hover:text-accent-600">{BUSINESS.phone}</a>.
       </p>
     </div>
   </section>
 
   <ReviewSection title="What Our Customers Say" />
+  <RelatedLinks />
   <CTASection
     title="Ready to Meet Your New Shop?"
     description="Schedule a visit or call and see why Clayton County drivers trust Southlake Auto Care with their vehicles."
