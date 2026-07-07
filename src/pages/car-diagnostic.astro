@@ -8,17 +8,18 @@ import { BUSINESS } from '../config';
 const path = '/car-diagnostic';
 const title = "Car Diagnostic Tool | What's Wrong With My Car? | Southlake Auto Care";
 const description =
-  "Not sure what's wrong with your car? Tap the part that's giving you trouble and get a fast quote from Southlake Auto Care in Jonesboro & Morrow, GA. Call (770) 961-8500.";
+  "Not sure what's wrong with your car? Pick the system that's giving you trouble and get a fast quote from Southlake Auto Care in Jonesboro & Morrow, GA. Call (770) 961-8500.";
 
-// Each hotspot: position is a % of the diagram box (left/top). Front of car = left.
-const hotspots = [
-  { id: 'engine', label: 'Check Engine & Diagnostics', x: 22, y: 50, signs: 'Check engine light, rough idle, stalling, poor mileage.', desc: 'That glowing dash light could mean a dozen things. We run professional diagnostics to find the real cause — not just clear the code.', href: '/check-engine-light-jonesboro-ga', service: 'Check engine diagnostics' },
-  { id: 'battery', label: 'Battery & Electrical', x: 30, y: 34, signs: 'Slow crank, dim or flickering lights, no-start.', desc: 'Slow to start or a dead battery? We test the battery, alternator, and charging system to find the culprit.', href: '/schedule-service', service: 'Electrical service' },
-  { id: 'oil', label: 'Oil & Fluids', x: 33, y: 70, signs: 'Oil light, overdue service, low or dark oil.', desc: 'Fresh oil is the cheapest insurance your engine can buy. We change the oil and top every fluid, with a full inspection.', href: '/oil-change-jonesboro-ga', service: 'Oil change' },
-  { id: 'ac', label: 'A/C & Cooling', x: 45, y: 40, signs: 'Weak airflow, warm air, overheating.', desc: 'Warm air in a Georgia summer? We find leaks and repair the A/C and cooling system so you stay cold.', href: '/auto-ac-repair-jonesboro-ga', service: 'A/C repair' },
-  { id: 'transmission', label: 'Transmission', x: 55, y: 66, signs: 'Slipping, hard or delayed shifts, leaks.', desc: 'Slipping or shifting hard? From fluid service to full repair, we give you honest options — not a scare tactic.', href: '/transmission-repair-jonesboro-ga', service: 'Transmission service' },
-  { id: 'brakes', label: 'Brakes', x: 27, y: 82, signs: 'Squeal, grind, vibration, soft pedal.', desc: 'Squealing, grinding, or a soft pedal? We inspect and repair pads, rotors, and calipers so you stop safely.', href: '/brake-repair-jonesboro-ga', service: 'Brake repair' },
-  { id: 'tires', label: 'Tires & Suspension', x: 73, y: 82, signs: 'Pulling, bouncing, uneven tire wear.', desc: 'Rough ride, pulling, or uneven tire wear? We check suspension, alignment, and tires to smooth things out.', href: '/schedule-service', service: 'Suspension check' }
+// Each category maps to a shop service. Order matters — most common concerns first.
+const parts = [
+  { id: 'engine',       label: 'Engine & Check Engine Light', signs: 'Check engine light, rough idle, stalling, poor fuel economy.',      desc: "That glowing dash light could mean a dozen things. We run professional diagnostics to find the real cause — not just clear the code.", href: '/check-engine-light-jonesboro-ga', service: 'Check engine diagnostics', iconPath: 'M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12M12 8a4 4 0 100 8 4 4 0 000-8z' },
+  { id: 'brakes',       label: 'Brakes',                      signs: 'Squealing, grinding, vibration when braking, soft pedal.',            desc: 'Squealing, grinding, or a soft pedal? We inspect pads, rotors, and calipers, and show you exactly what needs to be fixed.',        href: '/brake-repair-jonesboro-ga',        service: 'Brake repair',              iconPath: 'M12 2a10 10 0 100 20 10 10 0 000-20zm0 4a6 6 0 110 12 6 6 0 010-12zm0 4a2 2 0 100 4 2 2 0 000-4z' },
+  { id: 'ac',           label: 'A/C & Heating',               signs: 'Weak airflow, warm air, musty smell, no heat.',                       desc: 'Warm air in a Georgia summer? We find leaks and repair the A/C and cooling system so your cabin stays comfortable year-round.',    href: '/auto-ac-repair-jonesboro-ga',      service: 'A/C repair',                iconPath: 'M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07' },
+  { id: 'oil',          label: 'Oil & Fluids',                signs: 'Oil light on, service overdue, low or dark oil, fluid leaks.',        desc: 'Fresh oil is the cheapest insurance your engine can buy. We do it right — correct spec, proper filter, real inspection every time.', href: '/oil-change-jonesboro-ga',          service: 'Oil change',                iconPath: 'M12 2c-4 6-6 9-6 12a6 6 0 0012 0c0-3-2-6-6-12z' },
+  { id: 'transmission', label: 'Transmission',                signs: 'Slipping, hard or delayed shifts, whining, fluid leaks.',             desc: 'Slipping or shifting hard? From fluid service to targeted repairs, we give you honest options — not a scare-tactic rebuild quote.', href: '/transmission-repair-jonesboro-ga', service: 'Transmission service',      iconPath: 'M4 8h16M4 12h16M4 16h16M8 4v16M16 4v16' },
+  { id: 'battery',      label: 'Battery & Electrical',        signs: 'Slow crank, dim or flickering lights, no-start, dead battery.',       desc: 'Slow to start or dead battery? We test the battery, alternator, and charging system to find the actual culprit.',                    href: '/schedule-service',                  service: 'Battery & electrical check', iconPath: 'M6 7h12v10H6zM9 4h6v3H9zM10 12h4' },
+  { id: 'tires',        label: 'Tires, Suspension & Steering',signs: 'Pulling, bouncing, uneven tire wear, steering wheel vibration.',      desc: 'Rough ride, pulling, or uneven tire wear? We check suspension, alignment, and tires to smooth things out.',                        href: '/schedule-service',                  service: 'Suspension & alignment',    iconPath: 'M4 12a8 8 0 1116 0 8 8 0 01-16 0zm4 0a4 4 0 108 0 4 4 0 00-8 0z' },
+  { id: 'other',        label: "Not Sure / Something Else",   signs: 'A noise, smell, warning light, or symptom that doesn\u2019t fit above.', desc: "Not sure what it is? Describe what you're noticing and we'll help figure it out — no need to know the exact part.",                  href: '#quote',                             service: 'General diagnostic',        iconPath: 'M12 2a10 10 0 100 20 10 10 0 000-20zM9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01' }
 ];
 ---
 <BaseLayout title={title} description={description} canonicalPath={path}>
@@ -33,70 +34,48 @@ const hotspots = [
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="label text-accent-400">Interactive Diagnosis</p>
       <h1 class="mt-3 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]">
-        Point to the problem.<br class="hidden sm:block" /> We'll take it from here.
+        Pick the system.<br class="hidden sm:block" /> We'll take it from here.
       </h1>
       <p class="mt-5 max-w-2xl text-lg text-mist leading-relaxed">
-        Not sure how to describe what's wrong? Tap the part of the car that's giving you trouble.
+        Not sure how to describe what's wrong? Choose the area that's giving you trouble below.
         We'll tell you what it usually means and get you a fast quote.
       </p>
 
       <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-        <!-- Interactive diagram -->
+        <!-- Card grid -->
         <div class="lg:col-span-2">
-          <div id="diagram" class="relative w-full rounded-2xl border border-charcoal-700 bg-charcoal-950 overflow-hidden" style="aspect-ratio: 1000 / 480;">
-            <svg viewBox="0 0 1000 480" class="absolute inset-0 h-full w-full" role="img" aria-label="Side view of a car — tap a highlighted part">
-              <!-- tread texture -->
-              <defs>
-                <pattern id="tread" width="26" height="26" patternTransform="rotate(135)" patternUnits="userSpaceOnUse">
-                  <line x1="0" y1="0" x2="0" y2="26" stroke="#ffffff" stroke-opacity="0.05" stroke-width="2" />
-                </pattern>
-              </defs>
-              <rect x="0" y="0" width="1000" height="480" fill="url(#tread)" />
-              <!-- ground -->
-              <line x1="60" y1="400" x2="940" y2="400" stroke="#2e2e2e" stroke-width="3" />
-              <!-- car body -->
-              <path d="M150 330 Q150 300 185 296 L300 292 Q330 250 400 244 L470 244 L540 196 L690 194 Q735 196 770 250 L850 258 Q885 262 892 300 L892 330 Z"
-                    fill="#1f1f1f" stroke="#2e2e2e" stroke-width="2" />
-              <!-- cabin glass -->
-              <path d="M486 246 L548 205 L636 204 L636 246 Z" fill="#111111" stroke="#84c023" stroke-opacity="0.35" stroke-width="2" />
-              <path d="M648 205 L678 246 L648 246 Z" fill="#111111" stroke="#84c023" stroke-opacity="0.35" stroke-width="2" />
-              <!-- lime beltline accent -->
-              <path d="M185 300 L860 300" stroke="#84c023" stroke-width="3" stroke-opacity="0.55" />
-              <!-- wheels -->
-              <g>
-                <circle cx="330" cy="360" r="62" fill="#0d0d0d" stroke="#2e2e2e" stroke-width="3" />
-                <circle cx="330" cy="360" r="26" fill="none" stroke="#84c023" stroke-opacity="0.5" stroke-width="4" />
-                <circle cx="720" cy="360" r="62" fill="#0d0d0d" stroke="#2e2e2e" stroke-width="3" />
-                <circle cx="720" cy="360" r="26" fill="none" stroke="#84c023" stroke-opacity="0.5" stroke-width="4" />
-              </g>
-            </svg>
-
-            {hotspots.map((h) => (
+          <div id="parts-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3" role="radiogroup" aria-label="Select a vehicle system">
+            {parts.map((p) => (
               <button
                 type="button"
-                class="hotspot"
-                style={`left:${h.x}%;top:${h.y}%`}
-                data-id={h.id}
-                data-label={h.label}
-                data-desc={h.desc}
-                data-signs={h.signs}
-                data-href={h.href}
-                data-service={h.service}
-                aria-pressed="false"
-                aria-label={h.label}
+                class="part-btn group flex items-start gap-4 rounded-xl border border-charcoal-700 bg-charcoal-950 p-4 text-left hover:border-accent-500 hover:bg-charcoal-800 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-2"
+                data-id={p.id}
+                data-label={p.label}
+                data-desc={p.desc}
+                data-signs={p.signs}
+                data-href={p.href}
+                data-service={p.service}
+                role="radio"
+                aria-checked="false"
               >
-                <span class="hotspot-dot" aria-hidden="true"></span>
+                <span class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-500/15 text-accent-400 group-hover:bg-accent-500 group-hover:text-charcoal-950 transition-colors">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={p.iconPath} /></svg>
+                </span>
+                <span>
+                  <span class="block text-base font-bold text-paper">{p.label}</span>
+                  <span class="mt-1 block text-sm text-smoke leading-snug">{p.signs}</span>
+                </span>
               </button>
             ))}
           </div>
-          <p class="mt-3 text-sm text-smoke">Tap a highlighted point on the car. Not sure? <a href="#quote" class="font-semibold text-accent-400 hover:text-accent-300 underline underline-offset-2">Just describe it below.</a></p>
+          <p class="mt-4 text-sm text-smoke">Tap a system that matches what you're seeing. Not sure? <a href="#quote" class="font-semibold text-accent-400 hover:text-accent-300 underline underline-offset-2">Just describe it below.</a></p>
         </div>
 
         <!-- Info panel -->
-        <aside id="panel" class="rounded-2xl border border-charcoal-700 bg-charcoal-950 p-6 md:p-7">
+        <aside id="panel" class="rounded-2xl border border-charcoal-700 bg-charcoal-950 p-6 md:p-7 lg:sticky lg:top-24">
           <div id="panel-empty">
-            <p class="label text-accent-400">Select a part</p>
-            <p class="mt-3 text-lg text-mist leading-relaxed">Tap the area that's acting up and we'll show you what it usually means — then get you a quote.</p>
+            <p class="label text-accent-400">Select a system</p>
+            <p class="mt-3 text-lg text-mist leading-relaxed">Pick the area that's acting up and we'll show you what it usually means — then get you a quote.</p>
             <ul class="mt-5 space-y-2 text-sm text-smoke">
               <li>· Honest diagnosis, no scare tactics</li>
               <li>· Upfront pricing before any work</li>
@@ -141,48 +120,19 @@ const hotspots = [
   />
 
   <style>
-    .hotspot {
-      position: absolute;
-      transform: translate(-50%, -50%);
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border-radius: 9999px;
-      cursor: pointer;
-      background: transparent;
-      border: 0;
+    .part-btn[aria-checked="true"] {
+      border-color: #84c023;
+      background: rgba(132, 192, 35, 0.08);
     }
-    .hotspot:focus-visible { outline: 2px solid #94cd3f; outline-offset: 3px; }
-    .hotspot-dot {
-      width: 16px; height: 16px; border-radius: 9999px;
-      background: #84c023;
-      box-shadow: 0 0 0 4px rgba(132,192,35,0.25);
-      transition: transform .15s ease;
-    }
-    .hotspot::after {
-      content: ""; position: absolute; inset: 0; border-radius: 9999px;
-      border: 2px solid #84c023; opacity: .7;
-      animation: hs-pulse 2s ease-out infinite;
-    }
-    .hotspot:hover .hotspot-dot { transform: scale(1.25); }
-    .hotspot[aria-pressed="true"] .hotspot-dot {
-      background: #ffffff; transform: scale(1.3);
-      box-shadow: 0 0 0 5px rgba(132,192,35,0.5);
-    }
-    @keyframes hs-pulse {
-      0% { transform: scale(1); opacity: .7; }
-      70% { transform: scale(2.1); opacity: 0; }
-      100% { opacity: 0; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .hotspot::after { animation: none; opacity: 0; }
+    .part-btn[aria-checked="true"] .part-btn-icon,
+    .part-btn[aria-checked="true"] span > span {
+      color: inherit;
     }
   </style>
 
   <script is:inline>
     (function () {
-      var buttons = Array.prototype.slice.call(document.querySelectorAll('.hotspot'));
+      var buttons = Array.prototype.slice.call(document.querySelectorAll('.part-btn'));
       var empty = document.getElementById('panel-empty');
       var content = document.getElementById('panel-content');
       var pLabel = document.getElementById('p-label');
@@ -194,7 +144,7 @@ const hotspots = [
       var current = null;
 
       function select(btn) {
-        buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+        buttons.forEach(function (b) { b.setAttribute('aria-checked', String(b === btn)); });
         current = {
           label: btn.getAttribute('data-label'),
           desc: btn.getAttribute('data-desc'),
@@ -206,8 +156,15 @@ const hotspots = [
         pDesc.textContent = current.desc;
         pSigns.textContent = current.signs;
         pLearn.setAttribute('href', current.href);
+        // For "Other" the learn link points at #quote — hide the redundant CTA row.
+        var isOther = current.href === '#quote';
+        pLearn.style.display = isOther ? 'none' : '';
         empty.classList.add('hidden');
         content.classList.remove('hidden');
+        // On mobile the panel is below the grid — scroll it into view.
+        if (window.innerWidth < 1024) {
+          content.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
       }
 
       buttons.forEach(function (b) {

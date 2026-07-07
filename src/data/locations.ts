@@ -14,6 +14,13 @@ export interface Location {
   local: string;          // local paragraph 2
   nearby: { name: string; href: string }[];
   faqs: FAQ[];
+  // Optional deep-content fields — render when present. Populated for the
+  // highest-value cities first; other cities inherit the shorter default page.
+  neighborhoods?: string;    // paragraph about specific areas/roads/landmarks
+  whyLocal?: string;         // paragraph about why local drivers pick us
+  commonWork?: string[];     // bulleted list of most-requested repairs in this city
+  drivingPatterns?: string;  // paragraph on how local driving affects vehicles
+  gettingHere?: string;      // directions paragraph
 }
 
 // Each entry is written to be genuinely differentiated — real roads, landmarks,
@@ -36,6 +43,23 @@ export const LOCATIONS: Location[] = [
       "Jonesboro is home base for us — our shop on Jonesboro Road connects straight into the heart of the city, from the historic downtown and Clayton County courthouse to the busy Tara Boulevard retail run. Whether you commute up Tara every morning or run errands around Lee Street, we're the local alternative to dealer prices and chain-store upsells.",
     local:
       "Tara Boulevard driving is stop-and-go and hard on brakes and cooling systems, and Jonesboro's older neighborhoods mean we see plenty of higher-mileage vehicles that need honest, prioritized repair plans. We tell you what's urgent, what can wait, and what it'll cost — before we touch anything.",
+    neighborhoods:
+      "Our Jonesboro customer base runs from the historic downtown square and Lee Street corridor, through the neighborhoods off Fielder Road and Flint River Road, out to the residential areas near Kendrick and Panhandle Roads. We see plenty of vehicles from the Clayton State University area and from workers at the Clayton County courthouse and municipal complex just down the road. If you're anywhere in Jonesboro proper, we're a five-to-ten-minute drive.",
+    whyLocal:
+      "Drivers around Jonesboro have plenty of chain-shop options along Tara Boulevard — and they still choose us. The reason is straightforward: we diagnose the actual problem before quoting, we put pricing in writing, and we say the words \"this can wait\" when it can. There's no upsell pressure, no scare tactics, and no surprise bills at pickup. That approach has built a customer base that's mostly word-of-mouth, and it's why we can spend more time on your car and less on marketing.",
+    commonWork: [
+      'Brake pad and rotor replacement — heavy Tara Blvd stop-and-go wears these fast',
+      'Full synthetic oil changes with a real multi-point inspection',
+      'Check engine light diagnostics and Clayton County emissions repairs',
+      'AC recharge and leak repair before Georgia summer hits',
+      'Transmission fluid service and shift-quality diagnostics',
+      'Battery, alternator, and starter service for older commuter vehicles',
+      'Tire rotation, alignment checks, and suspension inspections'
+    ],
+    drivingPatterns:
+      "Jonesboro driving is unusually hard on a few specific systems. Stop-and-go on Tara Boulevard eats brake pads faster than highway driving — most Jonesboro commuters land on the shorter end of their pad-life window. Short trips to Southlake Mall or the courthouse never let the engine warm up fully, which builds moisture and fuel contamination in the oil. And summer idling in traffic pushes cooling systems and AC compressors hard. All of that is normal for city driving — it's just why regular inspections matter more here than most drivers realize.",
+    gettingHere:
+      "From downtown Jonesboro, take Tara Boulevard south, then continue as it becomes Jonesboro Road heading toward Morrow — we're on the right at 7032 Jonesboro Rd, in the Southlake area. From I-75, take the Jonesboro Road exit and head north. If you're coming from the courthouse area, it's a straight shot down Highway 54/Jonesboro Rd — usually under ten minutes.",
     nearby: [
       { name: 'Morrow', href: '/morrow-auto-repair' },
       { name: 'Lake City', href: '/lake-city-auto-repair' },
@@ -43,8 +67,10 @@ export const LOCATIONS: Location[] = [
     ],
     faqs: [
       { q: 'Where are you located relative to downtown Jonesboro?', a: "We're on Jonesboro Road in the Southlake area, just a few minutes from the Clayton County courthouse and Tara Boulevard. Most Jonesboro drivers reach us in under ten minutes." },
-      { q: 'Do you offer emissions-related repairs for Jonesboro drivers?', a: "Yes. If your vehicle won't pass emissions or has a check engine light, we diagnose the real cause and handle the repairs needed to get you compliant." },
-      { q: 'Can you work on high-mileage vehicles?', a: 'Absolutely. We build honest, prioritized repair plans for older and high-mileage cars and trucks so you can budget the important work first.' }
+      { q: 'Do you offer emissions-related repairs for Jonesboro drivers?', a: "Yes. Clayton County requires emissions testing for most gasoline vehicles from 3 to 24 model years old. If your vehicle won't pass or has a check engine light, we diagnose the real cause and complete the repairs — then verify readiness monitors have run before you re-test." },
+      { q: 'Can you work on high-mileage vehicles?', a: 'Absolutely. Older and high-mileage vehicles are a big part of what we see. We build honest, prioritized repair plans so you can budget the important safety work first and plan the rest.' },
+      { q: 'Do I need an appointment or can I walk in?', a: "Walk-ins are welcome, but scheduling ahead means we can plan for your vehicle and usually get you in and out faster. Give us a call or use the online scheduler." },
+      { q: "What if my car won't make it to the shop?", a: "If you're anywhere near Jonesboro and your car isn't safe to drive, call us and we'll help arrange a tow to the shop. We work with local towing companies and can coordinate the drop-off." }
     ]
   },
   {
@@ -63,15 +89,34 @@ export const LOCATIONS: Location[] = [
       "Stockbridge sits just up I-75 and Highway 138 from our shop, so plenty of North Henry County drivers make the short drive for repairs they can actually trust. From the Eagle's Landing area to the neighborhoods off North Henry Boulevard, we're an easy, honest option when the dealership quote feels inflated.",
     local:
       'Highway commuting on I-75 puts real miles on Stockbridge vehicles, which is tough on tires, brakes, and cooling systems. Our multi-point inspection catches wear early, and we give you a written estimate you approve before any work starts — no surprises when you pick the car up.',
+    neighborhoods:
+      "Stockbridge customers come to us from all over the city — the Eagle's Landing area off Highway 138, the neighborhoods around North Henry Boulevard, the newer developments off Rock Quarry Road, and the industrial corridor near Interstate 75. Many of our regulars work at the businesses along Jonesboro Road in Stockbridge or commute up to Atlanta from the Highway 42 area. Whichever part of town you're in, we're a short drive on I-75 or Jonesboro Road.",
+    whyLocal:
+      "Stockbridge has plenty of repair options — Highway 138 alone is lined with them — but a lot of Henry County drivers still make the short trip to our shop. What we hear from them: the dealer quotes feel bloated, the chains feel like sales pitches, and finding a shop that just fixes what's broken (and tells you what isn't) is surprisingly hard. We don't run promotions to draw people in and then hit them with an inspection list — the honest inspection is included, and if nothing else needs work, we say so.",
+    commonWork: [
+      'Brake pad, rotor, and caliper service after long I-75 commutes',
+      'Full synthetic oil changes with a manufacturer-spec filter',
+      'Check engine light diagnostics with real scan-tool data',
+      'AC leak detection and recharge — R-134a and R-1234yf',
+      'Transmission fluid service and shift-quality diagnostics',
+      'Tire rotation, alignment, and suspension inspection',
+      'Battery, alternator, and starter testing for commuter vehicles'
+    ],
+    drivingPatterns:
+      "Stockbridge commuters put more highway miles on their vehicles than most Clayton County drivers, and I-75 traffic patterns punish a few specific systems. Long stretches at highway speed with sudden brake applications heat up brake fluid and pads. Continuous high-load driving wears transmission fluid and cooling systems faster than around-town use. And the heat cycles from summer commuting are hard on AC systems and engine coolant. We inspect those systems closely on every visit — because we know what Henry County driving does to cars.",
+    gettingHere:
+      "From Stockbridge, the easiest route is I-75 north to the Jonesboro Road exit, then a short drive north. Alternatively, take Highway 138 west to Jonesboro Road and head north — you'll pass through Rex and into the Southlake area. Total drive time is usually 15 minutes or less depending on where you start.",
     nearby: [
       { name: 'McDonough', href: '/mcdonough-auto-repair' },
       { name: 'Rex', href: '/rex-auto-repair' },
       { name: 'Hampton', href: '/hampton-auto-repair' }
     ],
     faqs: [
-      { q: 'How far is the shop from Stockbridge?', a: "We're a short drive down I-75 in the Southlake area of Morrow — typically around 15 minutes from most of Stockbridge." },
-      { q: 'Is it worth the drive from Henry County?', a: 'Stockbridge drivers tell us the honest diagnostics and upfront pricing are worth the short trip — especially compared to dealer estimates.' },
-      { q: 'Can I drop off before my I-75 commute?', a: 'Yes. Early drop-off works well for Stockbridge commuters — leave the car and we\u2019ll call with the diagnosis and estimate before doing any work.' }
+      { q: 'How far is the shop from Stockbridge?', a: "We're a short drive down I-75 in the Southlake area of Morrow — typically around 15 minutes from most of Stockbridge, sometimes less if traffic is light." },
+      { q: 'Is it worth the drive from Henry County?', a: 'Stockbridge drivers tell us the honest diagnostics and upfront pricing are worth the short trip — especially compared to dealer estimates and the pressure-sell approach at some chain shops.' },
+      { q: 'Can I drop off before my I-75 commute?', a: "Yes. Early drop-off works well for Stockbridge commuters — leave the car and we'll call with the diagnosis and estimate before doing any work. Many customers pick up on the way home." },
+      { q: 'Do you handle Georgia emissions repairs?', a: "Yes. Even though Henry County has different emissions requirements than Clayton, we can diagnose and repair check engine light and emissions-related problems for any vehicle. We'll let readiness monitors run before you re-test to save a wasted trip." },
+      { q: 'What if I need financing on a bigger repair?', a: "We offer financing through Snap Finance, Affirm, and Sunbit for qualifying customers, so a bigger repair doesn't have to wait for payday. Ask us for details when you get your written estimate." }
     ]
   },
   {
