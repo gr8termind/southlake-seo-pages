@@ -11,81 +11,137 @@ import { BUSINESS } from '../config';
 import type { FAQ } from '../config';
 
 const path = '/transmission-repair-jonesboro-ga';
-const title = 'Transmission Repair in Jonesboro, GA | Service & Diagnostics | Southlake Auto Care';
+const title = 'Transmission Repair in Jonesboro, GA | Fluid, Rebuild & More | Southlake Auto Care';
 const description =
-  'Slipping, hard shifts, or a transmission warning light? Southlake Auto Care diagnoses and repairs transmissions in Jonesboro, GA with honest options. Call (770) 961-8500.';
+  'Transmission repair in Jonesboro, GA. Slipping, hard shifts, leaks? Southlake Auto Care diagnoses honestly — no scare tactics. Call (770) 961-8500.';
 
 const faqs: FAQ[] = [
   {
-    q: 'What are the first signs of transmission trouble?',
-    a: 'Watch for slipping between gears, delayed engagement when shifting into Drive or Reverse, hard or jerky shifts, a burning smell, reddish fluid spots under the car, or a transmission warning light. Catching these early is the difference between a fluid service and a rebuild.'
+    q: 'How much does transmission repair cost in Jonesboro, GA?',
+    a: 'It ranges enormously by the actual problem. A fluid service is the least expensive; solenoid or valve body work is mid-range; a rebuild or replacement is the largest expense. What matters is getting an honest diagnosis before you spend anything &mdash; and that\u2019s where we start. No guessing, no upsell.'
   },
   {
-    q: 'Does my transmission fluid really need to be changed?',
-    a: 'Yes — "lifetime fluid" usually means the lifetime of the fluid, not the car. Heat is the enemy of transmissions, and Atlanta-area stop-and-go traffic generates plenty of it. Most vehicles benefit from fluid service every 30,000–60,000 miles; we\u2019ll check your fluid\u2019s condition and tell you honestly whether it\u2019s due.'
+    q: 'Why is my transmission slipping?',
+    a: 'Slipping means the transmission isn\u2019t transferring engine power to the wheels efficiently &mdash; the RPM rises but the car doesn\u2019t accelerate proportionally. Common causes are low or degraded fluid, worn friction clutches, solenoid problems, or torque converter wear. Slipping under load or during shifts almost always means the transmission needs attention now, not later.'
   },
   {
-    q: 'Repair, rebuild, or replace — how do I choose?',
-    a: 'It depends on what failed, the vehicle\u2019s age and value, and your budget. Sometimes a solenoid, sensor, or fluid service solves it for a fraction of a rebuild. When the damage is internal, we\u2019ll lay out rebuild versus replacement costs side by side so you can make the call with clear numbers.'
+    q: 'When should I have my transmission fluid changed?',
+    a: 'Every manufacturer sets a different interval, and it varies dramatically by transmission type &mdash; anywhere from 30,000 to 100,000 miles for most automatics. Severe service (heavy stop-and-go, towing, high heat &mdash; which describes plenty of Atlanta-area driving) usually cuts the interval significantly. Your owner\u2019s manual has the manufacturer&rsquo;s answer, and we&rsquo;ll match it.'
   },
   {
-    q: 'Can a check engine light mean a transmission problem?',
-    a: 'Absolutely. Many transmission faults trigger the check engine light rather than a dedicated transmission light. Our diagnostics read transmission-specific codes and live data to tell whether the issue is mechanical, hydraulic, or electronic.'
+    q: 'Should I get a flush or a drain-and-fill?',
+    a: 'Depends on the transmission and its history. A drain-and-fill exchanges roughly a third of the fluid; a full exchange (properly done, through the cooler lines) replaces essentially all of it. For a transmission with a documented service history and reasonable mileage, we typically recommend a full exchange. For a high-mileage transmission that&rsquo;s never been serviced, we&rsquo;re more cautious &mdash; changing all the fluid at once in a neglected transmission can occasionally cause shifting problems.'
   },
   {
-    q: 'Do you offer financing for transmission repairs?',
-    a: 'Yes. Transmission work is one of the bigger unexpected expenses in car ownership, and financing options are available for qualifying repairs. Ask our service advisor when you schedule.'
+    q: 'What does a transmission warning light mean?',
+    a: 'It means the transmission control module detected a problem &mdash; overheating, an electrical fault, or a shift-quality issue outside spec. Modern transmissions store diagnostic codes just like the engine. We pull those codes, watch live data, and diagnose the actual cause instead of guessing.'
+  },
+  {
+    q: 'Is a rebuild always the answer?',
+    a: 'No, and that&rsquo;s a big reason drivers get overcharged elsewhere. Plenty of transmission problems &mdash; solenoids, sensors, wiring, worn valve bodies, torque converter lockup issues &mdash; can be repaired without a full rebuild. We diagnose specifically enough to know whether it&rsquo;s a targeted repair or a bigger job, and we&rsquo;re honest about which one.'
+  },
+  {
+    q: 'How long does a transmission repair take?',
+    a: 'A fluid service is same-day. Solenoid or valve body work is usually a day or two. A rebuild or replacement is typically several days &mdash; we walk through the timeline before starting so you can plan.'
+  },
+  {
+    q: 'Do you work on both automatic and manual transmissions?',
+    a: 'Yes. Automatic, manual, CVT, and dual-clutch &mdash; we service the full range of transmissions common in vehicles across Jonesboro, Morrow, and Clayton County. Diagnosis process and tools differ, but the honest approach is the same.'
   }
 ];
 ---
 <BaseLayout title={title} description={description} canonicalPath={path}>
   <ServiceSchema
     name="Transmission Repair"
-    description="Transmission diagnostics, fluid service, and repair for automatic and manual transmissions in Jonesboro, GA."
+    description="Transmission diagnosis, fluid service, solenoid, valve body, and rebuild service in Jonesboro, GA &mdash; automatic, manual, CVT, and DCT."
     path={path}
     serviceType="Transmission Repair"
   />
   <Breadcrumbs
     items={[
       { name: 'Home', href: BUSINESS.mainSiteUrl + '/' },
-      { name: 'Transmission Repair in Jonesboro, GA', href: path }
+      { name: 'Transmission Repair', href: path }
     ]}
   />
 
   <Hero
-    eyebrow="Transmission Service · Jonesboro, GA"
+    eyebrow="Transmission &middot; Jonesboro, GA"
     title="Transmission Repair in Jonesboro, GA"
-    description="Slipping gears and hard shifts don't fix themselves — they get more expensive. Our technicians diagnose the real problem and give you honest options, from fluid service to full repair."
-    primaryLabel="Schedule Transmission Service"
+    description="Slipping, hard shifts, or a warning light? We diagnose your transmission honestly, explain the options, and never recommend a rebuild when a targeted repair will do."
+    primaryLabel="Get a Transmission Diagnosis"
   />
 
   <section class="bg-white py-16 md:py-20 border-b border-mist/60">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">Catch It Early, Pay a Fraction</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">Not Every Transmission Problem Is a Rebuild</h2>
       <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
       <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
-        Transmissions rarely fail overnight. They warn you — a flare between second and third gear, a
-        shudder at takeoff, a hesitation shifting into Reverse. Ignore the warnings and heat and friction
-        finish the job. Address them early, and the fix is often a fluid exchange, a solenoid, or a
-        sensor instead of a four-figure rebuild.
+        Transmission work has a reputation &mdash; and not always a great one. Some shops treat every
+        shifting complaint as a $4,000 rebuild recommendation before the diagnosis is even done. That&rsquo;s
+        not how we work. Modern transmissions are complex, but they&rsquo;re also more diagnosable than ever.
+        Solenoids, sensors, wiring harnesses, valve bodies, and torque converters can all be repaired
+        individually &mdash; and often are.
       </p>
       <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
-        Southlake Auto Care handles transmission diagnostics and repair for Jonesboro, Morrow, and
-        Forest Park drivers with the same philosophy we bring to everything: prove the problem first,
-        put the options in writing, and let you decide.
+        Drivers throughout
+        <a href="/jonesboro-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> Jonesboro</a>,
+        <a href="/morrow-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> Morrow</a>,
+        <a href="/forest-park-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> Forest Park</a>,
+        <a href="/stockbridge-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> Stockbridge</a>,
+        and across Clayton and Henry Counties bring their vehicles to Southlake Auto Care because we
+        diagnose specifically enough to know exactly what&rsquo;s wrong before quoting a repair.
       </p>
 
-      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Transmission Services We Offer</h2>
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Signs Your Transmission Needs Attention</h2>
+      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
+        <li><strong class="text-charcoal-900">Slipping.</strong> RPM rises without corresponding acceleration &mdash; the classic sign of internal clutch or fluid pressure problems.</li>
+        <li><strong class="text-charcoal-900">Hard or delayed shifts.</strong> Harsh engagement when you shift into drive or reverse, or a delay before the transmission engages.</li>
+        <li><strong class="text-charcoal-900">Flaring shifts.</strong> RPM briefly climbs between gears &mdash; a symptom of worn clutches or valve body wear.</li>
+        <li><strong class="text-charcoal-900">Fluid leaks.</strong> Red or brown fluid under the vehicle. Automatic transmission fluid is usually red when new; darker as it ages.</li>
+        <li><strong class="text-charcoal-900">Burnt smell.</strong> Overheated transmission fluid smells burnt, and that means damage is happening or has already happened.</li>
+        <li><strong class="text-charcoal-900">Whining, humming, or grinding.</strong> Bearings, planetary gears, or torque converter noise &mdash; sometimes changing with speed or load.</li>
+        <li><strong class="text-charcoal-900">Transmission warning light.</strong> The transmission control module has stored a code &mdash; time to scan and diagnose.</li>
+        <li><strong class="text-charcoal-900">Getting stuck in one gear (&ldquo;limp mode&rdquo;).</strong> The computer has detected a serious problem and locked the transmission into a safe gear.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Why Transmissions Fail</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Transmissions are engineered to last well over 200,000 miles &mdash; but heat, deferred maintenance,
+        and hard use shorten that considerably. The main culprits we see:
+      </p>
+      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
+        <li><strong class="text-charcoal-900">Heat.</strong> The single biggest killer of transmissions. Every 20&deg;F above 175&deg;F cuts fluid life in half. Georgia summers and stop-and-go traffic on Tara Boulevard and I-75 both push transmissions toward heat problems.</li>
+        <li><strong class="text-charcoal-900">Fluid degradation.</strong> Transmission fluid isn&rsquo;t magic &mdash; it wears out. Old fluid loses its ability to cool, lubricate, and generate the hydraulic pressure the transmission depends on.</li>
+        <li><strong class="text-charcoal-900">Deferred maintenance.</strong> Many manufacturers now call transmission fluid &ldquo;lifetime,&rdquo; and drivers take that literally. It rarely means what people think &mdash; and skipping fluid service ages the transmission fast.</li>
+        <li><strong class="text-charcoal-900">Solenoid and valve body wear.</strong> The electronics and precision valves that control shifting develop wear, contamination, or electrical problems &mdash; often the root cause of hard shifts.</li>
+        <li><strong class="text-charcoal-900">Towing and heavy loads.</strong> Trucks and SUVs used for work put more heat and stress on the transmission and cooler.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Our Transmission Diagnostic Process</h2>
+      <ol class="mt-6 space-y-4 text-lg text-charcoal-700 list-decimal list-inside">
+        <li><strong class="text-charcoal-900">Full computer scan.</strong> We pull every stored, pending, and permanent code from the transmission control module and every module it talks to.</li>
+        <li><strong class="text-charcoal-900">Live data analysis.</strong> Line pressure, solenoid duty cycle, gear commands, torque converter slip &mdash; the parameters that separate a fluid problem from a mechanical one.</li>
+        <li><strong class="text-charcoal-900">Fluid inspection.</strong> Level, color, smell, and any debris. Metal shavings or dark, burnt fluid tell a very different story than clean, well-serviced fluid.</li>
+        <li><strong class="text-charcoal-900">Road test.</strong> Sometimes the only way to diagnose an intermittent shift problem is to reproduce it on the road with the scan tool connected.</li>
+        <li><strong class="text-charcoal-900">Written diagnosis.</strong> We tell you specifically what&rsquo;s wrong, what it&rsquo;ll take to fix, and what it&rsquo;ll cost &mdash; before you spend anything.</li>
+        <li><strong class="text-charcoal-900">Options.</strong> If a targeted repair will do the job, we do the targeted repair. If the transmission genuinely needs a rebuild or replacement, we&rsquo;re honest about that too.</li>
+      </ol>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Transmission Services We Perform</h2>
       <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
         {[
-          'Transmission diagnostics & code analysis',
-          'Fluid exchange & filter service',
-          'Solenoid & sensor replacement',
-          'Valve body repair',
-          'Clutch service (manual transmissions)',
-          'Transmission mount replacement',
-          'Cooler line & leak repair',
-          'Rebuild & replacement options'
+          'Transmission diagnosis and scan',
+          'Fluid service (drain-and-fill or full exchange)',
+          'Solenoid and sensor replacement',
+          'Valve body repair and replacement',
+          'Transmission cooler and line service',
+          'Torque converter service',
+          'External seal and gasket repair',
+          'Automatic and manual transmission service',
+          'CVT and dual-clutch (DCT) service',
+          'Transmission rebuild',
+          'Transmission replacement',
+          'Warranty on parts and labor'
         ].map((item) => (
           <li class="flex items-start gap-3 rounded-lg border border-mist/70 bg-paper px-4 py-3.5 font-semibold text-charcoal-900">
             <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
@@ -94,35 +150,46 @@ const faqs: FAQ[] = [
         ))}
       </ul>
 
-      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Symptoms You Shouldn't Ignore</h2>
-      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
-        <li><strong class="text-charcoal-900">Slipping</strong> — RPMs climb but the car doesn't accelerate to match.</li>
-        <li><strong class="text-charcoal-900">Delayed engagement</strong> — a pause before Drive or Reverse takes hold.</li>
-        <li><strong class="text-charcoal-900">Hard or jerky shifts</strong> — clunks or shudders between gears.</li>
-        <li><strong class="text-charcoal-900">Burning odor</strong> — overheated fluid breaking down under stress.</li>
-        <li><strong class="text-charcoal-900">Red fluid on the driveway</strong> — a leak lowering fluid level and raising heat.</li>
-        <li><strong class="text-charcoal-900">Warning lights</strong> — transmission or check engine light with shifting symptoms.</li>
-      </ul>
-
-      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Connected Care for Your Drivetrain</h2>
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Why Prompt Transmission Repair Matters</h2>
       <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
-        Transmission symptoms often show up first as a
-        <a href="/check-engine-light-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">check engine light</a> —
-        our diagnostics tell you whether it's the transmission or something simpler. Routine
-        <a href="/oil-change-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">oil change visits</a>
-        are also when we spot early leaks. Serving drivers from
-        <a href="/morrow-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Morrow</a> and
-        <a href="/forest-park-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Forest Park</a>
-        to every corner of Clayton County.
+        Transmission problems compound faster than almost any other repair. Slipping means clutches are
+        sliding &mdash; and every mile you drive on them wears more friction material away, which
+        contaminates the fluid, which accelerates wear on the rest of the transmission. A repair caught
+        early might be a solenoid pack. Ignored for six months, that same problem often becomes a rebuild.
+      </p>
+      <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
+        The math on transmission work is different from most repairs: getting to it early usually keeps
+        it in a much lower cost bracket, sometimes an order of magnitude lower. And a properly maintained
+        transmission is one of the largest factors in a vehicle&rsquo;s resale value.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Backed by a Written Warranty</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        We stand behind our transmission work with a written warranty on parts and labor. Ask for the
+        specific terms when we quote your job &mdash; we&rsquo;ll put the coverage on your invoice so you have
+        it in writing, not just a verbal promise.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Related Services</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Transmission problems can trigger the
+        <a href="/check-engine-light-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> check engine or transmission warning light</a>,
+        and shift-quality issues sometimes come from engine sensors rather than the transmission itself.
+        Regular
+        <a href="/oil-change-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> oil changes</a>
+        with a full multi-point inspection catch transmission fluid problems early &mdash; usually a lot
+        cheaper than dealing with them later. Bigger repair than expected? Ask about
+        <a href="/financing" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> financing options</a>
+        so you can spread the cost into monthly payments.
       </p>
     </div>
   </section>
 
-  <ReviewSection title="Transmission Customers Say" />
+  <ReviewSection title="What Transmission Customers Say" />
   <FAQSection title="Transmission Repair FAQs" faqs={faqs} />
   <RelatedLinks excludeService="transmission-repair-jonesboro-ga" />
   <CTASection
-    title="Feeling a Slip or Shudder When You Shift?"
-    description="Get it diagnosed before heat does more damage. Honest findings, written options, and financing available for qualifying repairs."
+    title="Transmission Acting Up?"
+    description={`Call ${BUSINESS.phone} or schedule a diagnostic. We\u2019ll tell you honestly what\u2019s going on — no scare tactics, no rebuild recommendation until it\u2019s actually needed.`}
   />
 </BaseLayout>

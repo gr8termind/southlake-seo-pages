@@ -13,125 +13,177 @@ import type { FAQ } from '../config';
 const path = '/check-engine-light-jonesboro-ga';
 const title = 'Check Engine Light Diagnostics in Jonesboro, GA | Southlake Auto Care';
 const description =
-  'Check engine light on in Jonesboro, GA? Southlake Auto Care runs professional diagnostics to find the real cause — not just the code. Honest repairs. Call (770) 961-8500.';
+  'Check engine light on? Southlake Auto Care in Jonesboro, GA runs professional diagnostics to find the real cause — not just clear the code. Call (770) 961-8500.';
 
 const faqs: FAQ[] = [
   {
+    q: 'What does the check engine light mean?',
+    a: 'It means your vehicle&rsquo;s computer detected something outside normal operating parameters &mdash; anything from a loose gas cap to a failing catalytic converter. The light is a symptom, not a diagnosis; what matters is why it&rsquo;s on. That&rsquo;s what our diagnostic process is designed to find.'
+  },
+  {
+    q: 'How much does check engine light diagnostics cost?',
+    a: 'We charge a flat, upfront diagnostic fee to properly diagnose the cause of the light &mdash; not just read the code, but actually pinpoint the problem. The fee is credited toward any repair you approve. Call for the current price, and we\u2019ll be clear about it before you drop off.'
+  },
+  {
     q: 'Can I keep driving with the check engine light on?',
-    a: 'A steady check engine light usually means you can drive carefully but should get it diagnosed soon. A flashing check engine light means active misfiring that can destroy your catalytic converter — pull over safely and call us rather than continuing to drive.'
+    a: 'If the light is solid and the car is running normally, it&rsquo;s usually safe to drive a short distance to have it diagnosed &mdash; but not indefinitely. If the light is flashing, or you notice rough running, stalling, or a burning smell, stop driving and call us. A flashing light typically means active misfire, which can wreck the catalytic converter fast.'
   },
   {
-    q: 'Why not just get a free code scan at a parts store?',
-    a: 'A code tells you which system reported a problem — not why. A P0420 code, for example, could be a failing catalytic converter, a bad oxygen sensor, or an exhaust leak, with very different price tags. Professional diagnostics test the actual components so you pay to fix the cause, not to guess at parts.'
+    q: 'Isn\u2019t reading the code enough to fix the problem?',
+    a: 'No, and this is the biggest myth in auto repair. A code like &ldquo;P0420 catalyst efficiency&rdquo; can be caused by a dozen different things &mdash; a failing catalytic converter is one, but a bad oxygen sensor, exhaust leak, misfire, or contamination from oil burning are all more common. Clearing the code without diagnosing the cause guarantees it&rsquo;ll come back.'
   },
   {
-    q: 'What are the most common causes of a check engine light?',
-    a: 'The usual suspects include a loose or failing gas cap, oxygen sensors, catalytic converter efficiency, mass airflow sensors, ignition coils and spark plugs causing misfires, and evaporative emissions (EVAP) leaks. Our diagnostics narrow it down to the specific component on your vehicle.'
+    q: 'Will you fix an emissions problem so I can pass Georgia inspection?',
+    a: 'Yes. Clayton County requires emissions testing for most gasoline vehicles from 3 to 24 model years old. If your car won&rsquo;t pass or has the check engine light on, we diagnose the cause, complete the necessary repairs, and let the OBD system fully re-run its readiness monitors before you re-test.'
   },
   {
-    q: 'How much does check engine light diagnosis cost?',
-    a: 'We charge a straightforward diagnostic fee that covers scanning, live data analysis, and component testing, and we quote it up front when you schedule. You\u2019ll get a written repair estimate before we fix anything — and the findings are yours either way.'
+    q: 'How long does a diagnostic take?',
+    a: 'A basic scan and inspection is usually completed within an hour. More complex intermittent problems or drivability issues can take longer &mdash; sometimes we need to drive the car to reproduce the symptom. We give you an updated time estimate as soon as we know more.'
   },
   {
-    q: 'Will the light turn off by itself after a repair?',
-    a: 'After a proper repair, we clear the codes and verify the fix by confirming the system\u2019s readiness monitors pass. If a light ever comes back after a repair we made, bring it in — standing behind the fix is part of the job.'
+    q: 'What tools do you use to diagnose check engine problems?',
+    a: 'Professional scan tools that read manufacturer-specific data, not the basic $20 code readers you can buy at an auto parts store. Modern engine management systems have hundreds of parameters we can watch live &mdash; fuel trims, oxygen sensor voltages, misfire counters, timing correction &mdash; and that data is what turns a code into a real diagnosis.'
+  },
+  {
+    q: 'What if the light was on but is now off?',
+    a: 'The code is often still stored in memory as a &ldquo;pending&rdquo; or &ldquo;history&rdquo; code. We can pull that history to see what happened. If a light comes on and turns off on its own, it usually means an intermittent problem is developing &mdash; better to catch it now than after it strands you.'
   }
 ];
 ---
 <BaseLayout title={title} description={description} canonicalPath={path}>
   <ServiceSchema
     name="Check Engine Light Diagnostics"
-    description="Professional engine diagnostics in Jonesboro, GA — computer scanning, live data analysis, and component testing to find the true cause of your check engine light."
+    description="Professional check engine and OBD-II diagnostics in Jonesboro, GA. We find the real cause, not just clear the code."
     path={path}
-    serviceType="Engine Diagnostics"
+    serviceType="Check Engine Light Diagnostics"
   />
   <Breadcrumbs
     items={[
       { name: 'Home', href: BUSINESS.mainSiteUrl + '/' },
-      { name: 'Check Engine Light in Jonesboro, GA', href: path }
+      { name: 'Check Engine Light Diagnostics', href: path }
     ]}
   />
 
   <Hero
-    eyebrow="Engine Diagnostics · Jonesboro, GA"
+    eyebrow="Diagnostics &middot; Jonesboro, GA"
     title="Check Engine Light Diagnostics in Jonesboro, GA"
-    description="That little amber light can mean fifty different things. Our technicians scan, test, and verify to find the actual cause — so you fix the problem once, instead of replacing parts on a hunch."
-    primaryLabel="Schedule a Diagnostic"
+    description="We don't guess — we diagnose. Real scan tools, real data, and a technician who can actually interpret it. Find out what's wrong and what it'll take to fix."
+    primaryLabel="Get a Real Diagnosis"
   />
 
   <section class="bg-white py-16 md:py-20 border-b border-mist/60">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">A Code Is a Clue — Not a Diagnosis</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">Reading a Code Isn&rsquo;t Diagnosing a Problem</h2>
       <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
       <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
-        Anyone with a scanner can read a trouble code. The skill is in what happens next. At Southlake
-        Auto Care, diagnostics means pulling the codes, then analyzing live sensor data, testing the
-        suspect components, and checking wiring and vacuum systems until we can prove what failed.
-        That's how Jonesboro drivers avoid the parts-cannon approach — paying for three parts to fix
-        a one-part problem.
+        Here&rsquo;s the honest truth about check engine lights: any auto parts store can hand you a code
+        for free. What you&rsquo;re paying a shop for is what happens after &mdash; the diagnosis. A code like
+        P0300 (random misfire) has more than a dozen possible causes. Replacing parts based on the code
+        alone is how people end up sinking money into repairs that don&rsquo;t fix the problem.
       </p>
       <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
-        When we're done, you get a plain-English explanation of what's wrong, what it costs to fix,
-        and what happens if you wait. No jargon, no pressure.
-      </p>
-
-      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Steady Light vs. Flashing Light</h2>
-      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <div class="rounded-xl border border-mist/70 bg-paper p-6">
-          <h3 class="text-lg font-bold text-charcoal-900">Steady Amber Light</h3>
-          <p class="mt-2 text-charcoal-700 text-[15px] leading-relaxed">
-            The computer has logged a fault — often emissions-related. Drive gently and schedule a
-            diagnostic soon. Fuel economy and performance may suffer until it's fixed.
-          </p>
-        </div>
-        <div class="rounded-xl border-2 border-accent-500 bg-paper p-6">
-          <h3 class="text-lg font-bold text-charcoal-900">Flashing Light — Act Now</h3>
-          <p class="mt-2 text-charcoal-700 text-[15px] leading-relaxed">
-            A flashing light signals an active misfire dumping raw fuel into the exhaust. Continuing
-            to drive can overheat and ruin your catalytic converter — one of the most expensive parts
-            on the car. Pull over and call {BUSINESS.phone}.
-          </p>
-        </div>
-      </div>
-
-      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Common Causes We Diagnose Every Week</h2>
-      <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {[
-          'Oxygen (O2) sensor failures',
-          'Catalytic converter efficiency codes',
-          'Ignition coils & spark plug misfires',
-          'Mass airflow (MAF) sensor issues',
-          'EVAP system & gas cap leaks',
-          'Thermostat & coolant temp sensors',
-          'EGR valve faults',
-          'Transmission-related codes'
-        ].map((item) => (
-          <li class="flex items-start gap-3 rounded-lg border border-mist/70 bg-paper px-4 py-3.5 font-semibold text-charcoal-900">
-            <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
-            {item}
-          </li>
-        ))}
-      </ul>
-
-      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">One Light, Many Systems</h2>
-      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
-        Check engine codes sometimes point to systems we cover in depth elsewhere. Transmission codes
-        route straight to our <a href="/transmission-repair-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">transmission repair</a> team,
-        and neglected oil service is a surprisingly common trigger — one more reason to stay on schedule with
-        <a href="/oil-change-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">oil changes</a>.
-        We diagnose vehicles for drivers across
+        Southlake Auto Care&rsquo;s technicians treat the check engine light for what it is: the start of a
+        conversation with the car&rsquo;s computer, not the end. Drivers throughout
+        <a href="/jonesboro-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Jonesboro</a>,
         <a href="/morrow-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Morrow</a>,
         <a href="/forest-park-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Forest Park</a>,
-        and the rest of Clayton County.
+        and across
+        <a href="/clayton-county-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Clayton County</a>
+        trust us for one reason: we find the real cause.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Solid vs. Flashing &mdash; What&rsquo;s the Difference?</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        The check engine light comes in two flavors, and they mean very different things:
+      </p>
+      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
+        <li><strong class="text-charcoal-900">Solid (steady) light.</strong> A monitored system is out of spec. The vehicle is usually safe to drive to the shop, but you shouldn&rsquo;t ignore it &mdash; small problems become big ones fast when you keep driving on them.</li>
+        <li><strong class="text-charcoal-900">Flashing light.</strong> An active misfire is happening. Raw fuel is dumping into the exhaust and can destroy the catalytic converter in miles, not months. Pull over safely, reduce load, and get it to us or towed.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Common Causes We See</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Every check engine problem is unique, but a handful account for the majority of what walks in the
+        door around Jonesboro and Morrow:
+      </p>
+      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
+        <li><strong class="text-charcoal-900">Loose or failing gas cap</strong> &mdash; the classic. A bad seal triggers evaporative emission codes.</li>
+        <li><strong class="text-charcoal-900">Oxygen sensors and air-fuel ratio sensors</strong> &mdash; a top cause of long-term light-on complaints in Georgia&rsquo;s humid climate.</li>
+        <li><strong class="text-charcoal-900">Ignition coils, spark plugs, and coil boots</strong> &mdash; misfires from worn ignition components.</li>
+        <li><strong class="text-charcoal-900">Catalytic converter efficiency</strong> &mdash; the code says catalyst, but the cause is often upstream.</li>
+        <li><strong class="text-charcoal-900">EVAP leaks</strong> &mdash; a cracked hose or bad purge valve triggers evap codes.</li>
+        <li><strong class="text-charcoal-900">Mass airflow (MAF) sensors</strong> &mdash; dirty or failing MAF sensors throw off fuel trims.</li>
+        <li><strong class="text-charcoal-900">Vacuum leaks</strong> &mdash; a cracked intake gasket or PCV hose causes lean-condition codes.</li>
+        <li><strong class="text-charcoal-900">Fuel injectors and fuel pressure</strong> &mdash; misfires or long-term fuel trim outside spec.</li>
+        <li><strong class="text-charcoal-900">Turbocharger and boost sensors</strong> &mdash; increasingly common as more vehicles come turbocharged from the factory.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Our Diagnostic Process</h2>
+      <ol class="mt-6 space-y-4 text-lg text-charcoal-700 list-decimal list-inside">
+        <li><strong class="text-charcoal-900">Full code scan.</strong> We pull all diagnostic trouble codes, including manufacturer-specific and pending codes, from every module &mdash; not just the engine.</li>
+        <li><strong class="text-charcoal-900">Freeze frame data.</strong> The computer captures a snapshot of exactly what was happening when the code set. That&rsquo;s often more useful than the code itself.</li>
+        <li><strong class="text-charcoal-900">Live data analysis.</strong> We watch fuel trims, oxygen sensor voltages, timing correction, misfire counters, and dozens of other parameters as the engine runs.</li>
+        <li><strong class="text-charcoal-900">Physical inspection.</strong> Visual checks for wiring damage, vacuum leaks, fluid contamination, and mechanical wear that data alone won&rsquo;t show.</li>
+        <li><strong class="text-charcoal-900">Targeted tests.</strong> Fuel pressure, compression, injector performance, cylinder balance &mdash; whatever the data tells us to check next.</li>
+        <li><strong class="text-charcoal-900">Written diagnosis and estimate.</strong> You get a clear explanation of what the problem is, what it&rsquo;ll take to fix, and what it&rsquo;ll cost &mdash; before we do any work.</li>
+      </ol>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Symptoms You Should Not Ignore</h2>
+      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
+        <li><strong class="text-charcoal-900">Rough idle or stalling</strong> &mdash; misfires, sensor failure, or fuel delivery problems.</li>
+        <li><strong class="text-charcoal-900">Loss of power</strong> &mdash; the computer may be pulling timing to protect the engine.</li>
+        <li><strong class="text-charcoal-900">Reduced fuel economy</strong> &mdash; fuel trims correcting for a sensor or air problem show up at the pump.</li>
+        <li><strong class="text-charcoal-900">Hesitation or stumble</strong> &mdash; a fuel or ignition issue often triggers a code as it develops.</li>
+        <li><strong class="text-charcoal-900">Failed emissions test</strong> &mdash; Georgia won&rsquo;t pass a vehicle with the check engine light on or unset readiness monitors.</li>
+        <li><strong class="text-charcoal-900">Smell of fuel or burnt oil</strong> &mdash; investigate before it becomes a leak or a fire risk.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Georgia Emissions and the Check Engine Light</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Clayton County is one of Georgia&rsquo;s emissions-testing counties. If your check engine light is on
+        or the car&rsquo;s onboard readiness monitors haven&rsquo;t completed their self-tests, the vehicle will
+        not pass emissions &mdash; and won&rsquo;t register. This is a common reason drivers around Morrow and
+        Jonesboro come to us. We diagnose the cause, complete the repairs, then let the vehicle drive
+        long enough for the monitors to run and confirm the repair is holding before you head to the
+        emissions station. It saves you a wasted trip and a re-test fee.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Why the Right Diagnosis Saves You Money</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Chain shops sometimes throw parts at a code &mdash; a $150 oxygen sensor here, a $400 catalytic
+        converter there &mdash; hoping one of them fixes it. If they don&rsquo;t, you pay for the wrong part
+        and still have the original problem. A real diagnosis costs less than one wrong repair, and it
+        gets fixed the first time.
+      </p>
+      <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
+        There&rsquo;s also the compounding-damage angle: driving on a misfire long enough will destroy the
+        catalytic converter. Ignoring a lean condition can burn a valve. The check engine light is your
+        car&rsquo;s way of asking for help before something bigger breaks &mdash; and that&rsquo;s exactly when it&rsquo;s
+        cheapest to fix.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Related Services</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Diagnostics often lead to a specific repair. A misfire code may point to
+        <a href="/schedule-service" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> ignition or fuel service</a>,
+        an overheat code to
+        <a href="/auto-ac-repair-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> cooling system service</a>,
+        and a transmission code to our
+        <a href="/transmission-repair-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> transmission repair</a>
+        team. Not sure what your symptoms mean? Try our
+        <a href="/car-diagnostic" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> interactive car diagnostic tool</a>
+        or explore the
+        <a href="/symptoms" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> vehicle symptom guides</a>
+        for common problems.
       </p>
     </div>
   </section>
 
-  <ReviewSection title="Diagnostic Customers Say" />
+  <ReviewSection title="What Diagnostic Customers Say" />
   <FAQSection title="Check Engine Light FAQs" faqs={faqs} />
   <RelatedLinks excludeService="check-engine-light-jonesboro-ga" />
   <CTASection
-    title="Is Your Check Engine Light On Right Now?"
-    description="Don't guess and don't ignore it. Schedule a professional diagnostic and get a straight answer about what your car actually needs."
+    title="Check Engine Light On?"
+    description={`Call ${BUSINESS.phone} or schedule online. We\u2019ll pin down the real cause and give you an honest fix — not a guess.`}
   />
 </BaseLayout>

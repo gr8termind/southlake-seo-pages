@@ -11,37 +11,49 @@ import { BUSINESS } from '../config';
 import type { FAQ } from '../config';
 
 const path = '/oil-change-jonesboro-ga';
-const title = 'Oil Change in Jonesboro, GA | Full Synthetic & Blend | Southlake Auto Care';
+const title = 'Oil Change in Jonesboro, GA | Synthetic & Conventional | Southlake Auto Care';
 const description =
-  'Fast, professional oil changes in Jonesboro, GA. Full synthetic, blend & conventional oil with a free multi-point inspection at Southlake Auto Care. Call (770) 961-8500.';
+  'Fast, honest oil changes in Jonesboro, GA at Southlake Auto Care. Full synthetic, blend, or conventional — with a real multi-point inspection. Call (770) 961-8500.';
 
 const faqs: FAQ[] = [
   {
-    q: 'How often should I change my oil?',
-    a: 'Most modern vehicles running full synthetic oil are fine at 5,000–7,500 mile intervals, while conventional oil is typically 3,000–5,000 miles. Your owner\u2019s manual is the final word, and Georgia heat plus stop-and-go Atlanta-area traffic count as "severe service" for many schedules. We\u2019ll recommend the right interval for how you actually drive.'
+    q: 'How much does an oil change cost in Jonesboro, GA?',
+    a: 'It depends on the oil type your vehicle requires. Conventional is the least expensive; synthetic blend runs a little more; full synthetic — required by most newer vehicles — is the most. We give you the exact price up front and match your manufacturer\u2019s spec. Ask about our current oil change specials when you call.'
   },
   {
-    q: 'What\u2019s the difference between synthetic and conventional oil?',
-    a: 'Full synthetic oil resists breakdown at high temperatures, flows better on cold starts, and protects longer between changes — which matters in Georgia summers. Conventional oil costs less per service but needs changing more often. Synthetic blend splits the difference. We stock all three and will tell you what your engine actually requires.'
+    q: 'How often should I get an oil change?',
+    a: 'It depends on the oil and driving conditions. Conventional oil is typically every 3,000\u20135,000 miles; synthetic blend every 5,000\u20137,500; full synthetic 7,500\u201310,000 (some newer vehicles push 15,000). Your owner\u2019s manual has the right interval for your specific car — and we\u2019ll match it, not push a shorter one just to sell you more service.'
   },
   {
-    q: 'How long does an oil change take at your shop?',
-    a: 'Most oil changes are done in about 30–45 minutes, including the multi-point inspection. Scheduling ahead online is the fastest way to get in and out.'
+    q: 'Do you use manufacturer-recommended oil?',
+    a: 'Yes. We match the exact viscosity and specification your vehicle requires — 0W-20, 5W-30, 5W-40, dexos, Ford WSS, Euro specs, whatever the manufacturer calls for. Using the wrong oil can void warranties and cause real engine problems, so this matters more than most drivers realize.'
   },
   {
-    q: 'What\u2019s included with an oil change at Southlake Auto Care?',
-    a: 'Every oil change includes quality oil, a new oil filter, and a multi-point inspection covering fluids, belts, hoses, tires, battery, and brakes. If we spot something, we show you — we never pressure you into add-ons.'
+    q: 'What does a multi-point inspection include?',
+    a: 'On every oil change, we check tire tread and pressure, brake pad thickness, belts and hoses, all major fluids (coolant, transmission, brake, power steering), battery condition, lights, and wipers. If we find something, we tell you — with the same honest, prioritized approach we use for repairs. Small things caught early save you real money later.'
   },
   {
-    q: 'Can you reset my oil life monitor and maintenance light?',
-    a: 'Yes. We reset your maintenance reminder system with every service and place a reminder sticker so you know exactly when you\u2019re due next.'
+    q: 'Do you offer synthetic oil changes?',
+    a: 'Yes. We stock full synthetic and synthetic blend oils in the viscosities most cars in Jonesboro, Morrow, and Clayton County need. Full synthetic protects better in Georgia heat, lasts longer between changes, and is often required on newer vehicles.'
+  },
+  {
+    q: 'How long does an oil change take?',
+    a: 'Most oil changes are completed in about 30 to 45 minutes. If we find something on the inspection that needs attention, we\u2019ll let you know so you can decide whether to handle it now or come back.'
+  },
+  {
+    q: 'Do I have to go to the dealer to keep my warranty?',
+    a: 'No. Federal law (the Magnuson-Moss Warranty Act) says an independent shop can perform your maintenance without voiding your factory warranty, as long as we use the correct spec oil and keep records. We do both, and we\u2019ll give you an invoice you can hand to the dealer if a warranty question ever comes up.'
+  },
+  {
+    q: 'Can you handle European vehicles that need special oil?',
+    a: 'Yes. European makes (BMW, Mercedes, Audi, VW, Volvo) often specify longer-life synthetic oils with specific manufacturer approvals. We stock the right oils and filters and match the exact spec printed in your owner\u2019s manual.'
   }
 ];
 ---
 <BaseLayout title={title} description={description} canonicalPath={path}>
   <ServiceSchema
-    name="Oil Change Service"
-    description="Full synthetic, synthetic blend, and conventional oil changes with free multi-point inspection in Jonesboro, GA."
+    name="Oil Change &amp; Maintenance"
+    description="Full synthetic, blend, and conventional oil change service in Jonesboro, GA with a real multi-point inspection at every visit."
     path={path}
     serviceType="Oil Change"
   />
@@ -53,53 +65,86 @@ const faqs: FAQ[] = [
   />
 
   <Hero
-    eyebrow="Oil & Filter Service · Jonesboro, GA"
-    title="Oil Change Service in Jonesboro, GA"
-    description="More than a quick lube. Every oil change at Southlake Auto Care includes a quality filter, the right oil for your engine, and a technician's multi-point inspection — so small problems get caught while they're still small."
-    primaryLabel="Schedule an Oil Change"
+    eyebrow="Oil Change &middot; Jonesboro, GA"
+    title="Oil Change in Jonesboro, GA"
+    description="Fast, honest oil changes done the right way — with the correct oil for your vehicle, a real multi-point inspection, and no pressure to buy anything you don't need."
+    primaryLabel="Schedule Your Oil Change"
   />
 
   <section class="bg-white py-16 md:py-20 border-b border-mist/60">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">The Cheapest Insurance Your Engine Can Buy</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">More Than a Sticker on Your Windshield</h2>
       <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
       <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
-        Clean oil is what keeps metal from grinding on metal inside your engine. Georgia's summer heat,
-        short trips around Jonesboro, and rush-hour crawls on Tara Boulevard all break oil down faster
-        than highway miles do. Skipping changes leads to sludge, worn bearings, and eventually the kind
-        of engine repair nobody budgets for.
+        A lot of oil changes have gotten sloppy. The pressure to move cars through fast has quick-lube
+        shops using the wrong oil, over-tightening filters, and skipping the inspection they promised on
+        the coupon. At Southlake Auto Care, an oil change is a real maintenance service &mdash; the right oil,
+        the right filter, torqued to spec, with a genuine multi-point inspection every time.
       </p>
       <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
-        At Southlake Auto Care, an oil change is also a health check. While your vehicle is on the lift,
-        a technician — not a lube-rack trainee — looks over your brakes, tires, belts, hoses, battery,
-        and fluid levels. You leave with fresh oil and a clear picture of what's coming due.
+        Drivers throughout
+        <a href="/jonesboro-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Jonesboro</a>,
+        <a href="/morrow-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Morrow</a>,
+        <a href="/forest-park-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Forest Park</a>,
+        and across
+        <a href="/clayton-county-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Clayton County</a>
+        keep coming back because we do it the way it should be done &mdash; and because the inspection has
+        caught brake wear, a leaking hose, or a nearly-dead battery for plenty of them before it became a
+        problem on Tara Boulevard.
       </p>
 
-      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Oil Change Options We Offer</h2>
-      <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-5">
-        {[
-          { h: 'Full Synthetic', p: 'Maximum protection and the longest service intervals. Required by many late-model and turbocharged engines.' },
-          { h: 'Synthetic Blend', p: 'A step up from conventional at a friendly price — good protection for everyday commuters.' },
-          { h: 'Conventional', p: 'Budget-friendly protection for older engines with shorter, more frequent service intervals.' }
-        ].map((o) => (
-          <div class="rounded-xl border border-mist/70 bg-paper p-6">
-            <h3 class="text-lg font-bold text-charcoal-900">{o.h}</h3>
-            <p class="mt-2 text-charcoal-700 text-[15px] leading-relaxed">{o.p}</p>
-          </div>
-        ))}
-      </div>
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Why Fresh Oil Matters More in Georgia</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Motor oil does four jobs: it lubricates moving parts, seals combustion pressure, cleans internal
+        deposits, and &mdash; the one drivers underestimate &mdash; it cools. In Atlanta-area summers, an engine
+        running in stop-and-go traffic can hit oil temperatures well above 220&deg;F. The heat accelerates
+        oxidation, thickens the oil, breaks down additives, and eventually turns clean lubricant into a
+        sludgy paste that starves bearings.
+      </p>
+      <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
+        Two Jonesboro-area driving patterns punish oil especially hard:
+      </p>
+      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
+        <li><strong class="text-charcoal-900">Short-trip driving.</strong> Running errands around Southlake Mall or dropping kids off at school never gets the engine fully warm. Moisture and fuel contaminants build up in the oil instead of burning off.</li>
+        <li><strong class="text-charcoal-900">Heavy stop-and-go.</strong> Long idle times at Tara Boulevard and I-75 interchanges rack up engine hours faster than the odometer suggests. Some manufacturers even recommend a &ldquo;severe service&rdquo; oil interval for this pattern.</li>
+      </ul>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Long story short: skipping oil changes doesn&rsquo;t save money &mdash; it just moves the bill to the engine
+        rebuild.
+      </p>
 
-      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">What Your Multi-Point Inspection Covers</h2>
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Signs Your Oil Change Is Overdue</h2>
+      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
+        <li><strong class="text-charcoal-900">Oil life or check-oil light</strong> on the dash &mdash; a direct message from the car&rsquo;s own monitor.</li>
+        <li><strong class="text-charcoal-900">Dark, gritty oil</strong> on the dipstick &mdash; fresh oil is amber; heavily used oil is black and can smell burnt.</li>
+        <li><strong class="text-charcoal-900">Engine noise you didn&rsquo;t hear before</strong> &mdash; ticking or knocking on cold start can be worn oil losing pressure.</li>
+        <li><strong class="text-charcoal-900">Oil level low</strong> between changes &mdash; consumption is a problem worth investigating before it worsens.</li>
+        <li><strong class="text-charcoal-900">It&rsquo;s been more than a year</strong> even at low mileage &mdash; oil breaks down over time, not just miles.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Our Oil Change Process</h2>
+      <ol class="mt-6 space-y-4 text-lg text-charcoal-700 list-decimal list-inside">
+        <li><strong class="text-charcoal-900">Right oil for your vehicle.</strong> We look up your manufacturer&rsquo;s spec &mdash; viscosity, approval, and quantity &mdash; and use exactly that.</li>
+        <li><strong class="text-charcoal-900">Quality filter.</strong> A cheap filter is one of the easiest ways for a shop to cut corners. We use filters that meet or exceed OE specifications.</li>
+        <li><strong class="text-charcoal-900">Drain, replace, refill.</strong> New crush washer or drain plug seal, filter installed by hand and torqued to spec &mdash; no over-tightening that seizes the housing.</li>
+        <li><strong class="text-charcoal-900">Reset service reminders.</strong> Your dash oil-life monitor gets properly reset so it tracks accurately.</li>
+        <li><strong class="text-charcoal-900">Real multi-point inspection.</strong> Tires, brakes, belts, hoses, fluids, battery, lights, wipers &mdash; and an honest report of what we saw.</li>
+        <li><strong class="text-charcoal-900">Test start and check for leaks.</strong> We confirm no seepage before you drive off.</li>
+      </ol>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Oil Options for Any Vehicle</h2>
       <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
         {[
-          'Engine oil & filter replacement',
-          'All fluid levels topped off',
-          'Belts and hoses checked',
-          'Battery and charging test',
-          'Tire condition & pressure',
-          'Visual brake inspection',
-          'Air & cabin filter check',
-          'Lights and wipers'
+          'Full synthetic oil change',
+          'Synthetic blend oil change',
+          'Conventional (high-mileage available)',
+          'European specification oils (dexos, LL-01, 229.5, etc.)',
+          'Diesel oil service',
+          'Cabin and engine air filter replacement',
+          'Transmission fluid service',
+          'Coolant and brake fluid exchanges',
+          'Full multi-point inspection with every service',
+          'Fluid top-offs between visits'
         ].map((item) => (
           <li class="flex items-start gap-3 rounded-lg border border-mist/70 bg-paper px-4 py-3.5 font-semibold text-charcoal-900">
             <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
@@ -108,25 +153,48 @@ const faqs: FAQ[] = [
         ))}
       </ul>
 
-      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Keep the Rest of Your Car Healthy Too</h2>
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Why Prompt Oil Changes Save You Money</h2>
       <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
-        Oil changes are where we catch things early. If our inspection turns up worn pads, our
-        <a href="/brake-repair-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">brake repair team</a>
-        can usually handle it the same visit. Dash light on? Add a
-        <a href="/check-engine-light-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">check engine diagnostic</a>
-        while you're here. We also serve neighbors in
-        <a href="/morrow-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Morrow</a> and
-        <a href="/forest-park-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Forest Park</a> —
-        most are ten minutes from the shop.
+        The math on oil changes is simple: an on-time service costs a fraction of a percent of an engine
+        replacement. Fresh oil keeps bearings, cams, timing chains, and turbochargers alive. Old oil
+        starves them &mdash; and sludge buildup can block the tiny oil galleries that feed variable valve
+        timing solenoids, which are increasingly common failure points in modern engines.
+      </p>
+      <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
+        There&rsquo;s also the resale angle: a full stack of maintenance records is worth real money at trade-in
+        or private sale. Buyers pay a premium for cars with documented service history &mdash; and we can print
+        a full history any time you need it.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Protects Your Factory Warranty</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        You do not have to go back to the dealer for oil changes to keep your warranty. Federal law &mdash;
+        the Magnuson-Moss Warranty Act &mdash; explicitly protects your right to have maintenance done by an
+        independent shop. We use manufacturer-spec oil and filters, keep records, and give you a receipt
+        the dealer will accept if a warranty claim ever comes up.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Related Services</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Regular oil changes are the anchor of a real maintenance plan, but they&rsquo;re not the whole picture.
+        If our inspection catches worn pads or a soft pedal, our
+        <a href="/brake-repair-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> brake repair</a>
+        team handles it in the same visit. If a warning light comes on, our
+        <a href="/check-engine-light-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> check engine light diagnostics</a>
+        pin down the cause. Ask about a bundled
+        <a href="/maintenance-packages" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> maintenance package</a>
+        if you&rsquo;re at a milestone service (30k, 60k, 90k), or watch our
+        <a href="/specials" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> current specials</a>
+        for savings on oil changes and other maintenance.
       </p>
     </div>
   </section>
 
-  <ReviewSection title="Oil Change Customers Say" />
+  <ReviewSection title="What Oil Change Customers in Jonesboro Say" />
   <FAQSection title="Oil Change FAQs" faqs={faqs} />
   <RelatedLinks excludeService="oil-change-jonesboro-ga" />
   <CTASection
-    title="Due (or Overdue) for an Oil Change?"
-    description={`Schedule online and be in and out in under an hour at ${BUSINESS.address.street} — fresh oil, new filter, and a full inspection included.`}
+    title="Due for an Oil Change?"
+    description={`Book online or call ${BUSINESS.phone}. We\u2019ll match your manufacturer\u2019s spec, inspect the rest of the car, and get you back on the road quickly.`}
   />
 </BaseLayout>

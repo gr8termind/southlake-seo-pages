@@ -4,20 +4,21 @@ import Hero from '../components/Hero.astro';
 import ServiceCards from '../components/ServiceCards.astro';
 import CTASection from '../components/CTASection.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import type { ServiceCard } from '../components/ServiceCards.astro';
 import { BUSINESS } from '../config';
 
 const path = '/services';
-const title = 'Auto Repair Services | Southlake Auto Care | Jonesboro & Morrow, GA';
+const title = 'Auto Repair Services in Jonesboro, GA | Southlake Auto Care';
 const description =
-  'Explore auto repair services at Southlake Auto Care in Morrow, GA — brake repair, oil changes, check engine diagnostics, AC repair, transmission service, and maintenance for Clayton County drivers.';
+  'Full-service auto repair in Jonesboro & Morrow, GA — brakes, oil changes, engine diagnostics, AC, transmission, and more. Honest work, upfront pricing. Call (770) 961-8500.';
 
 const services: ServiceCard[] = [
-  { title: 'Brake Repair', description: 'Pads, rotors, calipers, and brake diagnostics — stop safely with a free brake inspection.', href: '/brake-repair-jonesboro-ga', icon: 'brake' },
-  { title: 'Oil Changes', description: 'Full synthetic, blend, or conventional — with a multi-point inspection every time.', href: '/oil-change-jonesboro-ga', icon: 'oil' },
-  { title: 'Check Engine Light', description: 'Accurate computer diagnostics to find the real cause — not just clear the code.', href: '/check-engine-light-jonesboro-ga', icon: 'engine' },
-  { title: 'AC Repair', description: 'Beat the Georgia heat. Leak detection, recharge, and full AC system service.', href: '/auto-ac-repair-jonesboro-ga', icon: 'ac' },
-  { title: 'Transmission Service', description: 'From fluid service to full repair — honest options for slipping and hard shifts.', href: '/transmission-repair-jonesboro-ga', icon: 'transmission' },
+  { title: 'Brake Repair', description: 'Pads, rotors, calipers, and brake diagnostics with a free brake inspection and honest recommendations.', href: '/brake-repair-jonesboro-ga', icon: 'brake' },
+  { title: 'Oil Changes', description: 'Full synthetic, blend, or conventional — with a real multi-point inspection every visit.', href: '/oil-change-jonesboro-ga', icon: 'oil' },
+  { title: 'Check Engine Light', description: 'Professional OBD-II diagnostics that find the real cause, not just read the code.', href: '/check-engine-light-jonesboro-ga', icon: 'engine' },
+  { title: 'AC Repair', description: 'Leak detection, recharge, compressor repair — R-134a and R-1234yf systems.', href: '/auto-ac-repair-jonesboro-ga', icon: 'ac' },
+  { title: 'Transmission Service', description: 'From fluid service to full repair — honest diagnosis, no scare tactics.', href: '/transmission-repair-jonesboro-ga', icon: 'transmission' },
   { title: 'Maintenance & More', description: 'Factory-schedule maintenance, tune-ups, and the everyday repairs that keep you rolling.', href: '/schedule-service', icon: 'wrench' }
 ];
 ---
@@ -32,30 +33,62 @@ const services: ServiceCard[] = [
   <Hero
     eyebrow="Auto Repair Services"
     title="Full-Service Auto Repair in Jonesboro, GA"
-    description="From routine maintenance to complex diagnostics, Southlake Auto Care handles it all — cars, trucks, and SUVs, domestic and import. Pick a service below or schedule a visit."
+    description="From routine maintenance to complex diagnostics, Southlake Auto Care handles it all — cars, trucks, and SUVs, domestic and import."
     primaryLabel="Schedule Service"
   />
 
   <ServiceCards
     eyebrow="What We Do"
-    title="Choose a Service"
+    title="Pick a Service"
     intro="Every job starts with an honest diagnosis and upfront pricing — you approve the work before we begin."
     cards={services}
   />
 
-  <section class="bg-paper py-16 md:py-20">
+  <section class="bg-white py-16 md:py-20 border-b border-mist/60">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Serving Jonesboro, Morrow & Forest Park</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-charcoal-900">Serving Jonesboro, Morrow &amp; Clayton County</h2>
       <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
       <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
-        We're located at {BUSINESS.address.street} in {BUSINESS.address.city}, minutes from most of
-        Clayton County. See our dedicated pages for
-        <a href="/morrow-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Morrow</a> and
+        Southlake Auto Care is located at {BUSINESS.address.street} in {BUSINESS.address.city}, minutes
+        from most of Clayton County. Whether you commute on Tara Boulevard, work near Hartsfield-Jackson,
+        or run errands around Southlake Mall, we&rsquo;re the local shop that treats your vehicle &mdash; and
+        your wallet &mdash; the way we&rsquo;d want ours treated.
+      </p>
+      <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
+        See our dedicated pages for
+        <a href="/jonesboro-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Jonesboro</a>,
+        <a href="/morrow-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Morrow</a>,
         <a href="/forest-park-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Forest Park</a>,
-        or check our <a href="/faq" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">FAQ</a> for common questions.
+        <a href="/riverdale-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Riverdale</a>,
+        <a href="/stockbridge-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Stockbridge</a>,
+        <a href="/mcdonough-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">McDonough</a>,
+        and other areas we serve &mdash; or check our
+        <a href="/faq" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">FAQ</a>
+        for common questions.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Honest Auto Repair, the Way It Should Be</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Every service at our shop follows the same principles: diagnose the real problem before quoting a
+        repair, explain the options in plain English, put the estimate in writing, and stand behind the
+        work with a warranty. If something can wait, we tell you. If it can&rsquo;t, we explain why.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Not Sure What Your Car Needs?</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        If you&rsquo;re noticing a symptom but aren&rsquo;t sure what&rsquo;s causing it, try our
+        <a href="/car-diagnostic" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">interactive car diagnostic tool</a>
+        &mdash; tap the part of the car that&rsquo;s acting up and we&rsquo;ll tell you what usually causes it. You
+        can also browse our
+        <a href="/symptoms" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">vehicle symptom guides</a>
+        or just call us at
+        <a href={BUSINESS.phoneHref} class="font-bold text-accent-700 hover:text-accent-600">{BUSINESS.phone}</a>
+        and describe what you&rsquo;re experiencing.
       </p>
     </div>
   </section>
+
+  <RelatedLinks />
 
   <CTASection
     title="Not Sure What You Need?"

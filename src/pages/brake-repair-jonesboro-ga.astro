@@ -18,11 +18,15 @@ const description =
 const faqs: FAQ[] = [
   {
     q: 'How much does brake repair cost in Jonesboro, GA?',
-    a: 'Brake costs depend on your vehicle and which components are worn. A pad replacement on one axle is the most affordable repair, while rotors, calipers, or hydraulic work cost more. We inspect first, then give you an exact written estimate before any work begins — no commitment required.'
+    a: 'Brake costs depend on your vehicle and which components are worn. A pad replacement on one axle is the most affordable repair; adding rotors, calipers, or hydraulic work increases the total. We inspect first, then give you an exact written estimate before any work begins — with no obligation to have the work done.'
   },
   {
     q: 'How do I know if my brake pads are worn out?',
-    a: 'The most common signs are squealing or grinding noises, a longer stopping distance, vibration in the pedal or steering wheel when braking, or a brake warning light. If you hear metal-on-metal grinding, stop driving and call us — that usually means the pads are gone and the rotors are being damaged.'
+    a: 'The most common signs are squealing or grinding noises, a longer stopping distance, vibration in the pedal or steering wheel when braking, or a brake warning light. If you hear metal-on-metal grinding, stop driving and call us — that usually means the pads are gone and the rotors are being damaged with every stop.'
+  },
+  {
+    q: 'How long do brake pads last in Georgia driving?',
+    a: 'Most drivers get somewhere between 30,000 and 70,000 miles from a set of pads, depending on driving style, vehicle weight, and how much stop-and-go you do. Heavy Tara Boulevard and I-75 commuters usually land on the lower end; highway-heavy drivers land higher.'
   },
   {
     q: 'Do you resurface rotors or replace them?',
@@ -30,11 +34,19 @@ const faqs: FAQ[] = [
   },
   {
     q: 'How long does a brake job take?',
-    a: 'A standard pad-and-rotor replacement is usually completed the same day, often within a few hours. More involved repairs like calipers, brake lines, or ABS components may take longer — we\u2019ll give you a time estimate along with the price.'
+    a: 'A standard pad-and-rotor replacement is usually completed the same day, often within a couple of hours after inspection. More involved repairs — calipers, brake lines, ABS components, or master cylinder work — may take longer, and we\u2019ll give you a realistic time estimate along with the price.'
+  },
+  {
+    q: 'Do you offer a warranty on brake work?',
+    a: 'Yes. Our brake repairs are backed by a written warranty on parts and labor — ask us for the current terms when we quote your job, and we\u2019ll put it in writing on your invoice.'
   },
   {
     q: 'Can I drive with the brake warning light on?',
-    a: 'We don\u2019t recommend it. The light can indicate anything from low brake fluid to a hydraulic failure. Have it inspected promptly — brakes are the one system where waiting can turn a small repair into a safety risk.'
+    a: 'We don\u2019t recommend it. The light can indicate anything from low brake fluid to a hydraulic failure. Have it inspected promptly — brakes are the one system where waiting can turn a small repair into a genuine safety risk.'
+  },
+  {
+    q: 'Do you service ABS and electronic brake systems?',
+    a: 'Yes. Our scan tools read ABS module codes and diagnose issues with wheel speed sensors, brake lights, and traction control. Modern brake systems tie into stability control and driver-assist features, so proper diagnostics matter as much as the physical repair.'
   }
 ];
 ---
@@ -65,15 +77,72 @@ const faqs: FAQ[] = [
       <div class="mt-4 h-1.5 w-16 bg-accent-500 rounded-full" aria-hidden="true"></div>
       <p class="mt-6 text-lg text-charcoal-700 leading-relaxed">
         Your brakes are a system — pads, rotors, calipers, hoses, hydraulics, and fluid all working
-        together. When one part wears out, it puts stress on the rest. That's why every brake job at
+        together. When one part wears out, it puts stress on the rest. That&rsquo;s why every brake job at
         Southlake Auto Care starts with a full-system inspection, not a guess. We measure pad thickness,
         check rotors for warping and heat damage, test calipers for sticking, and inspect fluid condition
         before recommending anything.
       </p>
       <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
-        Drivers come to our Jonesboro-area shop from Morrow, Forest Park, and across Clayton County
-        because we fix what actually needs fixing — and tell you honestly what can wait.
+        Drivers come to our Jonesboro-area shop from
+        <a href="/morrow-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Morrow</a>,
+        <a href="/forest-park-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Forest Park</a>,
+        <a href="/riverdale-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Riverdale</a>,
+        and across
+        <a href="/clayton-county-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Clayton County</a>
+        because we fix what actually needs fixing &mdash; and tell you honestly what can wait. If your budget
+        is tight, we&rsquo;ll prioritize safety-critical items first and give you a written plan for the rest.
       </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Warning Signs You Need Brake Repair</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Brakes rarely fail all at once &mdash; they warn you first. Around Jonesboro&rsquo;s stop-and-go traffic on
+        Tara Boulevard, the I-75 on-ramps at Morrow and Forest Park, and the daily rush through Southlake
+        Mall, your brakes work harder than most drivers realize. Schedule an inspection if you notice any
+        of these symptoms:
+      </p>
+      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
+        <li><strong class="text-charcoal-900">Squealing or screeching</strong> when you brake &mdash; pad wear indicators telling you it&rsquo;s time.</li>
+        <li><strong class="text-charcoal-900">Grinding metal sounds</strong> &mdash; pads are gone; rotors are being damaged with every stop.</li>
+        <li><strong class="text-charcoal-900">Vibration or pulsing</strong> in the pedal or wheel &mdash; often warped rotors from heat.</li>
+        <li><strong class="text-charcoal-900">Soft or spongy pedal</strong> &mdash; possible air or moisture in the hydraulic system, or a leak.</li>
+        <li><strong class="text-charcoal-900">Pulling to one side</strong> when braking &mdash; a sticking caliper, collapsed hose, or uneven wear.</li>
+        <li><strong class="text-charcoal-900">Longer stopping distances</strong> &mdash; worn friction material or contaminated fluid.</li>
+        <li><strong class="text-charcoal-900">Burning smell</strong> after braking &mdash; overheated pads or a stuck caliper dragging.</li>
+        <li><strong class="text-charcoal-900">Pedal goes to the floor</strong> &mdash; a hydraulic failure. Stop driving and call us immediately.</li>
+        <li><strong class="text-charcoal-900">Brake or ABS warning light</strong> &mdash; have it scanned before it becomes a bigger problem.</li>
+      </ul>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Why Brakes Wear Out (and What Wears Them Faster)</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Every time you brake, friction material on the pads presses against the rotors, converting your
+        car&rsquo;s momentum into heat. That heat is the real story: it&rsquo;s what wears pads, warps rotors, boils
+        moisture out of your brake fluid, and eventually gets calipers sticking. Around here, three things
+        speed all of that up:
+      </p>
+      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
+        <li><strong class="text-charcoal-900">Stop-and-go traffic.</strong> Every red light on Tara Boulevard is another braking cycle. City drivers wear pads faster than highway drivers, sometimes twice as fast.</li>
+        <li><strong class="text-charcoal-900">Georgia heat and humidity.</strong> Brake fluid is hygroscopic &mdash; it absorbs moisture over time. Hot summers accelerate this, dropping the fluid&rsquo;s boiling point and making the pedal feel soft.</li>
+        <li><strong class="text-charcoal-900">Heavier vehicles.</strong> Trucks, SUVs, and loaded work vehicles ask more of every stop. Towing a trailer or hauling equipment shortens brake life significantly.</li>
+      </ul>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        Rust is another factor Georgia drivers underestimate. Cars that sit for a few days &mdash; a common
+        pattern for Hartsfield-Jackson airport workers &mdash; can develop light rotor rust that wears the
+        pads unevenly if it isn&rsquo;t caught early.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Our Brake Repair Process</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        No shortcuts, no scare tactics. Here&rsquo;s exactly what happens when you bring your vehicle in for
+        brakes at Southlake Auto Care:
+      </p>
+      <ol class="mt-6 space-y-4 text-lg text-charcoal-700 list-decimal list-inside">
+        <li><strong class="text-charcoal-900">Free inspection.</strong> We pull the wheels, measure pad thickness on all four corners, check rotors for warping and minimum thickness, test caliper function, and inspect the fluid and hydraulic lines.</li>
+        <li><strong class="text-charcoal-900">We show you what we find.</strong> If you want to see the worn pads or a scored rotor with your own eyes, we&rsquo;ll bring you into the bay. No mystery, no pressure.</li>
+        <li><strong class="text-charcoal-900">Written estimate.</strong> You get a clear, itemized quote covering parts, labor, and any recommendations that can wait &mdash; before we touch anything.</li>
+        <li><strong class="text-charcoal-900">You approve the work.</strong> If your budget only covers the front pads and rotors today, that&rsquo;s what we do &mdash; and we&rsquo;ll note the rest for your next visit.</li>
+        <li><strong class="text-charcoal-900">Quality parts installed correctly.</strong> We use ceramic or semi-metallic pads suited to your vehicle, torque hardware to spec, lubricate slide pins, and bed in the new brakes before you drive off.</li>
+        <li><strong class="text-charcoal-900">Test drive and final check.</strong> Every brake job gets a road test so we know it stops straight and quiet before we call you for pickup.</li>
+      </ol>
 
       <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Brake Services We Perform</h2>
       <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -85,7 +154,9 @@ const faqs: FAQ[] = [
           'Brake line and hose repair',
           'ABS diagnostics and warning light repair',
           'Parking brake adjustment and repair',
-          'Wheel bearing and hub service'
+          'Master cylinder and booster service',
+          'Wheel bearing and hub service',
+          'Free 21-point brake inspection'
         ].map((item) => (
           <li class="flex items-start gap-3 rounded-lg border border-mist/70 bg-paper px-4 py-3.5 font-semibold text-charcoal-900">
             <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
@@ -94,34 +165,51 @@ const faqs: FAQ[] = [
         ))}
       </ul>
 
-      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Warning Signs You Need Brake Repair</h2>
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Why Prompt Brake Repair Matters</h2>
       <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
-        Don't wait for a failed stop to find out your brakes are worn. Schedule an inspection if you
-        notice any of these symptoms around Jonesboro's stop-and-go traffic on Tara Boulevard or I-75:
+        Brakes are the one system where putting off a repair almost always costs more &mdash; and can put you
+        in real danger. A worn pad you catch early is a routine, affordable job. Let it go, and the pad
+        grinds down to the metal backing plate, which chews into the rotor. Now you&rsquo;re replacing rotors
+        too. Keep driving and the sticking caliper or overheated pad damages the wheel bearing or, worse,
+        boils the brake fluid and takes out your ability to stop entirely.
       </p>
-      <ul class="mt-5 space-y-3 text-lg text-charcoal-700">
-        <li><strong class="text-charcoal-900">Squealing or screeching</strong> — pad wear indicators telling you it's time.</li>
-        <li><strong class="text-charcoal-900">Grinding metal sounds</strong> — pads are gone; rotors are being damaged with every stop.</li>
-        <li><strong class="text-charcoal-900">Vibration or pulsing</strong> in the pedal or wheel — often warped rotors.</li>
-        <li><strong class="text-charcoal-900">Soft or spongy pedal</strong> — possible air or moisture in the hydraulic system.</li>
-        <li><strong class="text-charcoal-900">Pulling to one side</strong> when braking — a sticking caliper or uneven wear.</li>
-        <li><strong class="text-charcoal-900">Brake or ABS warning light</strong> — have it scanned before it becomes a bigger problem.</li>
-      </ul>
+      <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
+        There&rsquo;s also the safety math: at 45 mph on Tara Boulevard, an extra 15 feet of stopping distance
+        is the difference between a close call and a fender-bender. In wet Georgia weather, that gap grows.
+        Catching brake wear early keeps you safe, saves you money, and keeps your vehicle&rsquo;s value intact
+        &mdash; a full brake system in good condition is a real factor at trade-in.
+      </p>
+
+      <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Backed by a Written Warranty</h2>
+      <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
+        We stand behind our brake work with a written warranty covering parts and labor. Ask us for the
+        current terms when we quote your job, and we&rsquo;ll put the coverage on your invoice. Combined with
+        the quality parts we install and technicians who&rsquo;ve done thousands of brake jobs, that means
+        your repair is meant to last &mdash; not be back in the shop next month.
+      </p>
 
       <h2 class="mt-12 text-2xl md:text-3xl font-extrabold tracking-tight text-charcoal-900">Related Services</h2>
       <p class="mt-5 text-lg text-charcoal-700 leading-relaxed">
-        Brake symptoms sometimes overlap with other issues. If a warning light came on with your brake
-        concern, our <a href="/check-engine-light-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">check engine light diagnostics</a>
-        can pinpoint it. Keeping up with regular <a href="/oil-change-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">oil changes</a>
-        also means our technicians inspect your brakes at every visit — catching wear before it costs you.
-        Drivers in nearby cities can learn more on our
-        <a href="/morrow-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Morrow</a> and
-        <a href="/forest-park-auto-repair" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2">Forest Park</a> pages.
+        Brake symptoms sometimes overlap with other issues. A pull under braking might be a suspension or
+        tire problem, and a warning light with your brake concern could point to
+        <a href="/check-engine-light-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> engine or emissions diagnostics</a>.
+        Keeping up with regular
+        <a href="/oil-change-jonesboro-ga" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> oil changes</a>
+        also means our technicians inspect your brakes at every visit &mdash; catching wear before it costs
+        you. If you&rsquo;re noticing multiple symptoms at once, our
+        <a href="/car-diagnostic" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> interactive car diagnostic tool</a>
+        is a good place to start.
+      </p>
+      <p class="mt-4 text-lg text-charcoal-700 leading-relaxed">
+        Bigger brake job than you budgeted for? Ask us about
+        <a href="/financing" class="font-bold text-accent-700 hover:text-accent-600 underline underline-offset-2"> auto repair financing</a>
+        through Snap Finance, Affirm, or Sunbit &mdash; you can spread the cost into monthly payments and
+        get the safe brakes now.
       </p>
     </div>
   </section>
 
-  <ReviewSection title="Brake Customers Around Jonesboro Say" />
+  <ReviewSection title="What Brake Customers Around Jonesboro Say" />
   <FAQSection title="Brake Repair FAQs" faqs={faqs} />
   <RelatedLinks excludeService="brake-repair-jonesboro-ga" />
   <CTASection
